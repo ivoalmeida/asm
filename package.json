@@ -1,0 +1,13 @@
+{
+  "name": "market-monalisa",
+  "version": "0.0.1",
+  "description": "New verison of Mrket UI",
+  "main": "index.tsx",
+  "repository": "git@github.com:Venatus/market-monalisa.git",
+  "author": "Ivo Almeida <ivo.almeida@venatusmedia.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
