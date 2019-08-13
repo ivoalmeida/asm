@@ -10,7 +10,9 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "bundle": "webpack --mode production",
     "check-types": "tsc",
-    "cleanup": "rimraf node_modules"
+    "cleanup": "rimraf node_modules",
+    "precommit": "run-s format:fix check-types",
+    "format:fix": "pretty-quick --staged"
   },
   "dependencies": {
     "react": "^16.9.0",
@@ -27,11 +29,14 @@
     "@types/react-dom": "^16.8.5",
     "babel-loader": "^8.0.6",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.3",
     "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "source-map-loader": "^0.2.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "yarn-run-all": "^3.1.1"
   }
 }
