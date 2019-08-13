@@ -1,13 +1,36 @@
 {
   "name": "market-monalisa",
   "version": "0.0.1",
-  "description": "New verison of Mrket UI",
+  "description": "New verison of Market UI",
   "main": "index.tsx",
   "repository": "git@github.com:Venatus/market-monalisa.git",
   "author": "Ivo Almeida <ivo.almeida@venatusmedia.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "bundle": "webpack --mode production",
+    "check-types": "tsc",
+    "cleanup": "rimraf node_modules"
+  },
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/react": "^16.9.1",
+    "@types/react-dom": "^16.8.5",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
   }
 }
