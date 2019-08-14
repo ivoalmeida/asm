@@ -14,11 +14,13 @@
     "precommit": "run-s format:fix lint lint:css",
     "format:fix": "pretty-quick --staged",
     "lint": "tslint './src/**/*.tsx'",
-    "lint:css": "stylelint './src/**/*.tsx'"
+    "lint:css": "stylelint './src/**/*.tsx'",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -27,13 +29,26 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@storybook/addon-actions": "^5.1.11",
+    "@storybook/addon-info": "^5.1.11",
+    "@storybook/addon-knobs": "^5.1.11",
+    "@storybook/react": "^5.1.11",
     "@types/react": "^16.9.1",
     "@types/react-dom": "^16.8.5",
+    "@types/storybook__addon-actions": "^3.4.3",
+    "@types/storybook__addon-info": "^4.1.2",
+    "@types/storybook__addon-knobs": "^5.0.3",
+    "@types/storybook__react": "^4.0.2",
+    "@types/styled-components": "^4.1.18",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.3",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
+    "react-docgen-typescript-loader": "^3.1.1",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "source-map-loader": "^0.2.4",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0",
