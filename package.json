@@ -11,8 +11,9 @@
     "bundle": "webpack --mode production",
     "check-types": "tsc",
     "cleanup": "rimraf node_modules",
-    "precommit": "run-s format:fix lint:css",
+    "precommit": "run-s format:fix lint lint:css",
     "format:fix": "pretty-quick --staged",
+    "lint": "tslint './src/**/*.tsx'",
     "lint:css": "stylelint './src/**/*.tsx'"
   },
   "dependencies": {
@@ -38,6 +39,9 @@
     "stylelint-config-recommended": "^2.2.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.8.0",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
