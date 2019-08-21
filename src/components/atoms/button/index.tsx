@@ -23,4 +23,8 @@ const Button = (props: IButtonProps) => {
   return <button className={buttonClassName}>{props.children}</button>;
 };
 
+Button.defaultProps = {
+  variant: 'default',
+};
+
 export default Button;
