@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         enforce: 'pre',
-        test: /\.css$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
         loader: 'typed-css-modules-loader',
         options: {
@@ -47,7 +47,7 @@ module.exports = {
         // loader: 'typed-css-modules?noEmit'
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
         use: [
           require.resolve('style-loader'),
@@ -59,6 +59,12 @@ module.exports = {
               modules: true,
               localsConvention: 'camelCase',
               import: true,
+            },
+          },
+          {
+            loader: require.resolve('sass-loader'),
+            options: {
+              sourceMap: isDevelopment,
             },
           },
         ],
