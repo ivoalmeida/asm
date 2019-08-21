@@ -1,0 +1,16 @@
+@mixin button($fontColor, $bgColor, $bgHover, $bgFontColor, $borderColor, $borderHover) {
+  background-color: $bgColor;
+  border: 1px solid $borderColor;
+  color: $fontColor;
+  cursor: pointer;
+  display: inline-flex;
+  //   font-family: $font-family;
+  justify-content: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $bgHover;
+    border: 1px solid $borderHover;
+    color: $bgFontColor;
+  }
+}

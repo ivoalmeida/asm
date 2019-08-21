@@ -1,13 +1,15 @@
+@import '../../../assets/styles/theme';
+
 .button-large {
+  background-color: $white;
+  border-radius: 5px;
+  color: $gray-700;
   font-size: 1.2rem;
   padding: 0.6rem 5rem;
-  border-radius: 5px;
-  background-color: #04549b;
-  color: #f4f801;
 
   &:hover {
-    font-weight: bolder;
     background-color: #f4f801;
     color: #04549b;
+    font-weight: bolder;
   }
 }
