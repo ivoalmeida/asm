@@ -1,5 +1,6 @@
 import * as React from 'react';
-import * as styles from './styles.css';
+/* tslint:disable */
+import styles from './styles.css';
 
 interface IButtonProps {
   variant: string;

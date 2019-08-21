@@ -37,14 +37,13 @@ module.exports = {
         use: [
           require.resolve('style-loader'),
           {
-            loader: require.resolve('typings-for-css-modules-loader'),
+            loader: require.resolve('css-loader'),
             options: {
               importLoaders: 1,
-              sourceMap: true,
+              sourceMap: isDevelopment,
               modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
-              namedExport: true,
-              camelCase: true,
+              localsConvention: 'camelCase',
+              import: true,
             },
           },
         ],
