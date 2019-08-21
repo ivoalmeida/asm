@@ -1,15 +1,27 @@
 @import '../../../assets/styles/theme';
 
-.button-large {
-  background-color: $white;
-  border-radius: 5px;
-  color: $gray-700;
-  font-size: 1.2rem;
-  padding: 0.6rem 5rem;
+.button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
-  &:hover {
-    background-color: #f4f801;
-    color: #04549b;
-    font-weight: bolder;
+  &.default {
+    @include button($gray700, $white, $gray700, $white, $gray700, $gray700);
+  }
+
+  &.primary {
+    @include button($white, $primary, $primary, $white, $primary, $primary);
+  }
+
+  &.secondary {
+    @include button($white, $secondary, $secondary, $white, $secondary, $secondary);
+  }
+
+  &.danger {
+    @include button($white, $danger, $danger, $white, $danger, $danger);
+  }
+
+  &.success {
+    @include button($white, $success, $success, $white, $success, $success);
   }
 }
