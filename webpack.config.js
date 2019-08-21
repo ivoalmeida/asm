@@ -33,7 +33,22 @@ module.exports = {
         use: ['source-map-loader'],
       },
       {
+        enforce: 'pre',
         test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'typed-css-modules-loader',
+        options: {
+          camelCase: true,
+          noEmit: true,
+        },
+        // or in case you want to use parameters:
+        // loader: 'typed-css-modules?outDir=/tmp'
+        // or in case you want to use noEmit:
+        // loader: 'typed-css-modules?noEmit'
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
         use: [
           require.resolve('style-loader'),
           {
