@@ -1,13 +1,14 @@
 @import '../../../assets/styles/theme';
 
 .button {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  @include button($gray700, $white, $gray700, $white, $gray700, $gray700);
 
-  &.default {
-    @include button($gray700, $white, $gray700, $white, $gray700, $gray700);
-  }
+  align-items: center;
+  border-radius: 5px;
+  display: flex;
+  font-size: 1.8rem;
+  justify-content: center;
+  padding: 0.6rem 1.8rem;
 
   &.primary {
     @include button($white, $primary, $primary, $white, $primary, $primary);
