@@ -11,13 +11,13 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.min.js'
+    filename: 'bundle.min.js',
   },
 
   devtool: 'sourcemap',
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
   },
 
   module: {
@@ -25,19 +25,36 @@ module.exports = {
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['source-map-loader']
-      }
-    ]
+        use: ['source-map-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          require.resolve('style-loader'),
+          {
+            loader: require.resolve('typings-for-css-modules-loader'),
+            options: {
+              importLoaders: 1,
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+              namedExport: true,
+              camelCase: true,
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ]
+      template: './src/index.html',
+    }),
+  ],
 };

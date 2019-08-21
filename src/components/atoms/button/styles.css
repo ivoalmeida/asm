@@ -1,0 +1,9 @@
+.button {
+  background-color: #04549b;
+  color: #f4f801;
+}
+
+.button.primary {
+  background-color: #f4f801;
+  color: #04549b;
+}
