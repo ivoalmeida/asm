@@ -1,11 +1,11 @@
 import * as React from 'react';
-/* tslint:disable */
 import * as styles from './styles.scss';
 import classNames from 'classnames';
 
 interface IButtonProps {
   variant: string;
   children?: any;
+  onClick?: (ev?: React.SyntheticEvent | Event) => void;
 }
 
 const getButtonType = (variant: string) => {
