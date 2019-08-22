@@ -1,14 +1,32 @@
 @import '../../../assets/styles/theme';
 
 .button {
+  /** Default */
   @include button($gray700, $white, $gray700, $white, $gray700, $gray700);
 
   align-items: center;
-  border-radius: 5px;
-  display: flex;
-  font-size: 1.8rem;
+  border-radius: 4px;
+  display: inline-flex;
+  font-size: 1em;
   justify-content: center;
-  padding: 0.6rem 1.8rem;
+  padding: 0 1.8em;
+  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out,
+    background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+
+  &.medium {
+    line-height: 38px;
+    min-width: 8.5em;
+  }
+
+  &.small {
+    line-height: 30px;
+    min-width: unset;
+  }
+
+  &.large {
+    line-height: 42px;
+    min-width: 15em;
+  }
 
   &.primary {
     @include button($white, $primary, $primary, $white, $primary, $primary);

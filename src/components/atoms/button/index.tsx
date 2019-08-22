@@ -4,27 +4,45 @@ import classNames from 'classnames';
 
 interface IButtonProps {
   variant: string;
+  size?: string;
   children?: any;
+  className?: string;
+  styles?: React.CSSProperties;
+  href?: string;
   onClick?: (ev?: React.SyntheticEvent | Event) => void;
 }
 
-const getButtonType = (variant: string) => {
+const getButtonStyles = (props: IButtonProps) => {
   return classNames(
     styles.button,
-    { [styles.primary]: variant === 'primary' },
-    { [styles.secondary]: variant === 'secondary' },
-    { [styles.danger]: variant === 'danger' },
-    { [styles.success]: variant === 'success' },
+    { [styles.primary]: props.variant === 'primary' },
+    { [styles.secondary]: props.variant === 'secondary' },
+    { [styles.danger]: props.variant === 'danger' },
+    { [styles.success]: props.variant === 'success' },
+    { [styles.small]: props.size === 'small' },
+    { [styles.medium]: props.size === 'medium' },
+    { [styles.large]: props.size === 'large' },
+    props.className,
   );
 };
 
-const Button = (props: IButtonProps) => {
-  const buttonClassName = getButtonType(props.variant);
-  return <button className={buttonClassName}>{props.children}</button>;
+export const Button = (props: IButtonProps) => {
+  return (
+    <button style={props.styles} className={getButtonStyles(props)}>
+      {props.children}
+    </button>
+  );
 };
 
-Button.defaultProps = {
-  variant: 'default',
-};
+export const LinkButton = (props: IButtonProps) => (
+  <a
+    href={props.href}
+    onClick={props.onClick}
+    style={props.styles}
+    className={getButtonStyles(props)}
+  >
+    {props.children}
+  </a>
+);
 
 export default Button;
