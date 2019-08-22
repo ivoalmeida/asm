@@ -22,6 +22,7 @@ const getButtonStyles = (props: IButtonProps) => {
     { [styles.small]: props.size === 'small' },
     { [styles.medium]: props.size === 'medium' },
     { [styles.large]: props.size === 'large' },
+    { [styles.xlarge]: props.size === 'xlarge' },
     props.className,
   );
 };

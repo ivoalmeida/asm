@@ -28,6 +28,11 @@
     min-width: 15em;
   }
 
+  &.xlarge {
+    line-height: 45px;
+    min-width: 18em;
+  }
+
   &.primary {
     @include button($white, $primary, $primary, $white, $primary, $primary);
   }
