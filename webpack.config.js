@@ -15,7 +15,7 @@ module.exports = {
     filename: 'bundle.min.js',
   },
 
-  devtool: 'sourcemap',
+  devtool: isDevelopment && 'sourcemap',
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
