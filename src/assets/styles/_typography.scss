@@ -1,0 +1,43 @@
+$body-font-family: 'Roboto', sans-serif !default;
+
+//Function to calculate px to rem
+$browser-default-font-size: 16px;
+
+@function rem($pixel, $context: $browser-default-font-size) {
+  @if (unitless($pixel)) {
+    $pixel: $pixel * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixel / $context * 1rem;
+}
+
+//Headings
+$h1-font-size: rem(28px);
+$h2-font-size: rem(24px);
+$h3-font-size: rem(18px);
+$h4-font-size: rem(16px);
+$h5-font-size: rem(14px);
+$h6-font-size: rem(12px);
+$heading-line-height: rem(29px);
+
+//Text
+$base-font-size-1: rem(12px);
+$base-font-size-2: rem(14px);
+$base-font-size-3: rem(16px);
+$base-font-size-4: rem(18px);
+$base-font-size-5: rem(20px);
+$base-font-size-6: rem(22px);
+$base-font-size-7: rem(26px);
+$base-font-size-8: rem(28px);
+$base-font-size-9: rem(30px);
+$base-font-size-10: rem(32px);
+
+//Icons
+$base-icon-font-size-1: 16px;
+$base-icon-font-size-2: 18px;
+$base-icon-font-size-3: 36px;
+$base-icon-font-size-4: 54px;
