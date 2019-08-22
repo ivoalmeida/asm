@@ -28,10 +28,6 @@ module.exports = ({ config }) => {
         camelCase: true,
         noEmit: true,
       },
-      // or in case you want to use parameters:
-      // loader: 'typed-css-modules?outDir=/tmp'
-      // or in case you want to use noEmit:
-      // loader: 'typed-css-modules?noEmit'
     },
     {
       test: /\.scss$/,

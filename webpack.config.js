@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -41,16 +42,12 @@ module.exports = {
           camelCase: true,
           noEmit: true,
         },
-        // or in case you want to use parameters:
-        // loader: 'typed-css-modules?outDir=/tmp'
-        // or in case you want to use noEmit:
-        // loader: 'typed-css-modules?noEmit'
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [
-          require.resolve('style-loader'),
+          isDevelopment ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
           {
             loader: require.resolve('css-loader'),
             options: {
@@ -76,5 +73,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+    }),
+    new webpack.WatchIgnorePlugin([/scss\.d\.ts$/]),
   ],
 };
