@@ -1,0 +1,17 @@
+@import '../../../assets/styles/theme';
+
+.input-text {
+  background-color: $gray100;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.04);
+  height: 44px;
+  width: 270px;
+
+  &:focus {
+    border: 1px solid $gray400;
+  }
+
+  &.error {
+    border: 1px solid $danger;
+  }
+}
