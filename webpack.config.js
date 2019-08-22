@@ -53,9 +53,13 @@ module.exports = {
             options: {
               importLoaders: 1,
               sourceMap: isDevelopment,
-              modules: true,
               localsConvention: 'camelCase',
               import: true,
+              modules: {
+                localIdentName: isDevelopment
+                  ? '[path][name]__[local]--[hash:base64:5]'
+                  : '[hash:base64]',
+              },
             },
           },
           {
