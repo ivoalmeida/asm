@@ -6,8 +6,10 @@ interface IIconProps {
   variant: string;
 }
 
+const iconStyles = Object.keys(styles);
+
 export const Icon = (props: IIconProps) => (
-  <i className={classNames(styles.icon, [styles[props.variant]])} />
+  <i className={classNames(styles.icon, iconStyles.find(x => x === props.variant))} />
 );
 
 export default Icon;
