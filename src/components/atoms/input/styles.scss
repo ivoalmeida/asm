@@ -1,5 +1,13 @@
 @import '../../../assets/styles/theme';
 
+.errorWarning {
+  &::before {
+    color: $danger;
+    content: '*';
+    padding-right: 1px;
+  }
+}
+
 .input-text {
   background-color: $gray100;
   border-radius: 4px;

@@ -11,14 +11,18 @@ interface IInputProps {
 }
 
 export const InputText = (props: IInputProps) => {
+  const isError: boolean = props.errorMessage !== undefined && props.errorMessage.length > 0;
+
   return (
-    <input
-      type="text"
-      className={classNames(styles.inputText, {
-        [styles.error]: props.errorMessage && props.errorMessage.length > 0,
-      })}
-      placeholder={props.placeholder}
-    />
+    <span className={classNames({ [styles.errorWarning]: isError })}>
+      <input
+        type="text"
+        className={classNames(styles.inputText, {
+          [styles.error]: isError,
+        })}
+        placeholder={props.placeholder}
+      />
+    </span>
   );
 };
 
