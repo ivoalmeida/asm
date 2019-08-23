@@ -19,6 +19,7 @@
     "format:fix": "pretty-quick --staged",
     "lint": "tslint './src/**/*.tsx'",
     "lint:css": "stylelint './src/**/*.scss'; exit 0;",
+    "css:fix": "stylelint */**/*.scss --fix; exit 0;",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
