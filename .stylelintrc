@@ -10,6 +10,8 @@
   ],
   "defaultSeverity": "warning",
   "rules": {
+    "max-nesting-depth": 5,
+    "order/properties-alphabetical-order": false,
     "string-quotes": "double",
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
