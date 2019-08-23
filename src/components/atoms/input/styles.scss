@@ -12,11 +12,14 @@
   background-color: $gray100;
   border-radius: 4px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.04);
+  color: $gray500;
+  font-family: 'Roboto Regular', sans-serif;
   height: 44px;
   width: 270px;
 
   &:focus {
     border: 1px solid $gray400;
+    color: $gray700;
   }
 
   &.error {

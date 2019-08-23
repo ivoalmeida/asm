@@ -71,6 +71,7 @@ module.exports = {
         ],
       },
       {
+        // !This is should only be here during first stages of development. Assets like fonts will be hosted on a CDN
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
