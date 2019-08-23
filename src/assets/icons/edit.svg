@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8" height="8" viewBox="0 0 8 8">
+  <defs>
+    <polygon id="edit-a" points="8.065 2 2 7.704 2 10 4.281 10 10 4.127"/>
+  </defs>
+  <use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#edit-a"/>
+</svg>
