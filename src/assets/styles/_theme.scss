@@ -6,3 +6,8 @@
 @import 'mixins';
 @import './base';
 @import './neat/neat';
+
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);
