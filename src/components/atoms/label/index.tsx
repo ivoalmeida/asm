@@ -2,10 +2,15 @@ import * as React from 'react';
 import * as styles from './styles.scss';
 import classNames from 'classnames';
 
-interface IBlockProps {
+interface ILabelProps {
   children?: any;
+  htmlFor?: string;
 }
 
-export const Block = (props: IBlockProps) => <i className={classNames(styles.block)} />;
+export const Label = (props: ILabelProps) => (
+  <label className={classNames(styles.label)} htmlFor={props.htmlFor}>
+    {props.children}
+  </label>
+);
 
-export default Block;
+export default Label;

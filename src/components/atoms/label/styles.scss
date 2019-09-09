@@ -1,0 +1,9 @@
+@import '../../../assets/styles/theme';
+
+.label {
+  font-family: $body-font-family;
+  color: $gray700;
+  font-size: 1.6rem;
+  line-height: 3.2em;
+  margin-right: 10px;
+}
