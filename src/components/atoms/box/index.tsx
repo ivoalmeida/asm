@@ -6,6 +6,6 @@ interface IBoxProps {
   children?: any;
 }
 
-export const Box = (props: IBoxProps) => <div className={styles.box}>{box.children}</div>;
+export const Box = (props: IBoxProps) => <div className={styles.box}>{props.children}</div>;
 
 export default Box;
