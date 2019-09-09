@@ -14,7 +14,7 @@
     "env:dev": "cross-env NODE_ENV=development",
     "env:prod": "cross-env NODE_ENV=production",
     "check-types": "tsc",
-    "cleanup": "rimraf node_modules",
+    "cleanup": "rimraf node_modules; rimraf dist;",
     "precommit": "run-s format:fix lint lint:css",
     "format:fix": "pretty-quick --staged",
     "lint": "tslint './src/**/*.tsx'",
