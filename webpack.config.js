@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -99,5 +100,8 @@ module.exports = {
       chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
     }),
     new webpack.WatchIgnorePlugin([/scss\.d\.ts$/]),
+    new CleanWebpackPlugin({
+      verbose: true,
+    }),
   ],
 };
