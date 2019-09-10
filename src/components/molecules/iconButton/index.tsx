@@ -14,7 +14,7 @@ interface IIconButton {
 export const IconButton = (props: IIconButton) => {
   return (
     <Button variant={props.variant} size={props.size}>
-      <Icon variant={props.icon} />
+      <Icon variant={props.icon} styles={{ marginRight: `10px` }} />
       {props.children}
     </Button>
   );
