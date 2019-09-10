@@ -63,6 +63,13 @@ module.exports = {
             },
           },
           {
+            loader: 'resolve-url-loader',
+            options: {
+              engine: 'postcss',
+              sourceMap: true,
+            },
+          },
+          {
             loader: require.resolve('sass-loader'),
             options: {
               sourceMap: isDevelopment,
@@ -72,13 +79,10 @@ module.exports = {
       },
       {
         // !This is should only be here during first stages of development. Assets like fonts will be hosted on a CDN
-        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            // Limit at 50k. Above that it emits separate files
-            limit: 50000,
-            mimetype: 'application/font-woff',
             name: './fonts/[name].[ext]',
           },
         },

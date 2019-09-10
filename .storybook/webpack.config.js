@@ -29,15 +29,26 @@ module.exports = ({ config }) => {
       test: /\.scss$/,
       exclude: /node_modules/,
       use: [
-        require.resolve('style-loader'),
+        isDevelopment ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
         {
           loader: require.resolve('css-loader'),
           options: {
             importLoaders: 1,
             sourceMap: isDevelopment,
-            modules: true,
             localsConvention: 'camelCase',
             import: true,
+            modules: {
+              localIdentName: isDevelopment
+                ? '[path][name]__[local]--[hash:base64:5]'
+                : '[hash:base64]',
+            },
+          },
+        },
+        {
+          loader: 'resolve-url-loader',
+          options: {
+            engine: 'postcss',
+            sourceMap: true,
           },
         },
         {
@@ -50,13 +61,10 @@ module.exports = ({ config }) => {
     },
     {
       // !This is should only be here during first stages of development. Assets like fonts will be hosted on a CDN
-      test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+      test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       use: {
-        loader: 'url-loader',
+        loader: 'file-loader',
         options: {
-          // Limit at 50k. Above that it emits separate files
-          limit: 50000,
-          mimetype: 'application/font-woff',
           name: './fonts/[name].[ext]',
         },
       },
