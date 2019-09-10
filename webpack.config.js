@@ -52,7 +52,7 @@ module.exports = {
           {
             loader: require.resolve('css-loader'),
             options: {
-              importLoaders: 1,
+              importLoaders: 2,
               sourceMap: isDevelopment,
               localsConvention: 'camelCase',
               import: true,
@@ -73,7 +73,7 @@ module.exports = {
           {
             loader: require.resolve('sass-loader'),
             options: {
-              sourceMap: isDevelopment,
+              sourceMap: true,
             },
           },
         ],
