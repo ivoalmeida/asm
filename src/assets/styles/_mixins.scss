@@ -9,7 +9,7 @@
   text-decoration: none;
 
   &:hover {
-    background-color: $bgHover;
+    background-color: darken($bgHover, 10%);
     border: 1px solid $borderHover;
     color: $bgFontColor;
   }

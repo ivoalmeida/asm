@@ -14,7 +14,7 @@ storiesOf('IconButton', module)
     </IconButton>
   ))
   .add('Create New', () => (
-    <IconButton variant="secondary" icon="times" size="medium">
+    <IconButton variant="secondary" icon="plus" size="medium">
       Create New
     </IconButton>
   ))
