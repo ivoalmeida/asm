@@ -9,7 +9,7 @@
   "scripts": {
     "start": "yarn env:dev webpack-dev-server --mode development --open --hot",
     "build": "yarn env:prod webpack --mode production",
-    "dev": "yarn env:dev webpack --mode development; exit 0;",
+    "build:dev": "yarn env:dev webpack --mode development; exit 0;",
     "build:css": "node-sass src/ -o src/ ",
     "env:dev": "cross-env NODE_ENV=development",
     "env:prod": "cross-env NODE_ENV=production",
