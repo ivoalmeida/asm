@@ -1,0 +1,35 @@
+@import '../../../assets/styles/theme';
+
+.badge {
+  font-size: 1.2rem;
+  line-height: 1.5em;
+  padding: 0.1em 0.3em;
+  color: $black;
+  background-color: $gray200;
+  border-radius: 0.16667em;
+
+  &.primary {
+    color: $white;
+    background-color: $primary;
+  }
+
+  &.secondary {
+    color: $white;
+    background-color: $secondary;
+  }
+
+  &.success {
+    color: $white;
+    background-color: $success;
+  }
+
+  &.danger {
+    color: $black;
+    background-color: $danger;
+  }
+
+  &.warning {
+    color: $black;
+    background-color: $warning;
+  }
+}

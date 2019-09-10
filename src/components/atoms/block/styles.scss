@@ -1,0 +1,10 @@
+@import '../../../assets/styles/theme';
+
+.block {
+  background-color: $gray100;
+  font-family: $body-font-family;
+  color: $black;
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  flex: 1;
+}
