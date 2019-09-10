@@ -13,100 +13,86 @@
   line-height: 1;
   speak: none;
   text-transform: none;
+}
 
-  &.actions {
-    &::before {
-      content: $icon-actions;
-    }
+.actions {
+  font-size: 5px;
+  &::before {
+    content: '\e900';
   }
-
-  &.changelog {
-    &::before {
-      content: $icon-changelog;
-    }
+}
+.changelog {
+  &::before {
+    content: $icon-changelog;
   }
-
-  &.cog {
-    &::before {
-      content: $icon-cog;
-    }
+}
+.cog {
+  &::before {
+    content: $icon-cog;
   }
-
-  &.disabled {
-    &::before {
-      content: $icon-disabled;
-    }
+}
+.disabled {
+  &::before {
+    content: $icon-disabled;
   }
-
-  &.drag {
-    &::before {
-      content: $icon-drag;
-    }
+}
+.drag {
+  &::before {
+    content: $icon-drag;
   }
-
-  &.duplicate {
-    &::before {
-      content: $icon-duplicate;
-    }
+}
+.duplicate {
+  &::before {
+    content: $icon-duplicate;
   }
-
-  &.edit {
-    &::before {
-      content: $icon-edit;
-    }
+}
+.edit {
+  &::before {
+    content: $icon-edit;
   }
-
-  &.eye {
-    &::before {
-      content: $icon-eye;
-    }
+}
+.eye {
+  &::before {
+    content: $icon-eye;
   }
-
-  &.filter {
-    &::before {
-      content: $icon-filter;
-    }
+}
+.filter {
+  &::before {
+    content: $icon-filter;
   }
-
-  &.filter2 {
-    &::before {
-      content: $icon-filter2;
-    }
+}
+.filter2 {
+  &::before {
+    content: $icon-filter2;
   }
-
-  &.left_arrow {
-    &::before {
-      content: $icon-left_arrow;
-    }
+}
+.left_arrow {
+  &::before {
+    content: $icon-left_arrow;
   }
-
-  &.plus {
-    &::before {
-      content: $icon-plus;
-    }
+}
+.plus {
+  &::before {
+    content: $icon-plus;
   }
-
-  &.right_arrow {
-    &::before {
-      content: $icon-right_arrow;
-    }
+}
+.right_arrow {
+  &::before {
+    content: $icon-right_arrow;
   }
-
-  &.tag {
-    &::before {
-      content: $icon-tag;
-    }
+}
+.tag {
+  &::before {
+    content: $icon-tag;
   }
-
-  &.times {
-    &::before {
-      content: $icon-times;
-    }
+}
+.times {
+  &::before {
+    content: $icon-times;
   }
-
-  &.trash {
-    &::before {
-      content: $icon-trash;
-    }
+}
+.trash {
+  &::before {
+    content: $icon-trash;
   }
 }

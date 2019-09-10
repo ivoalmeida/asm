@@ -54,20 +54,10 @@ module.exports = ({ config }) => {
         {
           loader: require.resolve('sass-loader'),
           options: {
-            sourceMap: isDevelopment,
+            sourceMap: true,
           },
         },
       ],
-    },
-    {
-      // !This is should only be here during first stages of development. Assets like fonts will be hosted on a CDN
-      test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          name: './fonts/[name].[ext]',
-        },
-      },
     },
   );
   config.resolve.extensions.push('.ts', '.tsx');
