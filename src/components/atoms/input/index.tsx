@@ -3,6 +3,7 @@ import * as styles from './styles.scss';
 import classNames from 'classnames';
 
 interface IInputProps {
+  type?: string;
   errorMessage?: string;
   disabled?: boolean;
   placeholder?: string;
@@ -16,7 +17,7 @@ export const InputText = (props: IInputProps) => {
   return (
     <span className={classNames({ [styles.errorWarning]: isError })}>
       <input
-        type="text"
+        type={`${props.type || 'text'}`}
         className={classNames(styles.inputText, {
           [styles.error]: isError,
         })}

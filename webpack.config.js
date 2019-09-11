@@ -79,7 +79,15 @@ module.exports = {
         ],
       },
       {
-        // !This is should only be here during first stages of development. Assets like fonts will be hosted on a CDN
+        test: /\.(png|jpg|gif|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: './images/[name].[ext]',
+          },
+        },
+      },
+      {
         test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'file-loader',
