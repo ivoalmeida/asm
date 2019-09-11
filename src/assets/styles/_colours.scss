@@ -12,10 +12,6 @@ $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
 
-// Font Colors
-$base-font-color: $dark-gray;
-$action-color: $blue;
-
 $bg-color: $light-gray;
 
 //Blues
@@ -26,13 +22,14 @@ $highlight-blue: #a5c9ef !default;
 $light-blue: #5e9ed6 !default;
 
 //Grays
-$gray100: #dcdcdc !default;
-$gray200: #f5f5f5 !default;
-$gray300: #eaeaea !default;
-$gray400: #bfbfbf !default;
-$gray500: #808080 !default;
-$gray600: #404040 !default;
+$gray100: #eaeaea !default;
+$gray200: #d6d6d6 !default;
+$gray300: #adadad !default;
+$gray400: #858585 !default;
+$gray500: #5c5c5c !default;
+$gray600: #333 !default;
 $gray700: #222 !default;
+$gray800: #111 !default;
 $white: #fff !default;
 $black: #000 !default;
 
@@ -47,3 +44,8 @@ $primary-yellow: #ffb400 !default;
 
 //Green
 $primary-green: #77b800;
+
+// Font Colors
+$heading-color: $gray600;
+$base-font-color: $dark-gray;
+$action-color: $blue;

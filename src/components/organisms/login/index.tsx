@@ -10,15 +10,20 @@ interface IProps {
   onClick?: (email: string, pwd: string) => void;
 }
 
+const inputStyles: React.CSSProperties = {
+  width: `100%`,
+  marginBottom: `10px`,
+};
+
 const Login: React.FC<IProps> = props => {
   return (
     <div className={styles.login}>
       <Box direction="column" w={500} h={400} styles={{ justifyContent: `flex-start` }}>
-        <h1>Login</h1>
+        <h1 style={{ padding: `40px 0` }}>Login</h1>
         <Label>E-mail Address</Label>
-        <InputText placeholder="email" />
+        <InputText placeholder="email" styles={inputStyles} />
         <Label>Password</Label>
-        <InputText placeholder="password" type="password" />
+        <InputText placeholder="password" type="password" styles={inputStyles} />
         <Button variant="primary" size="large">
           Login
         </Button>

@@ -22,6 +22,7 @@ export const InputText = (props: IInputProps) => {
           [styles.error]: isError,
         })}
         placeholder={props.placeholder}
+        style={props.styles}
       />
     </span>
   );
