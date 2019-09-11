@@ -2,5 +2,9 @@
 
 .box {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
+  &.column {
+    flex-direction: column;
+  }
 }
