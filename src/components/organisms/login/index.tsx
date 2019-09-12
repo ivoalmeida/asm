@@ -1,4 +1,6 @@
 import * as React from 'react';
+import classNames from 'classnames';
+
 import Box from '../../atoms/box';
 import Button from '../../atoms/button';
 import InputText from '../../atoms/input';
@@ -23,7 +25,12 @@ const Login: React.FC<IProps> = props => {
         <Label>E-mail Address</Label>
         <InputText placeholder="email" styles={inputStyles} />
         <Label>Password</Label>
-        <InputText placeholder="password" type="password" styles={inputStyles} />
+        <div className={styles.pwdLink}>
+          <InputText placeholder="password" type="password" styles={inputStyles} />
+          <a className={styles.forgot} href="#">
+            Forgot?
+          </a>
+        </div>
         <Button variant="primary" size="large">
           Login
         </Button>
