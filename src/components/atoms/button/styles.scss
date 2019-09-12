@@ -48,3 +48,34 @@
     @include button($white, $success, $success, $white, $success, $success);
   }
 }
+
+.nav-item {
+  font-family: 'Roboto Bold', sans-serif;
+  color: $gray500;
+  font-size: 1.4rem;
+  padding: 0 1.8rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  line-height: 130%;
+
+  &::after {
+    background-color: $danger;
+    display: block;
+    content: '';
+    height: 5px;
+    width: 0;
+    margin: 0 0.5rem;
+    transition: width 0.3s ease-out;
+  }
+
+  &:hover {
+    color: $warning;
+  }
+
+  &:hover::after {
+    width: 100%;
+    background-color: $warning;
+  }
+}

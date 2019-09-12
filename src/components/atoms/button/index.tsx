@@ -19,6 +19,7 @@ const getButtonStyles = (props: IButtonProps) => {
     { [styles.secondary]: props.variant === 'secondary' },
     { [styles.danger]: props.variant === 'danger' },
     { [styles.success]: props.variant === 'success' },
+    { [styles.navItem]: props.variant === 'nav-item' },
     { [styles.small]: props.size === 'small' },
     { [styles.medium]: props.size === 'medium' },
     { [styles.large]: props.size === 'large' },
@@ -36,12 +37,7 @@ export const Button = (props: IButtonProps) => {
 };
 
 export const LinkButton = (props: IButtonProps) => (
-  <a
-    href={props.href}
-    onClick={props.onClick}
-    style={props.styles}
-    className={getButtonStyles(props)}
-  >
+  <a href={props.href} onClick={props.onClick} style={props.styles} className={styles.navItem}>
     {props.children}
   </a>
 );

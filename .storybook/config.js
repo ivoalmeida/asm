@@ -27,8 +27,8 @@ addDecorator(
         lineHeight: '2',
       },
     },
-    inline: true,
-    source: true,
+    inline: false,
+    source: false,
   }),
 );
 

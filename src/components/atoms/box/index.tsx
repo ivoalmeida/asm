@@ -8,12 +8,14 @@ interface IBoxProps {
   h?: number;
   styles?: React.CSSProperties;
   children?: any;
+  className?: string;
+  justifyContent?: string;
 }
 
-export const Box = (props: IBoxProps) => (
+export const Box: React.SFC<IBoxProps> = ({ direction, w, h, justifyContent, ...props }) => (
   <div
-    className={classNames(styles.box, { [styles.column]: props.direction === 'column' })}
-    style={Object.assign({}, { width: `${props.w}px`, height: `${props.h}px` }, props.styles)}
+    className={classNames(styles.box, { [styles.column]: direction === 'column' })}
+    style={Object.assign({}, { width: `${w}px`, height: `${h}px` }, props.styles)}
   >
     {props.children}
   </div>

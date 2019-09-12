@@ -1,1 +1,9 @@
 @import '../../../assets/styles/theme';
+
+.masthead {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: $white;
+}

@@ -7,6 +7,7 @@ import Icon from '.';
 
 storiesOf('Icon', module)
   .addDecorator(withKnobs)
+  .add('search', () => <Icon variant={text('variant', 'search')} />)
   .add('actions', () => <Icon variant={text('variant', 'actions')} />)
   .add('trash', () => <Icon variant={text('variant', 'trash')} />)
   .add('changelog', () => <Icon variant={text('variant', 'changelog')} />)

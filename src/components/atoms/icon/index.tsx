@@ -10,6 +10,7 @@ interface IIconProps {
 const getIconStyle = (type: string) => {
   return classNames(
     styles.icon,
+    { [styles.search]: type === 'search' },
     { [styles.actions]: type === 'actions' },
     { [styles.changelog]: type === 'changelog' },
     { [styles.cog]: type === 'cog' },

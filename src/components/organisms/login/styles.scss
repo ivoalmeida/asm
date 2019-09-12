@@ -2,6 +2,11 @@
 
 .login {
   background-color: $white;
+  display: grid;
+  grid-gap: 20px;
+  padding: 5px;
+  width: 450px;
+  height: auto;
 }
 
 .pwdLink {
