@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 interface IIconProps {
   variant: string;
+  className?: string;
   styles?: React.CSSProperties;
 }
 
@@ -30,8 +31,8 @@ const getIconStyle = (type: string) => {
   );
 };
 
-export const Icon = (props: IIconProps) => {
-  return <i className={getIconStyle(props.variant)} style={props.styles} />;
+export const Icon: React.SFC<IIconProps> = ({ variant, className, ...props }) => {
+  return <i className={classNames(getIconStyle(variant), className)} style={props.styles} />;
 };
 
 export default Icon;

@@ -38,9 +38,7 @@ module.exports = ({ config }) => {
             localsConvention: 'camelCase',
             import: true,
             modules: {
-              localIdentName: isDevelopment
-                ? '[path][name]__[local]--[hash:base64:5]'
-                : '[hash:base64]',
+              localIdentName: isDevelopment ? '[path][name]__[local]' : '[hash:base64]',
             },
           },
         },
