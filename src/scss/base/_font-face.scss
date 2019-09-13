@@ -1,0 +1,48 @@
+$fonts-path: '../../assets/fonts';
+@font-face {
+  font-family: 'Roboto Bold';
+  font-style: normal;
+  font-weight: bold;
+  src: url('#{$fonts-path}/Roboto-Bold.woff2') format('woff2'),
+    url('#{$fonts-path}/Roboto-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url('#{$fonts-path}/Roboto-Medium.woff2') format('woff2'),
+    url('#{$fonts-path}/Roboto-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Normal';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$fonts-path}/Roboto-Regular.woff2') format('woff2'),
+    url('#{$fonts-path}/Roboto-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Archivo Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$fonts-path}/Archivo-Regular.woff2') format('woff2'),
+    url('#{$fonts-path}/Archivo-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Archivo Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url('#{$fonts-path}/Archivo-Medium.woff2') format('woff2'),
+    url('#{$fonts-path}/Archivo-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Archivo Bold';
+  font-style: normal;
+  font-weight: bold;
+  src: url('#{$fonts-path}/Archivo-Bold.woff2') format('woff2'),
+    url('#{$fonts-path}/Archivo-Bold.woff') format('woff');
+}

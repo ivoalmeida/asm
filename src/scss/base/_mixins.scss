@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/// Generates an button styles
+///
+/// @argument {string} $fontColor
+///
+/// @argument {string} $bgColor
+///
+/// @argument {string} $bgHover
+///   Background color
+///
+/// @argument {string} $bgFontColor
+///   Font color
+///
+/// @argument {string} $borderColor
+///   Border color
+///
+/// @argument {string} $borderHover
+///   Border hover color
+///
+/// @example scss
+/// @include button(
+///     $gray700,
+///     $white,
+///     $gray700,
+///     $white,
+///     $gray700,
+///     $gray700);
+///
+@mixin button($fontColor, $bgColor, $bgHover, $bgFontColor, $borderColor, $borderHover) {
+  background-color: $bgColor;
+  border: 1px solid $borderColor;
+  color: $fontColor;
+  cursor: pointer;
+  display: inline-flex;
+  //   font-family: $font-family;
+  justify-content: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($bgHover, 10%);
+    border: 1px solid $borderHover;
+    color: $bgFontColor;
+  }
+}

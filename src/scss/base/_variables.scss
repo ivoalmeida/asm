@@ -1,0 +1,67 @@
+// Typography
+$base-font-family: 'Roboto Regular', sans-serif !default;
+$heading-font-family: 'Archivo Regular', sans-serif !default;
+$base-font-size: 62.5%;
+$font-weight-heavy: 700;
+$font-weight-normal: normal;
+
+// Line height
+$base-line-height: 160%;
+$heading-line-height: 140%;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: 1.5em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$blue: #1565c0;
+$red: #c6161c;
+$teal: #66b5bc;
+$tomato: #f25b51;
+$green: #66bc7f;
+$yellow: #f4c947;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
+$gray100: #eaeaea !default;
+$gray200: #d6d6d6 !default;
+$gray300: #adadad !default;
+$gray400: #858585 !default;
+$gray500: #5c5c5c !default;
+$gray600: #333 !default;
+$gray700: #222 !default;
+$gray800: #111 !default;
+$off-white: #f3f3f3 !default;
+$white: #fff !default;
+$black: #000 !default;
+
+// Button colors
+$brand: $red;
+$primary: $blue;
+$secondary: $teal;
+$danger: $tomato;
+$success: $green;
+$warning: $yellow;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$action-color: $blue;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$viewport-background-color: $white;
+
+// Focus
+$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-width: 3px;
+$focus-outline: $focus-outline-width solid $focus-outline-color;
+$focus-outline-offset: 2px;
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
