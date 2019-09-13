@@ -1,5 +1,5 @@
 const path = require('path');
-const SRC_PATH = path.join(__dirname, '../src/components');
+const SRC_PATH = path.join(__dirname, '../src');
 
 const isDevelopment = true;
 

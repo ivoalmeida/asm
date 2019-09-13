@@ -17,7 +17,7 @@ const Logo: React.SFC<IProps> = ({ width = 158, height = 82, ...props }) => {
       viewBox={`0 0 ${width} ${height}`}
     >
       <g fill="none" fill-rule="evenodd">
-        <rect width="158" height="82" fill="#C6161D" />
+        <rect width={width} height={height} fill="#C6161D" />
         <text
           fill="#FFF"
           font-family="Arvo-Bold, Arvo"
@@ -25,7 +25,7 @@ const Logo: React.SFC<IProps> = ({ width = 158, height = 82, ...props }) => {
           font-weight="bold"
           letter-spacing="-.933"
         >
-          <tspan x="24" y="51">
+          <tspan x="24" y="59">
             venatus
           </tspan>
         </text>

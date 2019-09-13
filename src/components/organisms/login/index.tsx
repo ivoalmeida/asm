@@ -22,7 +22,7 @@ const Login: React.FC<IProps> = props => {
   return (
     <div className={styles.login}>
       <Box styles={{ justifyContent: 'center' }}>
-        <Logo />
+        <Logo className={styles.logo} />
       </Box>
       <h1 style={{ padding: `40px 0` }}>Login</h1>
       <Label>E-mail Address</Label>
