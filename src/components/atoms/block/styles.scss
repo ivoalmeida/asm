@@ -1,8 +1,8 @@
-@import '../../../assets/styles/theme';
+@import '../../../scss/style.scss';
 
 .block {
   background-color: $gray100;
-  font-family: $body-font-family;
+  font-family: $heading-font-family;
   color: $black;
   padding: 10px 20px;
   font-size: 1.6rem;

@@ -1,7 +1,7 @@
-@import '../../../assets/styles/theme';
+@import '../../../scss/style.scss';
 
 .label {
-  font-family: $body-font-family;
+  font-family: $heading-font-family;
   color: $gray500;
   font-size: 1.2rem;
   line-height: 1.8em;
