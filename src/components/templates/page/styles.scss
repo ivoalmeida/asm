@@ -1,0 +1,19 @@
+@import '../../../scss/style.scss';
+
+.container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 'masthead', 'header', 'content';
+}
+
+.mastehead {
+  grid-area: 'mastehead';
+}
+
+.header {
+  grid-area: 'header';
+}
+
+.content {
+  grid-area: 'content';
+}
