@@ -6,6 +6,14 @@ html {
   font-weight: $font-weight-normal;
 }
 
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: 1.8rem;
+  line-height: $base-line-height;
+  font-weight: $font-weight-normal;
+}
+
 h1,
 h2,
 h3,
@@ -19,22 +27,22 @@ h6 {
 }
 
 h1 {
-  font-size: modular-scale(6);
+  font-size: $base-font-size * 3.2;
 }
 h2 {
-  font-size: modular-scale(5);
+  font-size: $base-font-size * 3;
 }
 h3 {
-  font-size: modular-scale(4);
+  font-size: $base-font-size * 2.8;
 }
 h4 {
-  font-size: modular-scale(3);
+  font-size: $base-font-size * 2.6;
 }
 h5 {
-  font-size: modular-scale(2);
+  font-size: $base-font-size * 2.4;
 }
 h6 {
-  font-size: modular-scale(1);
+  font-size: $base-font-size * 2.2;
 }
 
 p {
