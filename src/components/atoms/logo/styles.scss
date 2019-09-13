@@ -1,0 +1,29 @@
+@import '../../../scss/style.scss';
+
+.logo {
+  height: 100px;
+  width: 182px;
+  background-color: $brand;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: $base-duration $base-timing;
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  &.text {
+    color: $white;
+    font-family: Arvo;
+    font-size: 28px;
+    font-weight: bold;
+    // letter-spacing: -0.933px;
+    line-height: 35px;
+  }
+
+  &.masthead {
+    width: 108px;
+  }
+}
