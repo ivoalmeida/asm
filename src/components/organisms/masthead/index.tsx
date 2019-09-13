@@ -5,6 +5,7 @@ import * as styles from './styles.scss';
 import Box from '../../atoms/box';
 import { LogoMastHead } from '../../atoms/logo';
 import { LinkButton } from '../../atoms/button';
+import SearchBox from '../../molecules/searchBox';
 
 export const Masthead = () => {
   return (
@@ -24,8 +25,9 @@ export const Masthead = () => {
           Finance
         </LinkButton>
       </Box>
-      {/* <Search placeholder="Search on Venatus" />
-      <MyAccount /> */}
+      <Box>
+        <SearchBox />
+      </Box>
     </div>
   );
 };
