@@ -7,7 +7,7 @@ export interface IBadgeProps {
   children?: any;
 }
 
-export default (props: IBadgeProps) => (
+const Badge = (props: IBadgeProps) => (
   <span
     className={classNames(
       styles.badge,
@@ -21,3 +21,5 @@ export default (props: IBadgeProps) => (
     {props.children}
   </span>
 );
+
+export default Badge;
