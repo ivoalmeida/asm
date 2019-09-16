@@ -4,6 +4,7 @@
     "object-literal-sort-keys": false,
     "no-empty": [true, "allow-empty-functions"],
     "ordered-imports": false,
-    "no-angle-bracket-type-assertion": false
+    "no-angle-bracket-type-assertion": false,
+    "jsx-no-lambda": false
   }
 }

@@ -18,6 +18,10 @@ module.exports = {
 
   devtool: isDevelopment && 'sourcemap',
 
+  devServer: {
+    historyApiFallback: true,
+  },
+
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
   },

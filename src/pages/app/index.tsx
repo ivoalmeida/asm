@@ -1,12 +1,18 @@
 import * as React from 'react';
-import Button from '../../components/atoms/button';
-import Icon from '../../components/atoms/icon';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import { AuthProvider } from '../../components/auth/authcontext';
+import ProtectedRoute from '../../components/auth/protectedRoute';
+import LoginPage from '../login';
 
 const App = () => (
-  <>
-    <Button variant="primary">click me</Button>
-    <Icon variant="trash" />
-  </>
+  <AuthProvider>
+    <Router>
+      <Switch>
+        <Route path="/" component={LoginPage} />
+      </Switch>
+    </Router>
+  </AuthProvider>
 );
 
 export default App;
