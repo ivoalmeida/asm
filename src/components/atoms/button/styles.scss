@@ -54,28 +54,28 @@
   color: $gray500;
   font-size: 1.4rem;
   padding: 0 1.8rem;
-  display: inline-flex;
+  // display: inline-flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   line-height: 130%;
 
   &::after {
-    background-color: $danger;
+    background-color: $red;
     display: block;
     content: '';
-    height: 5px;
+    height: 3px;
     width: 0;
-    margin: 0 0.5rem;
+    margin: 0;
     transition: width 0.3s ease-out;
   }
 
   &:hover {
-    color: $warning;
-  }
+    color: $gray500;
 
-  &:hover::after {
-    width: 100%;
-    background-color: $warning;
+    &::after {
+      width: 100%;
+      background-color: $red;
+    }
   }
 }
