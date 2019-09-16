@@ -10,6 +10,15 @@
             "es2017",
             "dom"
         ],
+        "compilerOptions": {
+            "outDir": "./target/",
+            "sourceMap": true,
+            "skipLibCheck": true,
+            "noImplicitAny": true,
+            "module": "commonjs",
+            "target": "es5",
+            "jsx": "react"
+        },
         "removeComments": true,
         "allowSyntheticDefaultImports": false,
         "jsx": "react",
@@ -34,5 +43,8 @@
     },
     "include": [
         "src"
+    ],
+    "exclude": [
+        "node_modules"
     ]
 }
