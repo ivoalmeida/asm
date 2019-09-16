@@ -5,3 +5,4 @@ node_modules
 **/*/*.d.ts
 storybook-static
 __snapshots__
+coverage
