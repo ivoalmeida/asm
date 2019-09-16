@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as styles from './styles.scss';
 import classNames from 'classnames';
 
-interface IButtonProps {
+export interface IButtonProps {
   variant: string;
   size?: string;
   children?: any;

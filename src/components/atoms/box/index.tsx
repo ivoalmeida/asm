@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as styles from './styles.scss';
 import classNames from 'classnames';
 
-interface IBoxProps {
+export interface IBoxProps {
   direction?: string;
   w?: number;
   h?: number;
