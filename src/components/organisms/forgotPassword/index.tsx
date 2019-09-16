@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
 import Box from '../../atoms/box';
 import Button from '../../atoms/button';
@@ -18,27 +17,20 @@ const inputStyles: React.CSSProperties = {
   marginBottom: `10px`,
 };
 
-const Login: React.FC<IProps> = props => {
+const ForgotPassword: React.FC<IProps> = props => {
   return (
-    <div className={styles.login}>
+    <div className={styles.forgot}>
       <Box styles={{ justifyContent: 'center' }}>
         <Logo />
       </Box>
-      <h1 style={{ padding: `40px 0` }}>Login</h1>
+      <h1 style={{ padding: `40px 0` }}>Forgot Password</h1>
       <Label>E-mail Address</Label>
       <InputText placeholder="email" styles={inputStyles} />
-      <Label>Password</Label>
-      <div className={styles.pwdLink}>
-        <InputText placeholder="password" type="password" styles={inputStyles} />
-        <a className={styles.forgot} href="#">
-          Forgot?
-        </a>
-      </div>
       <Button variant="primary" size="large">
-        Login
+        Send Reset Link
       </Button>
     </div>
   );
 };
 
-export default Login;
+export default ForgotPassword;
