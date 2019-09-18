@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { AuthProvider } from '../../components/auth/authcontext';
-import ProtectedRoute from '../../components/auth/protectedRoute';
+import { AuthProvider } from '../../auth/authcontext';
+import ProtectedRoute from '../../auth/protectedRoute';
 import LoginPage from '../login';
 
 const App = () => (
