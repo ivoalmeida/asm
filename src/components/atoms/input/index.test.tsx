@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import InputText from '.';
+import Input from '.';
 
-describe('InputText tests', () => {
-  const wrap = (props = { placeholder: 'search' }) => shallow(<InputText {...props} />);
+describe('Input tests', () => {
+  const wrap = (props = { placeholder: 'search' }) => shallow(<Input {...props} />);
 
   it('renders props when passed in', () => {
     const wrapper = wrap({ placeholder: 'search' });

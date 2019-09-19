@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '../../atoms/box';
 import Button, { LinkButton } from '../../atoms/button';
-import InputText from '../../atoms/input';
+import Input from '../../atoms/input';
 import Label from '../../atoms/label';
 import Logo from '../../atoms/logo';
 import * as styles from './styles.scss';
@@ -24,7 +24,7 @@ const ConfirmEmail: React.FC<IProps> = props => {
       </Box>
       <h1 style={{ padding: `40px 0` }}>Confirm your email</h1>
       <Label>Security Code</Label>
-      <InputText placeholder="security code" styles={inputStyles} />
+      <Input placeholder="security code" style={inputStyles} />
       <Button variant="primary" size="large">
         Login
       </Button>

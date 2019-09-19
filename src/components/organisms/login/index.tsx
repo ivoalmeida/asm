@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import Box from '../../atoms/box';
 import Button from '../../atoms/button';
-import InputText from '../../atoms/input';
+import Input from '../../atoms/input';
 import Label from '../../atoms/label';
 import Logo from '../../atoms/logo';
 import * as styles from './styles.scss';
@@ -26,10 +26,10 @@ const Login: React.FC<IProps> = props => {
       </Box>
       <h1 style={{ padding: `40px 0` }}>Login</h1>
       <Label>E-mail Address</Label>
-      <InputText placeholder="email" styles={inputStyles} />
+      <Input placeholder="email" style={inputStyles} />
       <Label>Password</Label>
       <div className={styles.pwdLink}>
-        <InputText placeholder="password" type="password" styles={inputStyles} />
+        <Input placeholder="password" type="password" style={inputStyles} />
         <a className={styles.forgot} href="#">
           Forgot?
         </a>

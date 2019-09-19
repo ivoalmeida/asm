@@ -29,43 +29,6 @@ textarea {
   font-size: 1.6rem;
 }
 
-#{$all-text-inputs} {
-  appearance: none;
-  background-color: $_form-background-color;
-  border: $base-border;
-  border-radius: $base-border-radius;
-  box-shadow: $_form-box-shadow;
-  box-sizing: border-box;
-  margin-bottom: $small-spacing;
-  padding: $base-spacing / 3;
-  transition: border-color $base-duration $base-timing;
-  display: inline-block;
-  color: $gray500;
-
-  &:hover {
-    border-color: shade($base-border-color, 20%);
-  }
-
-  &:focus {
-    border-color: darken($base-border-color, 50%);
-    box-shadow: $_form-box-shadow-focus;
-    outline: none;
-  }
-
-  &:disabled {
-    background-color: shade($_form-background-color, 5%);
-    cursor: not-allowed;
-
-    &:hover {
-      border: $base-border;
-    }
-  }
-
-  &::placeholder {
-    color: tint($base-font-color, 40%);
-  }
-}
-
 textarea {
   resize: vertical;
 }

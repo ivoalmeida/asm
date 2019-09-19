@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Box from '../../atoms/box';
 import Button from '../../atoms/button';
-import InputText from '../../atoms/input';
+import Input from '../../atoms/input';
 import Label from '../../atoms/label';
 import Logo from '../../atoms/logo';
 import * as styles from './styles.scss';
@@ -25,7 +25,7 @@ const ForgotPassword: React.FC<IProps> = props => {
       </Box>
       <h1 style={{ padding: `40px 0` }}>Forgot Password</h1>
       <Label>E-mail Address</Label>
-      <InputText placeholder="email" styles={inputStyles} />
+      <Input placeholder="email" style={inputStyles} />
       <Button variant="primary" size="large">
         Send Reset Link
       </Button>
