@@ -26,6 +26,7 @@ export interface ILoginProps {
 export interface IState {
   email?: string;
   password?: string;
+  token?: string;
 }
 
 export default class LoginPage extends React.Component<ILoginProps, IState> {
@@ -34,6 +35,7 @@ export default class LoginPage extends React.Component<ILoginProps, IState> {
     this.state = {
       email: undefined,
       password: undefined,
+      token: undefined,
     };
   }
 
@@ -83,8 +85,12 @@ export default class LoginPage extends React.Component<ILoginProps, IState> {
   }
 
   private confirm = data => {
-    // const { token } = this.state.login ? data.login : data.signup;
-    // this._saveUserData(token);
+    const { token } = this.state.token ? data.login : data.signup;
+    this.saveUserData(token);
     this.props.history.push(`/users`);
+  };
+
+  private saveUserData = token => {
+    document.cookie = `AUTH_TOKEN=${token}`;
   };
 }

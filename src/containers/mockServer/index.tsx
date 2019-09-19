@@ -5,7 +5,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { SchemaLink } from 'apollo-link-schema';
 import { makeExecutableSchema } from 'graphql-tools';
 
-import { login, signup, users } from './mutation';
+import { login, signup } from './mutation';
+import { users } from './data';
 
 const typeDefs = `
   type User {

@@ -6,6 +6,7 @@ import ProtectedRoute from '../../auth/protectedRoute';
 import MockServer from '../../containers/mockServer';
 import LoginPage from '../login';
 import UsersPage from '../users';
+import { SignUpPage } from '../signup';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/users" component={UsersPage} />
+          <Route exact path="/signup" component={SignUpPage} />
         </Switch>
       </Router>
     </MockServer>
