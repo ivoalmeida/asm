@@ -100,7 +100,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|gif|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(png|jpg|gif|svg|ico)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'file-loader',
           options: {
@@ -122,6 +122,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
+      favicon: './src/assets/images/favicon.ico',
       template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
