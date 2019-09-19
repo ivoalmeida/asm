@@ -4,15 +4,15 @@ import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import Label from '.';
-import InputText from '../input';
+import Input from '../input';
 import Box from '../box';
 
 storiesOf('Label', module)
   .addDecorator(withKnobs)
   .add('Label', () => <Label>This is a label</Label>)
-  .add('Label with InputText', () => (
+  .add('Label with Input', () => (
     <>
       <Label htmlFor="input1">This is a label</Label>
-      <InputText placeholder="Testing label" id="input1" />
+      <Input placeholder="Testing label" id="input1" />
     </>
   ));

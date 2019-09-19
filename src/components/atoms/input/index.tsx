@@ -7,25 +7,30 @@ interface IInputProps {
   errorMessage?: string;
   disabled?: boolean;
   placeholder?: string;
-  styles?: React.CSSProperties;
   className?: string;
 }
 
-export const InputText = (props: IInputProps) => {
-  const isError: boolean = props.errorMessage !== undefined && props.errorMessage.length > 0;
+export const Input: React.SFC<IInputProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
+  errorMessage,
+  className,
+  ...props
+}) => {
+  const isError: boolean = errorMessage !== undefined && errorMessage.length > 0;
 
   return (
     <span className={classNames({ [styles.errorWarning]: isError })}>
       <input
-        type={`${props.type || 'text'}`}
-        className={classNames(styles.inputText, {
-          [styles.error]: isError,
-        })}
-        placeholder={props.placeholder}
-        style={props.styles}
+        className={classNames(
+          styles.inputText,
+          {
+            [styles.error]: isError,
+          },
+          className,
+        )}
+        {...props}
       />
     </span>
   );
 };
 
-export default InputText;
+export default Input;

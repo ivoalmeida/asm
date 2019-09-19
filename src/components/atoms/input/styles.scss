@@ -9,12 +9,46 @@
 }
 
 .input-text {
-  border-radius: 3px;
-  color: $gray500;
   font-family: 'Roboto Regular', sans-serif;
   height: 44px;
   min-width: 270px;
+
+  appearance: none;
+  background-color: $_form-background-color;
+  // background-color: hotpink;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $_form-box-shadow;
+  box-sizing: border-box;
+  margin-bottom: $small-spacing;
   padding: 1.8rem;
+  // padding: $base-spacing / 3;
+  transition: border-color $base-duration $base-timing;
+  display: inline-block;
+  color: $gray500;
+
+  &:hover {
+    border-color: shade($base-border-color, 20%);
+  }
+
+  &:focus {
+    border-color: darken($base-border-color, 5%);
+    box-shadow: $_form-box-shadow-focus;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: shade($_form-background-color, 5%);
+    cursor: not-allowed;
+
+    &:hover {
+      border: $base-border;
+    }
+  }
+
+  &::placeholder {
+    color: tint($base-font-color, 40%);
+  }
 
   &.error {
     border: 1px solid $danger;
