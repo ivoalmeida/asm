@@ -3,21 +3,51 @@ import * as styles from './styles.scss';
 import classNames from 'classnames';
 
 export interface IBoxProps {
-  direction?: string;
-  w?: number;
-  h?: number;
-  styles?: React.CSSProperties;
+  direction?: any | string;
+  width?: string;
+  height?: string;
+  justifyContent?: string;
+  alignItems?: string;
+  alignContent?: string;
+  justifyItems?: string;
   children?: any;
   className?: string;
-  justifyContent?: string;
+  flex?: string;
+  padding?: string;
+  margin?: string;
 }
 
-export const Box: React.SFC<IBoxProps> = ({ direction, w, h, justifyContent, ...props }) => (
+export const Box: React.SFC<IBoxProps> = ({
+  direction = 'row',
+  width,
+  height,
+  justifyContent,
+  justifyItems,
+  alignItems,
+  alignContent,
+  children,
+  className,
+  flex,
+  padding,
+  margin,
+}) => (
   <div
-    className={classNames(styles.box, { [styles.column]: direction === 'column' })}
-    style={Object.assign({}, { width: `${w}px`, height: `${h}px` }, props.styles)}
+    className={classNames(styles.box, className)}
+    style={{
+      width,
+      height,
+      display: 'flex',
+      flexDirection: direction,
+      justifyContent,
+      justifyItems,
+      alignItems,
+      alignContent,
+      flex,
+      padding,
+      margin,
+    }}
   >
-    {props.children}
+    {children}
   </div>
 );
 
