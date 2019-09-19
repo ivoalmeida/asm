@@ -23,7 +23,19 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.css'],
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.js',
+      '.jsx',
+      '.scss',
+      '.css',
+      '.webpack.js',
+      '.web.js',
+      '.mjs',
+      '.js',
+      '.json',
+    ],
   },
 
   module: {
@@ -32,6 +44,11 @@ module.exports = {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
       },
       {
         test: /\.js$/,
