@@ -5,6 +5,7 @@
     "no-empty": [true, "allow-empty-functions"],
     "ordered-imports": false,
     "no-angle-bracket-type-assertion": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "jsx-boolean-value": null
   }
 }

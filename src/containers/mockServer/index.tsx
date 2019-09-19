@@ -1,10 +1,11 @@
 import * as React from 'react';
-
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { SchemaLink } from 'apollo-link-schema';
 import { makeExecutableSchema } from 'graphql-tools';
+
+import { login, signup, users } from './mutation';
 
 const typeDefs = `
   type User {
@@ -28,14 +29,6 @@ const typeDefs = `
   }
 `;
 
-const users = [
-  {
-    id: '1',
-    email: 'ivo@venatus.com',
-    password: 'psw',
-  },
-];
-
 const resolvers = {
   Query: {
     users: () => {
@@ -43,15 +36,8 @@ const resolvers = {
     },
   },
   Mutation: {
-    login: (root: any, { email, password }: any) => {
-      const user = users.find(u => u.email === email && u.password === password);
-      if (user !== null || user !== undefined) {
-        return {
-          token: 'aaa',
-          user,
-        };
-      }
-    },
+    login,
+    signup,
   },
 };
 

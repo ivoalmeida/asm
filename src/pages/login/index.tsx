@@ -20,6 +20,7 @@ const LOGIN_MUTATION = gql`
 
 export interface ILoginProps {
   children?: any;
+  history?: any;
 }
 
 export interface IState {
@@ -65,7 +66,11 @@ export default class LoginPage extends React.Component<ILoginProps, IState> {
             onChange={e => this.setState({ password: e.target.value })}
           />
 
-          <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
+          <Mutation
+            mutation={LOGIN_MUTATION}
+            variables={this.state}
+            onCompleted={data => this.confirm(data)}
+          >
             {(login: any) => (
               <Button variant="primary" size="large" onClick={login}>
                 Login
@@ -76,4 +81,10 @@ export default class LoginPage extends React.Component<ILoginProps, IState> {
       </Box>
     );
   }
+
+  private confirm = data => {
+    // const { token } = this.state.login ? data.login : data.signup;
+    // this._saveUserData(token);
+    this.props.history.push(`/users`);
+  };
 }

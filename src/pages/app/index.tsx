@@ -5,18 +5,18 @@ import { AuthProvider } from '../../auth/authcontext';
 import ProtectedRoute from '../../auth/protectedRoute';
 import MockServer from '../../containers/mockServer';
 import LoginPage from '../login';
+import UsersPage from '../users';
 
 const App = () => {
   return (
-    <AuthProvider>
-      <MockServer>
-        <Router>
-          <Switch>
-            <Route path="/" component={LoginPage} />
-          </Switch>
-        </Router>
-      </MockServer>
-    </AuthProvider>
+    <MockServer>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={LoginPage} />
+          <Route exact path="/users" component={UsersPage} />
+        </Switch>
+      </Router>
+    </MockServer>
   );
 };
 

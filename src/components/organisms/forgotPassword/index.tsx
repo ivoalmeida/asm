@@ -20,7 +20,7 @@ const inputStyles: React.CSSProperties = {
 const ForgotPassword: React.FC<IProps> = props => {
   return (
     <div className={styles.forgot}>
-      <Box styles={{ justifyContent: 'center' }}>
+      <Box justifyContent="center">
         <Logo />
       </Box>
       <h1 style={{ padding: `40px 0` }}>Forgot Password</h1>

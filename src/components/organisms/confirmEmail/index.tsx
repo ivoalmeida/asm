@@ -19,7 +19,7 @@ const inputStyles: React.CSSProperties = {
 const ConfirmEmail: React.FC<IProps> = props => {
   return (
     <div className={styles.confirm}>
-      <Box styles={{ justifyContent: 'center' }}>
+      <Box justifyContent="center">
         <Logo />
       </Box>
       <h1 style={{ padding: `40px 0` }}>Confirm your email</h1>
