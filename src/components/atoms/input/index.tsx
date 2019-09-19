@@ -2,19 +2,11 @@ import * as React from 'react';
 import * as styles from './styles.scss';
 import classNames from 'classnames';
 
-interface IInputProps {
-  type?: string;
+interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
-  disabled?: boolean;
-  placeholder?: string;
-  className?: string;
 }
 
-export const Input: React.SFC<IInputProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
-  errorMessage,
-  className,
-  ...props
-}) => {
+export const Input: React.SFC<IInputProps> = ({ errorMessage, className, ...props }) => {
   const isError: boolean = errorMessage !== undefined && errorMessage.length > 0;
 
   return (
