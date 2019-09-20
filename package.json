@@ -15,13 +15,17 @@
     "env:prod": "cross-env NODE_ENV=production",
     "check-types": "tsc",
     "cleanup": "rimraf node_modules; rimraf dist; rimraf './src/**/*.d.ts';",
-    "precommit": "run-s format:fix lint lint:css test",
     "format:fix": "pretty-quick --staged",
     "lint": "tslint './src/**/*.tsx'",
     "lint:css": "stylelint './src/**/*.scss'; exit 0;",
     "css:fix": "stylelint */**/*.scss --fix; exit 0;",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-s format:fix lint lint:css test"
+    }
   },
   "jest": {
     "setupFiles": [
@@ -118,5 +122,5 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
     "yarn-run-all": "^3.1.1"
-  }
+  }  
 }
