@@ -22,7 +22,7 @@ const PageTemplate: React.FC<IProps> = ({ children }) => {
 
       {childrenAr.map((item, index) => {
         if (index === 0) {
-          return <Block>{item}</Block>;
+          return <Block key={index}>{item}</Block>;
         }
         return <React.Fragment key={index}>{item}</React.Fragment>;
       })}
