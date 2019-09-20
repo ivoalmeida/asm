@@ -70,7 +70,7 @@ export class SignUpPage extends React.Component<IProps, IState> {
   }
 
   private confirm = data => {
-    const { token } = data.signup;
+    const token = data.signup;
     this.saveUserData(token);
     this.props.history.push(`/users`);
   };

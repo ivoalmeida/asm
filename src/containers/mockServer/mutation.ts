@@ -23,7 +23,8 @@ export const login = (root, { email, password }) => {
 };
 
 export const signup = (root, { email, password, name }) => {
-  const pwd = bcrypt.hash(password, 10);
+  let pwd = password;
+  bcrypt.hash(password, 10).then(data => (pwd = data));
   const user = {
     name,
     email,
@@ -34,8 +35,5 @@ export const signup = (root, { email, password, name }) => {
 
   const token = jwt.sign({ pwd }, APP_SECRET);
 
-  return {
-    token,
-    user,
-  };
+  return token;
 };

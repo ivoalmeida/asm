@@ -10,9 +10,9 @@ import { users } from './data';
 
 const typeDefs = `
   type User {
-    id: ID!
     name: String!
     email: String!
+    password: String!
   }
 
   type AuthPayload {
@@ -25,7 +25,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    signup(email: String!, password: String!, name: String!): AuthPayload
+    signup(email: String!, password: String!, name: String!): String
     login(email: String!, password: String!): AuthPayload
   }
 `;
