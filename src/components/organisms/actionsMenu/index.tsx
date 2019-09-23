@@ -2,6 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 
 import * as styles from './styles.scss';
+import Icon from '../../atoms/icon';
 
 export interface IActioMenuItem {
   name: string;
@@ -18,6 +19,7 @@ const ActionsMenu: React.FC<IProps> = ({ items }) => {
     <div className={styles.actionsMenu}>
       {items.map((item, index) => (
         <a className={cn(styles.item)} key={index} href="#" onClick={item.onClick}>
+          <Icon variant={item.iconType} />
           {item.name}
         </a>
       ))}

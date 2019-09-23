@@ -16,7 +16,7 @@ const items: IActioMenuItem[] = [
   },
   {
     name: 'Disable',
-    iconType: 'disable',
+    iconType: 'disabled',
     onClick: ev => ev.preventDefault(),
   },
   {

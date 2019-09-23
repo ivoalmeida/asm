@@ -6,21 +6,37 @@
   border-radius: $base-border-radius;
   display: flex;
   flex-direction: column;
-  color: $gray600;
-  width: 150px;
+  width: 170px;
   font-size: 1.6rem;
 
-  &.item {
+  .item {
+    color: $gray600;
     flex: 1;
-    color: red;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 5px 15px;
+
+    &:first-child {
+      padding-top: 15px;
+    }
+
+    &:last-child {
+      padding-bottom: 15px;
+    }
+
+    i {
+      margin-right: 10px;
+    }
 
     &:hover {
-      // background-color: lighten($yellow, 0.5);
-      background-color: #fff3cb;
+      background-color: lighten($yellow, 30%);
+      color: lighten($gray600, 20%);
+    }
+
+    .danger {
+      color: $danger;
     }
   }
-}
-
-.danger {
-  color: $danger;
 }
