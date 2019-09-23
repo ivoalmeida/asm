@@ -10,8 +10,11 @@ import { users } from './data';
 
 const typeDefs = `
   type User {
-    name: String!
+    userId: ID!
     email: String!
+    firstName: String!
+    lastName: String!
+    admin: Boolean!
     password: String!
   }
 

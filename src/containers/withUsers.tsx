@@ -5,8 +5,11 @@ import gql from 'graphql-tag';
 const USER_QUERY = gql`
   {
     users {
-      name
+      userId
       email
+      firstName
+      lastName
+      admin
     }
   }
 `;

@@ -22,11 +22,11 @@ export const login = (root, { email, password }) => {
   };
 };
 
-export const signup = (root, { email, password, name }) => {
+export const signup = (root, { email, password, firstName }) => {
   let pwd = password;
   bcrypt.hash(password, 10).then(data => (pwd = data));
   const user = {
-    name,
+    firstName,
     email,
     password: pwd,
   };
