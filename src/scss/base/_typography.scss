@@ -50,14 +50,14 @@ p {
 }
 
 a {
-  color: $action-color;
+  // color: $action-color;
   text-decoration: none;
   text-decoration-skip: ink;
   transition: color $base-duration $base-timing;
 
-  &:hover {
-    color: shade($action-color, 25%);
-  }
+  // &:hover {
+  //   color: shade($action-color, 25%);
+  // }
 
   &:focus {
     outline: $focus-outline;
