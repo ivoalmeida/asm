@@ -18,7 +18,12 @@ const ActionsMenu: React.FC<IProps> = ({ items }) => {
   return (
     <div className={styles.actionsMenu}>
       {items.map((item, index) => (
-        <a className={cn(styles.item)} key={index} href="#" onClick={item.onClick}>
+        <a
+          className={cn(styles.item, { [styles.danger]: item.iconType === 'trash' })}
+          key={index}
+          href="#"
+          onClick={item.onClick}
+        >
           <Icon variant={item.iconType} />
           {item.name}
         </a>

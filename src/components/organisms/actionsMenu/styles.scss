@@ -34,9 +34,13 @@
       background-color: lighten($yellow, 30%);
       color: lighten($gray600, 20%);
     }
+  }
 
-    .danger {
-      color: $danger;
+  .danger {
+    color: $danger;
+
+    &:hover {
+      color: lighten($danger, 20%);
     }
   }
 }
