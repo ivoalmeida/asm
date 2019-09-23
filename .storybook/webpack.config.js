@@ -33,7 +33,7 @@ module.exports = ({ config }) => {
         {
           loader: require.resolve('css-loader'),
           options: {
-            importLoaders: 1,
+            importLoaders: 2,
             sourceMap: isDevelopment,
             localsConvention: 'camelCase',
             import: true,
