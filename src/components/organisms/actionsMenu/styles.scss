@@ -1,0 +1,26 @@
+@import '../../../scss/style.scss';
+
+.actions-menu {
+  background-color: $gray100;
+  border: 1px solid $gray200;
+  border-radius: $base-border-radius;
+  display: flex;
+  flex-direction: column;
+  color: $gray600;
+  width: 150px;
+  font-size: 1.6rem;
+
+  &.item {
+    flex: 1;
+    color: red;
+
+    &:hover {
+      // background-color: lighten($yellow, 0.5);
+      background-color: #fff3cb;
+    }
+  }
+}
+
+.danger {
+  color: $danger;
+}
