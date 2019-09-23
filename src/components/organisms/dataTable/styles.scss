@@ -1,0 +1,42 @@
+@import '../../../scss/style.scss';
+
+.data-table {
+  table {
+    min-width: 100%;
+    width: auto;
+    flex: 1;
+    display: grid;
+    border-collapse: collapse;
+  }
+
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background: $gray200;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: $gray600;
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  th:last-child {
+    border: 0;
+  }
+}

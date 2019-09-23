@@ -1,41 +1,50 @@
 import * as React from 'react';
+
 import Input from '../../atoms/input';
+import ActionMenu, { IActioMenuItem } from '../../organisms/actionsMenu';
+import * as styles from './styles.scss';
 
 export interface IDataColumn {
   name: string;
   sortable: boolean;
 }
 
-export interface IDataAction {
-  name: string;
-  action: (ev: React.SyntheticEvent) => void;
-}
-
 interface IProps {
   columns: IDataColumn[];
-  actions: IDataAction[];
-  data: any[];
-  onDataSelect: (ev: React.SyntheticEvent) => void;
+  actions: IActioMenuItem[];
+  rows: any[];
+  onDataSelect?: (ev: React.SyntheticEvent) => void;
 }
 
-const DataTable: React.FC<IProps> = ({ columns, actions, data, onDataSelect }) => {
+const calculateGridColumns = (nmrcolumns: number) => {
+  return `minmax(150px, 1fr)`;
+};
+
+const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) => {
   return (
-    <div>
-      <div>
-        {columns.map((column, index) => (
-          <div key={index}>{column}</div>
-        ))}
-      </div>
-      <div>
-        {data.map((item, index) => (
-          <>
-            <div>
-              <Input type="checkbox" id={`cbx_${index}_`} />
-            </div>
-            <div>{item}</div>
-          </>
-        ))}
-      </div>
+    <div className={styles.dataTable}>
+      <table
+        style={{
+          gridTemplateColumns: `repeat(${columns.length}, 1fr)`,
+        }}
+      >
+        <thead>
+          <tr>
+            {columns.map((column, index) => (
+              <th key={index}>{column.name}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={index}>
+              {row.map((item, i) => (
+                <td key={i}>{item}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
