@@ -1,6 +1,54 @@
-export const users = [
+import * as faker from 'faker';
+
+const userSchema = {
+  // userId: faker.random.uuid,
+  name: faker.name.firstName,
+  email: faker.internet.email('some', 'one', faker.internet.domainName()),
+  password: faker.random.uuid(),
+  // lastName: faker.name.lastName,
+  // admin: faker.random.boolean,
+};
+
+const generator = (schema: object, min: number = 1, max: number) => {
+  max = max || min;
+  return Array.from({ length: faker.random.number({ min, max }) }).map(() =>
+    Object.keys(schema).reduce((entity, key) => {
+      entity[key] = faker.fake(schema[key]);
+      return entity;
+    }, {}),
+  );
+};
+
+// const users = () => generator(userSchema, 1, 100);
+
+// export default users;
+
+// export const users = () => {
+//   const a = [];
+
+//   for (let i = 0; i < 50; i++) {
+//     a.push(name);
+//   }
+//   debugger;
+//   return a;
+// };
+const a = [];
+for (let i = 0; i < 50; i++) {
+  a.push({
+    userId: faker.random.uuid,
+    firstName: faker.name.firstName,
+    email: faker.internet.email('some', 'one', faker.internet.domainName()),
+    password: faker.internet.password,
+    lastName: faker.name.lastName,
+    admin: faker.random.boolean,
+  });
+}
+
+export const users = a;
+
+export const oldUsers = [
   {
-    name: 'Ivo',
+    name: faker.name.firstName,
     email: 'ivo@gmail.com',
     password: 'psd',
   },
