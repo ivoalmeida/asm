@@ -4,8 +4,12 @@
   background-color: $gray000;
   font-family: $heading-font-family;
   color: $gray600;
-  padding: 40px 20px;
+  // padding: 40px 20px;
   font-size: 1.6rem;
   flex: 1;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 160px;
 }
