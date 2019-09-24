@@ -45,8 +45,7 @@ const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) =
                 <td key={i}>{item}</td>
               ))}
               <td>
-                <IconButton variant="default" icon="actions" size="medium" />{' '}
-                {isActionsMenuOpen && <ActionMenu items={actions} />}
+                <IconButton icon="actions" /> {isActionsMenuOpen && <ActionMenu items={actions} />}
               </td>
             </tr>
           ))}

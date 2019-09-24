@@ -1,7 +1,10 @@
 @import '../../../scss/style.scss';
 
-.block {
-  align-content: space-around;
-  display: flex;
-  justify-content: space-around;
+.icon-only-button {
+  border: 1px solid #adadad;
+  padding: 12px 8px;
+  border-radius: 3px;
+  color: #adadad;
+  font-size: 2px;
+  cursor: pointer;
 }
