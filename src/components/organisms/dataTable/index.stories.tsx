@@ -53,13 +53,13 @@ const columns: IDataColumn[] = [
 
 const rows = [];
 for (let i = 0; i < 50; i++) {
-  rows.push([
-    faker.random.uuid(),
-    faker.internet.email('some', 'one', faker.internet.domainName()),
-    faker.name.firstName(),
-    faker.name.lastName(),
-    faker.random.boolean() ? 'Yes' : 'No',
-  ]);
+  rows.push({
+    userId: faker.random.uuid(),
+    email: faker.internet.email('some', 'one', faker.internet.domainName()),
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    admin: faker.random.boolean() ? 'Yes' : 'No',
+  });
 }
 
 storiesOf('Data Table', module).add('Data table', () => (

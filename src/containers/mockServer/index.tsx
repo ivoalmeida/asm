@@ -51,7 +51,7 @@ const executableSchema = makeExecutableSchema({
 });
 const link = new SchemaLink({ schema: executableSchema });
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache({ addTypename: false });
 const client = new ApolloClient({
   link,
   cache,

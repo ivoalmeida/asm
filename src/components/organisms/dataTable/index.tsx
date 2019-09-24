@@ -42,10 +42,10 @@ const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) =
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, index) => (
-            <tr key={index}>
-              {row.map((item, i) => (
-                <td key={i}>{item}</td>
+          {rows.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {Object.entries(row).map(([key, value], columnIndex) => (
+                <td key={columnIndex}>{value}</td>
               ))}
               <td>
                 <IconButton
@@ -54,17 +54,17 @@ const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) =
                     ev.preventDefault();
                     ev.stopPropagation();
                     toggleActionsMenuVisibility(!isActionsMenuOpen);
-                    setSelectedRow(index);
+                    setSelectedRow(rowIndex);
                   }}
                 />{' '}
                 <ActionMenu
                   items={actions}
-                  visible={index === selectedRow && isActionsMenuOpen}
+                  visible={rowIndex === selectedRow && isActionsMenuOpen}
                   onMouseLeave={(ev: React.SyntheticEvent) => {
                     ev.preventDefault();
                     ev.stopPropagation();
                     toggleActionsMenuVisibility(!isActionsMenuOpen);
-                    setSelectedRow(index);
+                    setSelectedRow(rowIndex);
                   }}
                 />
               </td>
