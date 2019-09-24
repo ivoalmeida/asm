@@ -1,6 +1,13 @@
-import { configure } from '@storybook/react';
-import { addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { themes } from '@storybook/theming';
+
+// Option defaults.
+addParameters({
+  options: {
+    theme: themes.light,
+  },
+});
 
 // Globally in your .storybook/config.js, or alternatively, per-chapter
 addDecorator(
@@ -27,8 +34,8 @@ addDecorator(
         lineHeight: '2',
       },
     },
-    inline: true,
-    source: true,
+    inline: false,
+    source: false,
   }),
 );
 

@@ -19,11 +19,7 @@ interface IProps {
   onDataSelect?: (ev: React.SyntheticEvent) => void;
 }
 
-const calculateGridColumns = (nmrcolumns: number) => {
-  return `minmax(150px, 1fr)`;
-};
-
-const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) => {
+export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) => {
   const [isActionsMenuOpen, toggleActionsMenuVisibility] = React.useState<boolean>(false);
   const [selectedRow, setSelectedRow] = React.useState<number>();
 
