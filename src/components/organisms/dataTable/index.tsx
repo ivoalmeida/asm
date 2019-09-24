@@ -3,6 +3,7 @@ import * as React from 'react';
 import Input from '../../atoms/input';
 import ActionMenu, { IActioMenuItem } from '../../organisms/actionsMenu';
 import * as styles from './styles.scss';
+import IconButton from '../../molecules/iconButton';
 
 export interface IDataColumn {
   name: string;
@@ -21,11 +22,12 @@ const calculateGridColumns = (nmrcolumns: number) => {
 };
 
 const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) => {
+  const [isActionsMenuOpen, toggleActionsMenuVisibility] = React.useState<boolean>(false);
   return (
     <div className={styles.dataTable}>
       <table
         style={{
-          gridTemplateColumns: `repeat(${columns.length}, 1fr)`,
+          gridTemplateColumns: `repeat(${columns.length + 1}, 1fr)`,
         }}
       >
         <thead>
@@ -33,6 +35,7 @@ const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) =
             {columns.map((column, index) => (
               <th key={index}>{column.name}</th>
             ))}
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -41,6 +44,10 @@ const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) =
               {row.map((item, i) => (
                 <td key={i}>{item}</td>
               ))}
+              <td>
+                <IconButton variant="default" icon="actions" size="medium" />{' '}
+                {isActionsMenuOpen && <ActionMenu items={actions} />}
+              </td>
             </tr>
           ))}
         </tbody>
