@@ -8,9 +8,13 @@ import Input from '.';
 storiesOf('Input', module)
   .addDecorator(withKnobs)
   .add('Input text', () => <Input placeholder={text('placeholder', 'I am a placeholder...')} />)
+  .add('Input password', () => (
+    <Input type="password" placeholder={text('placeholder', 'Enter password')} />
+  ))
   .add('Input text error', () => (
     <Input
       placeholder={text('placeholder', 'I am a placeholder...')}
       errorMessage={text('errorMessage', 'I am an error message...')}
     />
-  ));
+  ))
+  .add('Checkbox', () => <input type="checkbox" />);

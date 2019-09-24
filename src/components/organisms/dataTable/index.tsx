@@ -26,15 +26,19 @@ const calculateGridColumns = (nmrcolumns: number) => {
 const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) => {
   const [isActionsMenuOpen, toggleActionsMenuVisibility] = React.useState<boolean>(false);
   const [selectedRow, setSelectedRow] = React.useState<number>();
+
   return (
     <div className={styles.dataTable}>
       <table
         style={{
-          gridTemplateColumns: `repeat(${columns.length + 1}, 1fr)`,
+          gridTemplateColumns: `35px repeat(${columns.length}, 1fr) 55px`,
         }}
       >
         <thead>
           <tr>
+            <th>
+              <input type="checkbox" />
+            </th>
             {columns.map((column, index) => (
               <th key={index}>{column.name}</th>
             ))}
@@ -44,6 +48,9 @@ const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) =
         <tbody>
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex}>
+              <td>
+                <input type="checkbox" />
+              </td>
               {Object.entries(row).map(([key, value], columnIndex) => (
                 <td key={columnIndex}>{value}</td>
               ))}
