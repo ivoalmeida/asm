@@ -1,9 +1,11 @@
 import * as React from 'react';
+import cn from 'classnames';
 
 import Input from '../../atoms/input';
 import ActionMenu, { IActioMenuItem } from '../../organisms/actionsMenu';
 import * as styles from './styles.scss';
 import IconButton from '../../molecules/iconButton';
+import style from 'react-syntax-highlighter/dist/styles/hljs/gruvbox-light';
 
 export interface IDataColumn {
   name: string;
@@ -23,6 +25,7 @@ const calculateGridColumns = (nmrcolumns: number) => {
 
 const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) => {
   const [isActionsMenuOpen, toggleActionsMenuVisibility] = React.useState<boolean>(false);
+  const [selectedRow, setSelectedRow] = React.useState<number>();
   return (
     <div className={styles.dataTable}>
       <table
@@ -45,7 +48,25 @@ const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) =
                 <td key={i}>{item}</td>
               ))}
               <td>
-                <IconButton icon="actions" /> {isActionsMenuOpen && <ActionMenu items={actions} />}
+                <IconButton
+                  icon="actions"
+                  onClick={(ev: React.SyntheticEvent) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    toggleActionsMenuVisibility(!isActionsMenuOpen);
+                    setSelectedRow(index);
+                  }}
+                />{' '}
+                <ActionMenu
+                  items={actions}
+                  visible={index === selectedRow && isActionsMenuOpen}
+                  onMouseLeave={(ev: React.SyntheticEvent) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    toggleActionsMenuVisibility(!isActionsMenuOpen);
+                    setSelectedRow(index);
+                  }}
+                />
               </td>
             </tr>
           ))}

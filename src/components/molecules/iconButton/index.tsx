@@ -10,9 +10,10 @@ interface IIconButton {
   icon: string;
   size?: string;
   children?: any;
+  onClick?: (ev) => void;
 }
 
-const IconButton: React.FC<IIconButton> = ({ variant, size, icon, children }) => {
+const IconButton: React.FC<IIconButton> = ({ variant, size, icon, children, onClick }) => {
   if (children) {
     return (
       <Button variant={variant} size={size}>
@@ -21,7 +22,11 @@ const IconButton: React.FC<IIconButton> = ({ variant, size, icon, children }) =>
       </Button>
     );
   } else {
-    return <Icon variant={icon} className={styles.iconOnlyButton} />;
+    return (
+      <button className={styles.iconOnlyButton} onClick={onClick}>
+        <Icon variant={icon} />
+      </button>
+    );
   }
 };
 
