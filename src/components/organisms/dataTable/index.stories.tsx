@@ -62,11 +62,66 @@ for (let i = 0; i < 50; i++) {
   });
 }
 
-storiesOf('Data Table', module).add('Data table', () => (
-  <DataTable
-    columns={columns}
-    actions={actions}
-    rows={rows}
-    onDataSelect={e => e.preventDefault()}
-  />
-));
+storiesOf('Data Table', module)
+  .add('Accounts data table', () => {
+    const accountcolumns: IDataColumn[] = [
+      {
+        name: 'account id',
+        sortable: false,
+      },
+      {
+        name: 'name',
+        sortable: true,
+      },
+      {
+        name: 'type',
+        sortable: true,
+      },
+      {
+        name: 'contact mame',
+        sortable: false,
+      },
+      {
+        name: 'account manager',
+        sortable: false,
+      },
+      {
+        name: 'created',
+        sortable: false,
+      },
+      {
+        name: 'status',
+        sortable: false,
+      },
+    ];
+
+    const accounts = [];
+    for (let i = 0; i < 50; i++) {
+      accounts.push({
+        accountId: faker.random.uuid(),
+        name: faker.company.companySuffix(),
+        type: faker.company.companyName(),
+        contactName: `${faker.name.firstName()} ${faker.name.lastName()}`,
+        accountManager: `${faker.name.firstName()} ${faker.name.lastName()}`,
+        created: faker.date.past(5, '03-05-2018').toLocaleDateString('en-gb'),
+        status: faker.random.boolean() ? 'Active' : 'Inactive',
+      });
+    }
+
+    return (
+      <DataTable
+        columns={accountcolumns}
+        actions={actions}
+        rows={accounts}
+        onDataSelect={e => e.preventDefault()}
+      />
+    );
+  })
+  .add('Users data table', () => (
+    <DataTable
+      columns={columns}
+      actions={actions}
+      rows={rows}
+      onDataSelect={e => e.preventDefault()}
+    />
+  ));
