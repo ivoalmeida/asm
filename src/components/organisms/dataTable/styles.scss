@@ -24,16 +24,14 @@
   }
 
   th {
-    position: sticky;
-    top: 0;
-    background: $gray200;
-    text-align: left;
-    font-weight: normal;
-    font-size: 1.2rem;
     color: $gray600;
-    position: relative;
+    background: $gray200;
+    font-size: 1.2rem;
     font-weight: 700;
+    position: sticky;
+    text-align: left;
     text-transform: uppercase;
+    top: 0;
   }
 
   th:last-child {
