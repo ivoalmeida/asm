@@ -72,9 +72,7 @@ const UsersPage = () => {
       <Box>
         <h1>Users</h1>
       </Box>
-      <Box>
-        <Users />
-      </Box>
+      <Users />
     </PageTemplate>
   );
 };

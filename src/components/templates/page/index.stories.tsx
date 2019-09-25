@@ -13,8 +13,30 @@ storiesOf('PageTemplate', module)
   .add('PageTemplate', () => (
     <PageTemplate>
       <Block>
-        <h1>Accounts</h1>
+        <h1>Lorem Ipsum</h1>
       </Block>
-      <Box>Data Grid</Box>
+      <Box direction="column">
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil ut ullam aut ratione
+          impedit quisquam, suscipit et facilis aliquam at id quo molestias ex cum odio, ad harum
+          sapiente iste. Lorem ipsum dolor sit, amet consectetur adipisicing elit. A placeat quis
+          dignissimos veritatis laudantium? Et, earum nam. Mollitia, repudiandae! Modi beatae
+          tempore perspiciatis, maiores voluptatum quis doloremque hic atque quasi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil ut ullam aut ratione
+          impedit quisquam, suscipit et facilis aliquam at id quo molestias ex cum odio, ad harum
+          sapiente iste. Lorem ipsum dolor sit, amet consectetur adipisicing elit. A placeat quis
+          dignissimos veritatis laudantium? Et, earum nam. Mollitia, repudiandae! Modi beatae
+          tempore perspiciatis, maiores voluptatum quis doloremque hic atque quasi.
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil ut ullam aut ratione
+          impedit quisquam, suscipit et facilis aliquam at id quo molestias ex cum odio, ad harum
+          sapiente iste. Lorem ipsum dolor sit, amet consectetur adipisicing elit. A placeat quis
+          dignissimos veritatis laudantium? Et, earum nam. Mollitia, repudiandae! Modi beatae
+          tempore perspiciatis, maiores voluptatum quis doloremque hic atque quasi.
+        </p>
+      </Box>
     </PageTemplate>
   ));

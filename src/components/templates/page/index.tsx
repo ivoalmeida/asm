@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import * as styles from './styles.scss';
 import Box from '../../atoms/box';
 import Block from '../../atoms/block';
 import Masthead from '../../organisms/masthead';
@@ -11,22 +12,26 @@ interface IProps {
 const PageTemplate: React.FC<IProps> = ({ children }) => {
   const childrenAr = React.Children.toArray(children);
   return (
-    <Box
-      direction="column"
-      styles={{
-        justifyContent: 'space-around',
-        justifyItems: 'flex-start',
-      }}
-    >
-      <Masthead />
+    <div className={styles.container}>
+      <div className={styles.masthead}>
+        <Masthead />
+      </div>
 
       {childrenAr.map((item, index) => {
         if (index === 0) {
-          return <Block key={index}>{item}</Block>;
+          return (
+            <div key={index} className={styles.sectionHeader}>
+              <div className={styles.block}>{item}</div>
+            </div>
+          );
         }
-        return <React.Fragment key={index}>{item}</React.Fragment>;
+        return (
+          <div className={styles.content} key={index}>
+            {item}
+          </div>
+        );
       })}
-    </Box>
+    </div>
   );
 };
 

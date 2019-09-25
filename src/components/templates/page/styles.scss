@@ -1,19 +1,50 @@
 @import '../../../scss/style.scss';
 
 .container {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-areas: 'masthead', 'header', 'content';
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-items: flex-start;
 }
 
-.mastehead {
-  grid-area: 'mastehead';
+.masthead {
+  width: 100vw;
 }
 
-.header {
-  grid-area: 'header';
+.section-header {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  background-color: $gray000;
+  padding: 20px 0;
+}
+
+.block {
+  font-family: $heading-font-family;
+  color: $gray600;
+  font-size: 1.6rem;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 160px;
 }
 
 .content {
-  grid-area: 'content';
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  position: relative;
+}
+
+.block,
+.content {
+  max-width: 100vw;
+}
+
+@media (min-width: 600px) {
+  .block,
+  .content {
+    max-width: 1200px;
+  }
 }
