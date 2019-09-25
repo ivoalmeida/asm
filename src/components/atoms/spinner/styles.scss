@@ -1,0 +1,48 @@
+@import '../../../scss/style.scss';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  position: relative;
+  border: 0.2rem solid $gray200;
+  border-bottom-color: $blue;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+  // Default
+  width: 4rem;
+  height: 4rem;
+
+  &.xsmall {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &.small {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &.medium {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &.large {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  &.xlarge {
+    width: 10rem;
+    height: 10rem;
+  }
+}
