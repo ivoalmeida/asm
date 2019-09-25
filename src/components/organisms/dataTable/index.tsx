@@ -1,11 +1,9 @@
 import * as React from 'react';
 import cn from 'classnames';
 
-import Input from '../../atoms/input';
 import ActionMenu, { IActioMenuItem } from '../../organisms/actionsMenu';
 import * as styles from './styles.scss';
 import IconButton from '../../molecules/iconButton';
-import style from 'react-syntax-highlighter/dist/styles/hljs/gruvbox-light';
 
 export interface IDataColumn {
   name: string;
