@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Query, ChildProps } from 'react-apollo';
 import gql from 'graphql-tag';
+import Spinner from '../components/atoms/spinner';
 
 const USER_QUERY = gql`
   {
@@ -25,9 +26,8 @@ const withUsers = (Component: React.SFC<IResponse>) => {
       return (
         <Query query={USER_QUERY}>
           {({ loading, error, data }) => {
-            // TODO: Render Spinner component
             if (loading) {
-              return <div>Fetching...</div>;
+              return <Spinner size="large" />;
             }
             // TODO: Render custom error component
             if (error) {
