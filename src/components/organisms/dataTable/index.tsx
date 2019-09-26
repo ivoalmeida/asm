@@ -20,6 +20,8 @@ interface IProps {
 
 export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) => {
   const [isActionsMenuOpen, toggleActionsMenuVisibility] = React.useState<boolean>(false);
+  const [isSelectAllChecked, setSelectAll] = React.useState<boolean>(false);
+  const [isMultipleRecord, setMultipleRecord] = React.useState<boolean>(false);
   const [selectedRow, setSelectedRow] = React.useState<number>();
   const [selectedRows, selectRecord] = React.useState<number[]>([]);
 
@@ -38,6 +40,7 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
       const index = tmp.findIndex(r => r === rowIndex);
       if (index > -1) {
         tmp.splice(index, 1);
+        setMultipleRecord(isSelectAllChecked);
       } else {
         tmp.push(rowIndex);
       }
@@ -47,8 +50,10 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
 
   const selectAllRecords = ev => {
     const isChecked = ev.target.checked;
+    setSelectAll(isChecked);
     if (!isChecked) {
       selectRecord([]);
+      setMultipleRecord(false);
       return;
     }
     const tmp = [];
@@ -62,10 +67,18 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
         <thead>
           <tr>
             <th>
-              <Checkbox onClick={e => selectAllRecords(e)} />
+              <Checkbox isMultiSelection={isMultipleRecord} onClick={e => selectAllRecords(e)} />
             </th>
             {columns.map((column, index) => (
-              <th key={index}>{column.name}</th>
+              <th key={index}>
+                <span
+                  className={cn(styles.column, {
+                    [styles.sortable]: column.sortable,
+                  })}
+                >
+                  {column.name}
+                </span>
+              </th>
             ))}
             <th />
           </tr>

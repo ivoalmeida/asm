@@ -48,3 +48,20 @@
     background-color: lighten($color: $yellow, $amount: 30%);
   }
 }
+
+.column {
+  &.sortable {
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $gray600;
+      display: inline-block;
+      margin: 2px 5px;
+    }
+  }
+}
