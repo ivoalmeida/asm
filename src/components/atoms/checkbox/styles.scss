@@ -17,13 +17,14 @@
     width: 18px;
     background-color: #eee;
     border-radius: 3px;
+    border: 1px solid $gray200;
 
     &::after {
       content: '';
       position: absolute;
       display: none;
-      left: 6px;
-      top: 1.5px;
+      left: 5px;
+      top: 0.5px;
       height: 12.5px;
       width: 6.5px;
       border: solid $white;
@@ -48,9 +49,7 @@
     }
   }
 
-  /* Create a custom checkbox */
-
   &:hover input ~ .checkmark {
-    background-color: #ccc;
+    border: 1px solid $gray400;
   }
 }
