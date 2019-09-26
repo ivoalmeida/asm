@@ -23,7 +23,7 @@
     color: $gray600;
     background: $gray000;
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 500;
     position: sticky;
     text-transform: uppercase;
     top: 0;
@@ -31,6 +31,7 @@
 
   th:first-child {
     width: 55px;
+    padding: 23px 15px;
   }
 
   td:last-child,

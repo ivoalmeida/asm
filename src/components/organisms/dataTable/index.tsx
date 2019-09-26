@@ -28,7 +28,6 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
     ev.stopPropagation();
     toggleActionsMenuVisibility(!isActionsMenuOpen);
     setSelectedRow(rowIndex);
-    selectSingleRecord(rowIndex);
   };
 
   const selectSingleRecord = (rowIndex: number) => {
@@ -38,11 +37,22 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
     } else {
       const index = tmp.findIndex(r => r === rowIndex);
       if (index > -1) {
-        delete tmp[index];
+        tmp.splice(index, 1);
       } else {
         tmp.push(rowIndex);
       }
     }
+    selectRecord(tmp);
+  };
+
+  const selectAllRecords = ev => {
+    const isChecked = ev.target.checked;
+    if (!isChecked) {
+      selectRecord([]);
+      return;
+    }
+    const tmp = [];
+    rows.forEach((row, rowIndex) => tmp.push(rowIndex));
     selectRecord(tmp);
   };
 
@@ -52,7 +62,7 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
         <thead>
           <tr>
             <th>
-              <Checkbox />
+              <Checkbox onClick={e => selectAllRecords(e)} />
             </th>
             {columns.map((column, index) => (
               <th key={index}>{column.name}</th>
@@ -61,29 +71,33 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, rowIndex) => (
-            <tr
-              key={rowIndex}
-              className={cn(styles.dataTable, {
-                [styles.selectedRow]: selectedRows.indexOf(rowIndex) > -1,
-              })}
-            >
-              <td>
-                <Checkbox onClick={() => selectSingleRecord(rowIndex)} />
-              </td>
-              {Object.entries(row).map(([key, value], columnIndex) => (
-                <td key={columnIndex}>{value}</td>
-              ))}
-              <td>
-                <IconButton icon="actions" onClick={ev => toggleActionsMenu(ev, rowIndex)} />{' '}
-                <ActionMenu
-                  items={actions}
-                  visible={rowIndex === selectedRow && isActionsMenuOpen}
-                  onMouseLeave={ev => toggleActionsMenu(ev, rowIndex)}
-                />
-              </td>
-            </tr>
-          ))}
+          {rows.map((row, rowIndex) => {
+            const isSelected = selectedRows.indexOf(rowIndex) > -1;
+            return (
+              <tr
+                key={rowIndex}
+                className={cn(styles.dataTable, {
+                  [styles.selectedRow]:
+                    isSelected || (isActionsMenuOpen && rowIndex === selectedRow),
+                })}
+              >
+                <td>
+                  <Checkbox checked={isSelected} onClick={() => selectSingleRecord(rowIndex)} />
+                </td>
+                {Object.entries(row).map(([key, value], columnIndex) => (
+                  <td key={columnIndex}>{value}</td>
+                ))}
+                <td>
+                  <IconButton icon="actions" onClick={ev => toggleActionsMenu(ev, rowIndex)} />{' '}
+                  <ActionMenu
+                    items={actions}
+                    visible={rowIndex === selectedRow && isActionsMenuOpen}
+                    onMouseLeave={ev => toggleActionsMenu(ev, rowIndex)}
+                  />
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
