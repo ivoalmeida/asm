@@ -1,0 +1,56 @@
+@import '../../../scss/style.scss';
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #eee;
+    border-radius: 3px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 6px;
+      top: 1.5px;
+      height: 12.5px;
+      width: 6.5px;
+      border: solid $white;
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background-color: $green;
+    }
+
+    &:checked ~ .checkmark::after {
+      display: block;
+    }
+  }
+
+  /* Create a custom checkbox */
+
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+}
