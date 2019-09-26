@@ -31,6 +31,21 @@
       border-width: 0 1.5px 1.5px 0;
       transform: rotate(45deg);
     }
+
+    &.multi-selection {
+      &::after {
+        content: '';
+        position: absolute;
+        display: none;
+        left: 3px;
+        top: -3.5px;
+        height: 12.5px;
+        width: 10px;
+        border: solid #fff;
+        border-width: 0 0 2px 0;
+        transform: rotate(0deg);
+      }
+    }
   }
 
   input {
