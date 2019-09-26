@@ -67,7 +67,11 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
         <thead>
           <tr>
             <th>
-              <Checkbox isMultiSelection={isMultipleRecord} onClick={e => selectAllRecords(e)} />
+              <Checkbox
+                isMultiSelection={isMultipleRecord}
+                checked={isSelectAllChecked}
+                onClick={e => selectAllRecords(e)}
+              />
             </th>
             {columns.map((column, index) => (
               <th key={index}>

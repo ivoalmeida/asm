@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 
 import PageTemplate from '../../components/templates/page';
 import Box from '../../components/atoms/box';
@@ -8,6 +6,9 @@ import withUsers from '../../containers/withUsers';
 import Icon from '../../components/atoms/icon';
 import { IActioMenuItem } from '../../components/organisms/actionsMenu';
 import DataTable, { IDataColumn } from '../../components/organisms/dataTable';
+import NavBar from '../../components/organisms/navbar';
+import { LinkButton } from '../../components/atoms/button';
+import IconButton from '../../components/molecules/iconButton';
 
 const actions: IActioMenuItem[] = [
   {
@@ -71,6 +72,19 @@ const UsersPage = () => {
     <PageTemplate>
       <Box>
         <h1>Users</h1>
+      </Box>
+      <Box padding="20px 0" width="100vw" justifyContent="space-between">
+        <NavBar>
+          <LinkButton variant="nav-item" href="/Users">
+            Users
+          </LinkButton>
+          <LinkButton variant="nav-item" href="/Roles">
+            Roles
+          </LinkButton>
+        </NavBar>
+        <IconButton variant="secondary" icon="plus" size="small">
+          Create New
+        </IconButton>
       </Box>
       <Users />
     </PageTemplate>

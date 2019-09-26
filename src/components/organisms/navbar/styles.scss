@@ -1,0 +1,9 @@
+@import '../../../scss/style.scss';
+
+.nav-bar {
+  display: inline-flex;
+
+  a {
+    padding-left: 0;
+  }
+}
