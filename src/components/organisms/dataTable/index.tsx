@@ -23,11 +23,7 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
 
   return (
     <div className={styles.dataTable}>
-      <table
-        style={{
-          gridTemplateColumns: `35px repeat(${columns.length}, 1fr) 55px`,
-        }}
-      >
+      <table>
         <thead>
           <tr>
             <th>
