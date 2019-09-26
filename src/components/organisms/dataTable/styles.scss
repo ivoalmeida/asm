@@ -2,6 +2,7 @@
 
 .data-table {
   font-size: 1.4rem;
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -40,5 +41,9 @@
 
   tr {
     border-bottom: 2px solid $gray000;
+  }
+
+  &.selected-row {
+    background-color: lighten($color: $yellow, $amount: 30%);
   }
 }
