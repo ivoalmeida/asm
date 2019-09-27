@@ -1,5 +1,7 @@
 @import '../../../scss/style.scss';
 
+$header-border-radius: 4px;
+
 .data-table {
   font-size: 1.4rem;
 
@@ -30,18 +32,26 @@
   }
 
   th:first-child {
+    border-top-left-radius: $header-border-radius;
+    border-bottom-left-radius: $header-border-radius;
     width: 55px;
-    padding: 23px 15px;
+    padding: 15px;
   }
 
   td:last-child,
   th:last-child {
+    border-top-right-radius: $header-border-radius;
+    border-bottom-right-radius: $header-border-radius;
     width: 55px;
     text-align: right;
   }
 
   tr {
     border-bottom: 2px solid $gray000;
+  }
+
+  thead tr {
+    border: 0;
   }
 
   &.selected-row {
