@@ -46,6 +46,9 @@ $danger: $tomato;
 $success: $green;
 $warning: $yellow;
 
+$hover-color: lighten($yellow, 40%);
+$selected-color: lighten($yellow, 40%);
+
 // Font Colors
 $base-font-color: $dark-gray;
 $action-color: $blue;
