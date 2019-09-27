@@ -5,7 +5,7 @@ import * as styles from './styles.scss';
 import Box from '../../atoms/box';
 import { LogoMastHead } from '../../atoms/logo';
 import { LinkButton } from '../../atoms/button';
-import SearchBox from '../../molecules/searchBox';
+import SearchBox from '../../molecules/search-box';
 
 export const Masthead = () => {
   return (

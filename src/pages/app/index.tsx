@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { AuthProvider } from '../../auth/authcontext';
 import ProtectedRoute from '../../auth/protectedRoute';
-import MockServer from '../../containers/mockServer';
+import MockServer from '../../containers/mock-server';
 import LoginPage from '../login';
 import UsersPage from '../users';
 import { SignUpPage } from '../signup';

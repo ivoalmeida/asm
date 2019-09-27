@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
 
 import { LinkButton } from '../../atoms/button';
-import NavLinkButton from '../../atoms/navLinkButton';
+import NavLinkButton from '../../atoms/nav-link-button';
 import NavBar from '.';
 
 storiesOf('NavBar', module)

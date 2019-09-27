@@ -4,7 +4,7 @@ import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import MockServer from '../../containers/mockServer';
+import MockServer from '../../containers/mock-server';
 import LoginPage from '.';
 
 storiesOf('LoginPage', module)

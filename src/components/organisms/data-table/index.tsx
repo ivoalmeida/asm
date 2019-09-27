@@ -2,8 +2,8 @@ import * as React from 'react';
 import cn from 'classnames';
 
 import * as styles from './styles.scss';
-import ActionMenu, { IActioMenuItem } from '../../organisms/actionsMenu';
-import IconButton from '../../molecules/iconButton';
+import ActionMenu, { IActioMenuItem } from '../actions-menu';
+import IconButton from '../../molecules/icon-button';
 import Checkbox from '../../atoms/checkbox';
 
 export interface IDataColumn {

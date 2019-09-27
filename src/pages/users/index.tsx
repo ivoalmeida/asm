@@ -4,11 +4,11 @@ import PageTemplate from '../../components/templates/page';
 import Box from '../../components/atoms/box';
 import withUsers from '../../containers/withUsers';
 import Icon from '../../components/atoms/icon';
-import { IActioMenuItem } from '../../components/organisms/actionsMenu';
-import DataTable, { IDataColumn } from '../../components/organisms/dataTable';
+import { IActioMenuItem } from '../../components/organisms/actions-menu';
+import DataTable, { IDataColumn } from '../../components/organisms/data-table';
 import NavBar from '../../components/organisms/navbar';
 import { LinkButton } from '../../components/atoms/button';
-import IconButton from '../../components/molecules/iconButton';
+import IconButton from '../../components/molecules/icon-button';
 
 const actions: IActioMenuItem[] = [
   {

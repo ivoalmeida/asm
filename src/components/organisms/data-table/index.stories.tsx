@@ -2,7 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import * as faker from 'faker';
 
-import { IActioMenuItem } from '../actionsMenu';
+import { IActioMenuItem } from '../actions-menu';
 import DataTable, { IDataColumn } from '.';
 
 const actions: IActioMenuItem[] = [
