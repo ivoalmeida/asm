@@ -1,0 +1,45 @@
+@import '../../../scss/style.scss';
+
+.nav-item {
+  font-family: 'Archivo Regular', sans-serif;
+  color: $gray300;
+  font-size: 1.6rem;
+  padding: 0 1.8rem;
+  // display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  line-height: 170%;
+
+  &::after {
+    background-color: $red;
+    display: block;
+    content: '';
+    height: 3px;
+    width: 0;
+    margin: 0;
+    transition: width 0.3s ease-out;
+  }
+
+  &:hover {
+    color: $gray500;
+
+    &::after {
+      width: 50%;
+    }
+  }
+
+  &.active {
+    color: $gray500;
+
+    &::after {
+      background-color: $red;
+      display: block;
+      content: '';
+      height: 3px;
+      width: 50%;
+      margin: 0;
+      transition: width 0.3s ease-out;
+    }
+  }
+}
