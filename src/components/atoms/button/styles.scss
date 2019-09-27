@@ -50,15 +50,15 @@
 }
 
 .nav-item {
-  font-family: 'Roboto Bold', sans-serif;
-  color: $gray500;
-  font-size: 1.4rem;
+  font-family: 'Archivo Regular', sans-serif;
+  color: $gray300;
+  font-size: 1.6rem;
   padding: 0 1.8rem;
   // display: inline-flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  line-height: 130%;
+  line-height: 170%;
 
   &::after {
     background-color: $red;
