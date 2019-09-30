@@ -70,6 +70,7 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
               <Checkbox
                 isMultiSelection={isMultipleRecord}
                 checked={isSelectAllChecked}
+                onChange={e => (e.target.checked = isSelectAllChecked)}
                 onClick={e => selectAllRecords(e)}
               />
             </th>
@@ -99,7 +100,11 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
                 })}
               >
                 <td>
-                  <Checkbox checked={isSelected} onClick={() => selectSingleRecord(rowIndex)} />
+                  <Checkbox
+                    checked={isSelected}
+                    onChange={e => (e.target.checked = isSelected)}
+                    onClick={() => selectSingleRecord(rowIndex)}
+                  />
                 </td>
                 {Object.entries(row).map(([key, value], columnIndex) => (
                   <td key={columnIndex}>{value}</td>
