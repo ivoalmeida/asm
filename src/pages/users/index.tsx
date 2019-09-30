@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import PageTemplate from '../../components/templates/page';
 import Box from '../../components/atoms/box';
-import withUsers from '../../containers/withUsers';
+import withUsers from '../../containers/with-users';
 import Icon from '../../components/atoms/icon';
 import { IActioMenuItem } from '../../components/organisms/actions-menu';
 import DataTable, { IDataColumn } from '../../components/organisms/data-table';
