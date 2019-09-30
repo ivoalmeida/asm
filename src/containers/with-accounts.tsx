@@ -19,7 +19,7 @@ const ACCOUNTS_QUERY = gql`
 
 // TODO: Define proper return interfaces/types
 interface IResponse {
-  users: any[];
+  accounts: any[];
 }
 
 const withAccounts = (Component: React.FC<IResponse>) => {
@@ -35,7 +35,7 @@ const withAccounts = (Component: React.FC<IResponse>) => {
             if (error) {
               return <div>Error</div>;
             }
-            return <Component users={data.users} />;
+            return <Component accounts={data.accounts} />;
           }}
         </Query>
       );
