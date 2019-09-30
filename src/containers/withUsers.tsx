@@ -20,7 +20,7 @@ interface IResponse {
   users: any[];
 }
 
-const withUsers = (Component: React.SFC<IResponse>) => {
+const withUsers = (Component: React.FC<IResponse>) => {
   return class Internal extends React.Component<ChildProps<{}, IResponse>> {
     public render() {
       return (
