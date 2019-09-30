@@ -18,12 +18,7 @@ interface IProps {
   onSelect?: (item: ISelectItem) => void;
 }
 
-const Dropdown: React.FC<IProps> = ({
-  options,
-  onSelect,
-  label,
-  placeholder = 'Select an option',
-}) => {
+const Dropdown: React.FC<IProps> = ({ options, onSelect, label = 'Select an option' }) => {
   const [selectedItem, setSelectedItem] = React.useState<ISelectItem>();
   const [isDropdownVisible, toggleDropdown] = React.useState<boolean>(false);
 
