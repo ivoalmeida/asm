@@ -5,9 +5,8 @@ import Box from '../../components/atoms/box';
 import withAccounts from '../../containers/with-accounts';
 import { IActioMenuItem } from '../../components/organisms/actions-menu';
 import DataTable, { IDataColumn } from '../../components/organisms/data-table';
-import NavBar from '../../components/organisms/navbar';
-import { LinkButton } from '../../components/atoms/button';
 import IconButton from '../../components/molecules/icon-button';
+import CtaContainer from '../../components/atoms/cta-container';
 
 const actions: IActioMenuItem[] = [
   {
@@ -81,15 +80,17 @@ const AccountsPage = () => {
         <h1>Accounts</h1>
       </Box>
       <Box padding="20px 0" width="100vw" justifyContent="flex-end">
-        <IconButton variant="default" icon="filter" size="small">
-          Filter
-        </IconButton>
-        <IconButton variant="default" icon="eye" size="small">
-          Table Content
-        </IconButton>
-        <IconButton variant="secondary" icon="plus" size="small">
-          Create New
-        </IconButton>
+        <CtaContainer>
+          <IconButton variant="default" icon="filter" size="small">
+            Filter
+          </IconButton>
+          <IconButton variant="default" icon="eye" size="small">
+            Table Content
+          </IconButton>
+          <IconButton variant="secondary" icon="plus" size="small">
+            Create New
+          </IconButton>
+        </CtaContainer>
       </Box>
       <Accounts />
     </PageTemplate>
