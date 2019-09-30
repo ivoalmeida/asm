@@ -14,17 +14,17 @@ for (let i = 0; i < 50; i++) {
 
 export const users = fakeUsers;
 
-export const accounts = [];
+const fakeAccounts = [];
 for (let i = 0; i < 50; i++) {
-  accounts.push({
+  fakeAccounts.push({
     accountId: faker.random.uuid(),
     name: faker.company.companySuffix(),
     type: faker.company.companyName(),
     contactName: `${faker.name.firstName()} ${faker.name.lastName()}`,
     accountManager: `${faker.name.firstName()} ${faker.name.lastName()}`,
     created: faker.date.past(5, '03-05-2018').toLocaleDateString('en-gb'),
-    status: faker.random.boolean() ? 'Active' : 'Inactive',
+    status: faker.random.boolean(),
   });
 }
 
-export default accounts;
+export const accounts = fakeAccounts;
