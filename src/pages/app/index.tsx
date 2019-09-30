@@ -7,6 +7,7 @@ import MockServer from '../../containers/mock-server';
 import LoginPage from '../login';
 import UsersPage from '../users';
 import { SignUpPage } from '../signup';
+import AccountsPage from '../accounts';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/users" component={UsersPage} />
+          <Route exact path="/accounts" component={AccountsPage} />
           <Route exact path="/signup" component={SignUpPage} />
         </Switch>
       </Router>
