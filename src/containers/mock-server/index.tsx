@@ -21,11 +21,11 @@ const typeDefs = `
   type Account {
     accountId: ID!
     name: String!
-    type: String
-    contactName: String
-    accountManager: String
-    created: String
-    status: Boolean
+    type: String!
+    contactName: String!
+    accountManager: String!
+    created: String!
+    status: Boolean!
   }
 
   type AuthPayload {
@@ -48,6 +48,9 @@ const resolvers = {
   Query: {
     users: () => {
       return users;
+    },
+    accounts: () => {
+      return accounts;
     },
   },
   Mutation: {
