@@ -6,7 +6,7 @@ import { SchemaLink } from 'apollo-link-schema';
 import { makeExecutableSchema } from 'graphql-tools';
 
 import { login, signup } from './mutation';
-import { users } from './data';
+import { users, accounts } from './data';
 
 const typeDefs = `
   type User {
@@ -18,6 +18,16 @@ const typeDefs = `
     password: String!
   }
 
+  type Account {
+    accountId: ID!
+    name: String!
+    type: String
+    contactName: String
+    accountManager: String
+    created: String
+    status: Boolean
+  }
+
   type AuthPayload {
     token: String
     user: User
@@ -25,6 +35,7 @@ const typeDefs = `
 
   type Query {
     users: [User]
+    accounts: [Account]
   }
 
   type Mutation {
