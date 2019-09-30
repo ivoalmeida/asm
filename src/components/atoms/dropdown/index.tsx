@@ -2,8 +2,6 @@ import * as React from 'react';
 import cn from 'classnames';
 
 import * as styles from './styles.scss';
-import { placeholder } from '@babel/types';
-import { select } from '@storybook/addon-knobs';
 
 interface ISelectItem {
   label: string;
