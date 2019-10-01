@@ -18,22 +18,24 @@ interface IProps {
 
 const ActionsMenu: React.FC<IProps> = ({ items, visible = false, onMouseLeave }) => {
   return (
-    <div
-      className={cn(styles.actionsMenu, visible ? styles.show : styles.hide)}
-      onMouseLeave={onMouseLeave}
-    >
-      {items.map((item, index) => (
-        <a
-          className={cn(styles.item, { [styles.danger]: item.iconType === 'trash' })}
-          key={index}
-          href="#"
-          onClick={item.onClick}
-        >
-          <Icon variant={item.iconType} />
-          {item.name}
-        </a>
-      ))}
-    </div>
+    visible && (
+      <div
+        className={cn(styles.actionsMenu, visible ? styles.show : styles.hide)}
+        onMouseLeave={onMouseLeave}
+      >
+        {items.map((item, index) => (
+          <a
+            className={cn(styles.item, { [styles.danger]: item.iconType === 'trash' })}
+            key={index}
+            href="#"
+            onClick={item.onClick}
+          >
+            <Icon variant={item.iconType} />
+            {item.name}
+          </a>
+        ))}
+      </div>
+    )
   );
 };
 
