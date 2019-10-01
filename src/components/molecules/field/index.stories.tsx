@@ -5,6 +5,9 @@ import Field from '.';
 storiesOf('Field', module)
   .add('default', () => <Field name="field" />)
   .add('with label', () => <Field name="field" label="Label" />)
+  .add('with label and placeholder', () => (
+    <Field name="field" label="Label" placeholder="type field name" />
+  ))
   .add('invalid', () => <Field name="field" label="Label" invalid />)
   .add('invalid with error message', () => (
     <Field name="field" label="Label" errorMessage="Invalid" invalid />

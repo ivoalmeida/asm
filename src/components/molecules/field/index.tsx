@@ -12,6 +12,7 @@ interface IProps {
   errorMessage?: string;
   label?: string;
   type?: string;
+  placeholder?: string;
 }
 
 const Field: React.FC<IProps> = ({
@@ -20,12 +21,14 @@ const Field: React.FC<IProps> = ({
   errorMessage,
   label,
   type = 'text',
+  placeholder,
   ...props
 }) => {
   const renderInputFirst = type === 'checkbox' || type === 'radio';
   const inputProps = {
     id: name,
     name,
+    placeholder,
     type,
     errorMessage,
     invalid,
