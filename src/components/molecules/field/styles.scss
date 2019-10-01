@@ -1,0 +1,21 @@
+@import '../../../scss/style.scss';
+
+.field {
+  margin-bottom: 1.6rem;
+
+  label {
+    vertical-align: middle;
+  }
+
+  &.label-block {
+    label {
+      display: block;
+    }
+  }
+
+  &.label-inline {
+    label {
+      display: inline-flex;
+    }
+  }
+}
