@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as styles from './styles.scss';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
@@ -8,12 +8,13 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: React.SFC<IInputProps> = ({ errorMessage, invalid, className, ...props }) => {
-  const isError: boolean = invalid || (errorMessage !== undefined && errorMessage.length > 0);
+  const displayErrorMessage = errorMessage !== undefined && errorMessage.length > 0;
+  const isError: boolean = invalid || displayErrorMessage;
 
   return (
-    <span className={classNames({ [styles.errorWarning]: isError })}>
+    <span className={cn({ [styles.errorWarning]: isError })}>
       <input
-        className={classNames(
+        className={cn(
           styles.inputText,
           {
             [styles.error]: isError,
@@ -22,6 +23,7 @@ export const Input: React.SFC<IInputProps> = ({ errorMessage, invalid, className
         )}
         {...props}
       />
+      {displayErrorMessage && <span className={styles.errorMessage}>{errorMessage}</span>}
     </span>
   );
 };
