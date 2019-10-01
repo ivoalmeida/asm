@@ -1,46 +1,54 @@
 @import '../../../scss/style.scss';
 
 .side-panel {
-  top: 0;
-  right: 0;
-  width: 0;
-  max-width: 90vw;
-  background-color: $off-white;
-  position: absolute;
-  height: 100vh;
-  box-shadow: 0 9px 11px rgba(0, 0, 0, 0.5);
-  z-index: 18;
-  transition: width 800ms ease-in-out;
+  &.overlay {
+    visibility: hidden;
+    opacity: 0;
+    background-color: $gray600;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    z-index: 17;
+    transition: all 800ms ease-in-out;
 
-  &.show {
-    width: 30vw;
+    &.show {
+      opacity: 0.7;
+      visibility: visible;
+    }
+
+    &.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 
-  &.hide {
+  &.content {
+    top: 0;
+    right: 0;
     width: 0;
+    max-width: 90vw;
+    background-color: $off-white;
+    position: absolute;
+    height: 100vh;
+    box-shadow: 0 9px 11px rgba(0, 0, 0, 0.5);
+    z-index: 18;
+    transition: width 800ms ease-in-out;
+
+    &.show {
+      width: 45vw;
+    }
+
+    &.hide {
+      width: 0;
+    }
   }
 }
 
-.overlay {
-  visibility: hidden;
-  opacity: 0;
-  background-color: $gray600;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  z-index: 17;
-  transition: all 800ms ease-in-out;
-
-  &.show {
-    opacity: 0.7;
-    visibility: visible;
-  }
-
-  &.hide {
-    opacity: 0;
-    visibility: hidden;
-  }
+.inner-content {
+  width: 45vw;
+  visibility: visible;
+  position: relative;
 }

@@ -13,8 +13,9 @@ interface IProps {
 const SidePanel: React.FC<IProps> = ({ children, isVisible, onClose }) => {
   return (
     <ApplicationRootPortal>
-      <div className={cn(styles.overlay, { [styles.show]: isVisible })}>
-        <div className={cn(styles.sidePanel, { [styles.show]: isVisible })}>{children}</div>
+      <div className={cn(styles.sidePanel, styles.overlay, { [styles.show]: isVisible })} />
+      <div className={cn(styles.sidePanel, styles.content, { [styles.show]: isVisible })}>
+        <div className={cn(styles.innerContent)}>{children}</div>
       </div>
     </ApplicationRootPortal>
   );
