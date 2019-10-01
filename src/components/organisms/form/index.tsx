@@ -15,7 +15,7 @@ const Form: React.FC<IProps> = ({ title, children, buttons }) => {
       <h4 className={styles.title}>{title}</h4>
       <hr className={styles.title} />
       {children}
-      {buttons}
+      <div className={cn(styles.form, styles.buttons)}>{buttons}</div>
     </div>
   );
 };

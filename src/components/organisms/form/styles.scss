@@ -2,22 +2,33 @@
 
 .form {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-  padding: 10px;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px 30px;
+  padding: 25px;
   width: 100%;
-  height: auto;
-  background-color: $white;
+  background-color: $form-bg-color;
+  align-content: start;
+  position: relative;
+  height: 60vh;
 
   .title {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 1;
   }
 
-  .buttons {
+  &.buttons {
+    grid-column: 1 / span 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    width: 100vw;
-    align-self: end;
+    grid-gap: 10px 30px;
+    align-content: end;
+    position: relative;
+  }
+
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    .title {
+      grid-column: 1 / span 2;
+    }
   }
 }
