@@ -7,6 +7,7 @@ import Input from '../../atoms/input';
 import Button from '../../atoms/button';
 import Dropdown from '../../atoms/dropdown';
 import SearchBox from '../../molecules/search-box';
+import Field from '../../molecules/field';
 import Form from '.';
 
 storiesOf('Form', module).add('form', () => (
@@ -23,24 +24,17 @@ storiesOf('Form', module).add('form', () => (
       </>
     }
   >
-    <Label>
-      <span>First Name</span>
-      <Input type="text" placeholder="first name" />
-    </Label>
-    <Label>
-      <span>Last Name</span>
-      <Input type="text" placeholder="last name" />
-    </Label>
-    <Label>
-      <span>E-mail Address</span>
-      <Input type="text" placeholder="email@domain.com" />
-    </Label>
-    <Dropdown
+    <Field name="first_name" label="First Name" placeholder="John" />
+    <Field name="last_name" label="Last Name" placeholder="Doe" />
+    <Field name="email" label="E-mail Address" placeholder="example: john.doe@gmail.com" />
+    <Field
+      name="role"
       label="User Role"
+      type="dropdown"
       options={[
         { label: 'Admin', value: 1 },
         { label: 'God', value: 2 },
-        { label: 'Basic', value: 3 },
+        { label: 'Basic', value: 3, default: true },
       ]}
     />
   </Form>

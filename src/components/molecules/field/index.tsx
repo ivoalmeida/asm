@@ -5,6 +5,7 @@ import * as styles from './styles.scss';
 import Label from '../../atoms/label';
 import Input from '../../atoms/input';
 import Checkbox from '../../atoms/checkbox';
+import Dropdown from '../../atoms/dropdown';
 
 interface IProps {
   name: string;
@@ -13,6 +14,7 @@ interface IProps {
   label?: string;
   type?: string;
   placeholder?: string;
+  options?: any[];
 }
 
 const Field: React.FC<IProps> = ({
@@ -39,7 +41,11 @@ const Field: React.FC<IProps> = ({
     <div className={cn(styles.field)}>
       {renderInputFirst && <Checkbox {...inputProps} />}
       {label && <Label htmlFor={inputProps.id}>{label}</Label>}
-      {renderInputFirst || <Input {...inputProps} />}
+      {type !== 'dropdown' ? (
+        renderInputFirst || <Input {...inputProps} />
+      ) : (
+        <Dropdown options={props.options} />
+      )}
     </div>
   );
 };
