@@ -16,7 +16,7 @@ interface IIconButton {
 const IconButton: React.FC<IIconButton> = ({ variant, size, icon, children, onClick }) => {
   if (children) {
     return (
-      <Button variant={variant} size={size}>
+      <Button variant={variant} size={size} onClick={onClick}>
         <Icon variant={icon} styles={{ marginRight: `10px` }} />
         {children}
       </Button>
