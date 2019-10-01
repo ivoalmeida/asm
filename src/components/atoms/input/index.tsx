@@ -4,10 +4,11 @@ import classNames from 'classnames';
 
 interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
+  invalid?: boolean;
 }
 
-export const Input: React.SFC<IInputProps> = ({ errorMessage, className, ...props }) => {
-  const isError: boolean = errorMessage !== undefined && errorMessage.length > 0;
+export const Input: React.SFC<IInputProps> = ({ errorMessage, invalid, className, ...props }) => {
+  const isError: boolean = invalid || (errorMessage !== undefined && errorMessage.length > 0);
 
   return (
     <span className={classNames({ [styles.errorWarning]: isError })}>
