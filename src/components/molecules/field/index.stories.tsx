@@ -5,8 +5,6 @@ import Field from '.';
 storiesOf('Field', module)
   .add('default', () => <Field name="field" />)
   .add('with label', () => <Field name="field" label="Label" />)
-  .add('with align block', () => <Field name="field" label="Label" align="block" />)
-  .add('with align inline', () => <Field name="field" label="Label" align="inline" />)
   .add('invalid', () => <Field name="field" label="Label" invalid />)
   .add('invalid with error message', () => (
     <Field name="field" label="Label" errorMessage="Invalid" invalid />

@@ -21,7 +21,8 @@
   margin-bottom: $small-spacing;
   padding: 1.8rem;
   transition: border-color $base-duration $base-timing;
-  display: inline-block;
+  display: block;
+  width: 100%;
   color: $gray500;
 
   &:hover {

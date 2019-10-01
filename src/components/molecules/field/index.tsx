@@ -8,7 +8,6 @@ import Checkbox from '../../atoms/checkbox';
 
 interface IProps {
   name: string;
-  align?: 'inline' | 'block';
   invalid?: boolean;
   errorMessage?: string;
   label?: string;
@@ -17,7 +16,6 @@ interface IProps {
 
 const Field: React.FC<IProps> = ({
   name,
-  align = 'block',
   invalid,
   errorMessage,
   label,
@@ -35,13 +33,7 @@ const Field: React.FC<IProps> = ({
     ...props,
   };
   return (
-    <div
-      className={cn(
-        styles.field,
-        { [styles.labelBlock]: align === 'block' },
-        { [styles.labelInline]: align === 'inline' },
-      )}
-    >
+    <div className={cn(styles.field)}>
       {renderInputFirst && <Checkbox {...inputProps} />}
       {label && <Label htmlFor={inputProps.id}>{label}</Label>}
       {renderInputFirst || <Input {...inputProps} />}
