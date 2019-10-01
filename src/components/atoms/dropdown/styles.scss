@@ -5,7 +5,8 @@
   background-color: $gray000;
   border-radius: $base-border-radius;
   position: relative;
-  max-width: 250px;
+  max-height: 44px;
+
   cursor: pointer;
 
   &.dropdown {
@@ -39,7 +40,14 @@
 
 .selected,
 .item {
+  background-color: $gray000;
   padding: 10px;
+
+  &:last-child {
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
+  }
+
   &:hover {
     background-color: $hover-color;
   }
