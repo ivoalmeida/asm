@@ -1,18 +1,21 @@
 import * as React from 'react';
+import cn from 'classnames';
 
 import * as styles from './styles.scss';
 
 interface IProps {
   title: string;
   children?: any;
+  buttons?: any;
 }
 
-const Form: React.FC<IProps> = ({ title, children }) => {
+const Form: React.FC<IProps> = ({ title, children, buttons }) => {
   return (
     <div className={styles.form}>
-      <h6>{title}</h6>
-      <hr />
+      <h4 className={styles.title}>{title}</h4>
+      <hr className={styles.title} />
       {children}
+      {buttons}
     </div>
   );
 };
