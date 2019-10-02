@@ -5,14 +5,23 @@ import Input from '../../atoms/input';
 import Label from '../../atoms/label';
 import Field from '../../molecules/field';
 
+interface IUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: 1;
+}
+
 interface IProps {
   onSubmit?: () => void;
   onCancel?: () => void;
-  user?: { firstName: string; lastName: string; email: string; role: 1 };
+  user?: IUser;
 }
 
 const UserForm: React.FC<IProps> = ({ onCancel, onSubmit, user }) => {
-  const [currentUser, setUser] = React.useState(user);
+  const [currentUser, setUser] = React.useState<IUser>(
+    user || { firstName: '', lastName: '', email: '', role: 1 },
+  );
   return (
     <Form
       title="Create New Users"
@@ -27,17 +36,13 @@ const UserForm: React.FC<IProps> = ({ onCancel, onSubmit, user }) => {
         </>
       }
     >
-      {/* <Field
+      <Field
         name="first_name"
         label="First Name"
         placeholder="John"
-        value={currentUser && currentUser.firstName || ''}
-        onChange={e => console.log(this.value)}
-      /> */}
-      <fieldset>
-        <Label htmlFor="first_name">First Name</Label>
-        <Input id="first_name" placeholder="John" />
-      </fieldset>
+        value={(currentUser && currentUser.firstName) || ''}
+        // onChange={e => setUser(Object.assign({},user, {firstName: e.target.value})))}
+      />
       <Field name="last_name" label="Last Name" placeholder="Doe" />
       <Field name="email" label="E-mail Address" placeholder="example: john.doe@gmail.com" />
       <Field
