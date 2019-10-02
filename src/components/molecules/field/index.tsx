@@ -7,13 +7,11 @@ import Input from '../../atoms/input';
 import Checkbox from '../../atoms/checkbox';
 import Dropdown from '../../atoms/dropdown';
 
-interface IProps {
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   invalid?: boolean;
   errorMessage?: string;
   label?: string;
-  type?: string;
-  placeholder?: string;
   options?: any[];
 }
 
@@ -23,15 +21,12 @@ const Field: React.FC<IProps> = ({
   errorMessage,
   label,
   type = 'text',
-  placeholder,
   ...props
 }) => {
   const renderInputFirst = type === 'checkbox' || type === 'radio';
   const inputProps = {
     id: name,
     name,
-    placeholder,
-    type,
     errorMessage,
     invalid,
     'aria-describedby': `${name}Error`,
