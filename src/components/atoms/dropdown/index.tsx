@@ -24,12 +24,20 @@ const Dropdown: React.FC<IProps> = ({ options, onSelect, label }) => {
     if (onSelect) {
       onSelect(item);
     }
+    toggleDropdown(!isDropdownVisible);
   };
 
   const defaultOption = options.find(o => o.default);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onMouseLeave={() => {
+        if (isDropdownVisible) {
+          toggleDropdown(!isDropdownVisible);
+        }
+      }}
+    >
       <div
         className={cn(styles.container, styles.selected)}
         onClick={() => toggleDropdown(!isDropdownVisible)}
@@ -39,10 +47,7 @@ const Dropdown: React.FC<IProps> = ({ options, onSelect, label }) => {
           {(selectedItem && selectedItem.label) || (defaultOption && defaultOption.label) || ''}
         </span>
       </div>
-      <div
-        className={cn(styles.container, styles.dropdown, { [styles.show]: isDropdownVisible })}
-        onMouseLeave={() => toggleDropdown(!isDropdownVisible)}
-      >
+      <div className={cn(styles.container, styles.dropdown, { [styles.show]: isDropdownVisible })}>
         {options.map((option, index) => (
           <div
             key={index}
