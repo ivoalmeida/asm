@@ -8,6 +8,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
@@ -29,26 +30,29 @@
     top: 0;
     right: 0;
     width: 0;
-    max-width: 90vw;
     background-color: $side-panel-bg-color;
-    position: absolute;
+    position: fixed;
     height: 100vh;
     box-shadow: 0 9px 11px rgba(0, 0, 0, 0.5);
     z-index: 18;
     transition: width 800ms ease-in-out;
 
     &.show {
-      width: 45vw;
+      width: 95vw;
     }
 
-    &.hide {
-      width: 0;
+    @media (min-width: 500px) {
+      &.show {
+        width: 35vw;
+      }
     }
   }
 }
 
 .inner-content {
-  width: 45vw;
-  visibility: visible;
+  top: 0;
+  right: 0;
   position: relative;
+  width: 35vw;
+  visibility: visible;
 }
