@@ -7,8 +7,11 @@ import Icon from '../../components/atoms/icon';
 import { IActioMenuItem } from '../../components/organisms/actions-menu';
 import DataTable, { IDataColumn } from '../../components/organisms/data-table';
 import NavBar from '../../components/organisms/navbar';
-import { LinkButton } from '../../components/atoms/button';
+import Button, { LinkButton } from '../../components/atoms/button';
 import IconButton from '../../components/molecules/icon-button';
+import SidePanel from '../../components/atoms/side-panel';
+import Field from '../../components/molecules/field';
+import Form from '../../components/organisms/form';
 
 const actions: IActioMenuItem[] = [
   {
@@ -67,7 +70,8 @@ const UserDataGrid = ({ users }: { users: any[] }) => (
 
 const Users = withUsers(UserDataGrid);
 
-const UsersPage = () => {
+const UsersPage: React.FC = () => {
+  const [isOpen, toggleSidePanel] = React.useState<boolean>(false);
   return (
     <PageTemplate>
       <Box>
@@ -82,11 +86,45 @@ const UsersPage = () => {
             Roles
           </LinkButton>
         </NavBar>
-        <IconButton variant="secondary" icon="plus" size="small">
+        <IconButton
+          variant="secondary"
+          icon="plus"
+          size="small"
+          onClick={() => toggleSidePanel(!isOpen)}
+        >
           Create New
         </IconButton>
       </Box>
       <Users />
+      <SidePanel isVisible={isOpen}>
+        <Form
+          title="Create New Users"
+          buttons={
+            <>
+              <Button variant="default" size="medium" onClick={() => toggleSidePanel(!isOpen)}>
+                Cancel
+              </Button>
+              <Button variant="primary" size="medium">
+                Submit
+              </Button>
+            </>
+          }
+        >
+          <Field id="first_name" label="First Name" placeholder="John" />
+          <Field id="last_name" label="Last Name" placeholder="Doe" />
+          <Field id="email" label="E-mail Address" placeholder="example: john.doe@gmail.com" />
+          <Field
+            id="role"
+            label="User Role"
+            type="dropdown"
+            options={[
+              { label: 'Admin', value: 1 },
+              { label: 'God', value: 2 },
+              { label: 'Basic', value: 3, default: true },
+            ]}
+          />
+        </Form>
+      </SidePanel>
     </PageTemplate>
   );
 };
