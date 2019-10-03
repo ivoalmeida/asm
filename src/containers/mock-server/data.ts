@@ -1,14 +1,23 @@
 import * as faker from 'faker';
 
-const fakeUsers = [];
+const fakeUsers = [
+  {
+    userId: faker.random.uuid(),
+    firstName: faker.name.firstName(),
+    email: 'aaa',
+    password: 'aaa',
+    lastName: faker.name.lastName(),
+    admin: faker.random.boolean(),
+  },
+];
 for (let i = 0; i < 50; i++) {
   fakeUsers.push({
-    userId: faker.random.uuid,
-    firstName: faker.name.firstName,
+    userId: faker.random.uuid(),
+    firstName: faker.name.firstName(),
     email: faker.internet.email('some', 'one', faker.internet.domainName()),
-    password: faker.internet.password,
-    lastName: faker.name.lastName,
-    admin: faker.random.boolean,
+    password: faker.internet.password(8, true),
+    lastName: faker.name.lastName(),
+    admin: faker.random.boolean(),
   });
 }
 

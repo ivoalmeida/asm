@@ -11,27 +11,23 @@ export const login = (root, { email, password }) => {
     throw new Error('No such user found');
   }
 
-  const valid = bcrypt.compare(password, user.password);
+  // const valid = bcrypt.compare(password, user.password);
+  const valid = password === user.password;
   if (!valid) {
     throw new Error('Invalid password');
   }
 
-  return {
+  const ret = {
     token: jwt.sign({ password }, APP_SECRET),
     user,
   };
+
+  return ret;
 };
 
 export const signup = (root, { email, password, firstName }) => {
   let pwd = password;
   bcrypt.hash(password, 10).then(data => (pwd = data));
-  const user = {
-    firstName,
-    email,
-    password: pwd,
-  };
-
-  users.push(user);
 
   const token = jwt.sign({ pwd }, APP_SECRET);
 
