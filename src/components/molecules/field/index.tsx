@@ -27,6 +27,7 @@ const Field: React.FC<IProps> = ({
   const inputProps = {
     id: name,
     name,
+    type,
     errorMessage,
     invalid,
     'aria-describedby': `${name}Error`,
