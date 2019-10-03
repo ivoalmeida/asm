@@ -3,18 +3,25 @@
 .login {
   background-color: $white;
   display: grid;
-  grid-gap: 20px;
-  padding: 5px;
-  width: 450px;
+  grid-gap: 12px 30px;
+  padding: 30px;
+  margin: 0;
+  width: 400px;
   height: auto;
+
+  .logo {
+    display: grid;
+    justify-content: center;
+  }
 }
 
-.pwdLink {
+.pwd-link {
   position: relative;
 }
 
 .forgot {
   position: absolute;
+  top: 28px;
   right: 0;
   margin: 0.8rem;
   font-size: 1.3rem;
