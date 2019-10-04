@@ -124,4 +124,25 @@ storiesOf('Data Table', module)
       rows={rows}
       onDataSelect={e => e.preventDefault()}
     />
-  ));
+  ))
+  .add('Draggable data table', () => {
+    const data = [];
+    for (let i = 0; i < 5; i++) {
+      data.push({
+        userId: i,
+        email: faker.internet.email('some', 'one', faker.internet.domainName()),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        admin: faker.random.boolean() ? 'Yes' : 'No',
+      });
+    }
+    return (
+      <DataTable
+        isDraggable
+        columns={columns}
+        actions={actions}
+        rows={data}
+        onDataSelect={e => e.preventDefault()}
+      />
+    );
+  });

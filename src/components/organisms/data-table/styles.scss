@@ -64,6 +64,11 @@ $header-border-radius: 4px;
     background-color: lighten($color: $yellow, $amount: 30%);
     border-bottom: 1px solid $white;
   }
+
+  &.dragging-row {
+    background-color: lighten($color: $blue, $amount: 35%);
+    border: 1px dashed $yellow;
+  }
 }
 
 .column {
@@ -81,4 +86,10 @@ $header-border-radius: 4px;
       margin: 2px 5px;
     }
   }
+}
+
+.drag-button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: $gray300;
 }

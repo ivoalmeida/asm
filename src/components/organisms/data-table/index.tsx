@@ -5,6 +5,7 @@ import * as styles from './styles.scss';
 import ActionMenu, { IActioMenuItem } from '../actions-menu';
 import IconButton from '../../molecules/icon-button';
 import Checkbox from '../../atoms/checkbox';
+import Icon from '../../atoms/icon';
 
 export interface IDataColumn {
   name: string;
@@ -15,15 +16,25 @@ interface IProps {
   columns: IDataColumn[];
   actions: IActioMenuItem[];
   rows: any[];
+  isDraggable?: boolean;
   onDataSelect?: (ev: React.SyntheticEvent) => void;
 }
 
-export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSelect }) => {
+export const DataTable: React.FC<IProps> = ({
+  columns,
+  actions,
+  rows,
+  isDraggable,
+  onDataSelect,
+}) => {
   const [isActionsMenuOpen, toggleActionsMenuVisibility] = React.useState<boolean>(false);
   const [isSelectAllChecked, setSelectAll] = React.useState<boolean>(false);
   const [isMultipleRecord, setMultipleRecord] = React.useState<boolean>(false);
   const [selectedRow, setSelectedRow] = React.useState<number>();
   const [selectedRows, selectRecord] = React.useState<number[]>([]);
+  const [dragSrcRow, setDragSrcRow] = React.useState<HTMLTableRowElement>();
+  const [dragging, setDragging] = React.useState(false);
+  const tbRef = React.useRef<HTMLTableSectionElement>();
 
   const toggleActionsMenu = (ev: React.SyntheticEvent, rowIndex: number) => {
     ev.preventDefault();
@@ -66,6 +77,7 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
       <table>
         <thead>
           <tr>
+            {isDraggable ? <th /> : null}
             <th>
               <Checkbox
                 isMultiSelection={isMultipleRecord}
@@ -88,17 +100,60 @@ export const DataTable: React.FC<IProps> = ({ columns, actions, rows, onDataSele
             <th />
           </tr>
         </thead>
-        <tbody>
+        <tbody ref={tbRef}>
           {rows.map((row, rowIndex) => {
             const isSelected = selectedRows.indexOf(rowIndex) > -1;
             return (
               <tr
+                draggable={isDraggable}
+                onDragStart={e => {
+                  e.target.style.opacity = '0.4';
+                  setDragSrcRow(e.target);
+                  setDragging(true);
+                  setSelectedRow(rowIndex);
+                  e.dataTransfer.effectAllowed = 'move';
+                  e.dataTransfer.setData('text/plain', e.target.outerHTML);
+                }}
+                onDragOver={e => {
+                  e.preventDefault();
+                  e.dataTransfer.dropEffect = 'move';
+                  return false;
+                }}
+                // onDragEnter={e=>{
+
+                // }}
+                onDrop={(
+                  e: React.DragEvent<HTMLTableRowElement> & {
+                    target: { parentElement: HTMLTableRowElement };
+                  },
+                ) => {
+                  e.stopPropagation();
+                  const refRow = e.target.parentElement;
+                  tbRef.current.insertBefore(dragSrcRow, refRow);
+
+                  return false;
+                }}
+                onDragEnd={e => {
+                  e.target.style.opacity = '1.0';
+                  setDragging(false);
+                }}
                 key={rowIndex}
-                className={cn(styles.dataTable, {
-                  [styles.selectedRow]:
-                    isSelected || (isActionsMenuOpen && rowIndex === selectedRow),
-                })}
+                className={cn(
+                  styles.dataTable,
+                  {
+                    [styles.selectedRow]:
+                      isSelected || (isActionsMenuOpen && rowIndex === selectedRow),
+                  },
+                  { [styles.draggingRow]: dragging && rowIndex === selectedRow },
+                )}
               >
+                {isDraggable ? (
+                  <td>
+                    <div className={styles.dragButton}>
+                      <Icon variant="drag" />
+                    </div>
+                  </td>
+                ) : null}
                 <td>
                   <Checkbox
                     checked={isSelected}
