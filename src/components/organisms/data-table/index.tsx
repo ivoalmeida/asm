@@ -32,7 +32,7 @@ export const DataTable: React.FC<IProps> = ({
   const [isMultipleRecord, setMultipleRecord] = React.useState<boolean>(false);
   const [selectedRow, setSelectedRow] = React.useState<number>();
   const [selectedRows, selectRecord] = React.useState<number[]>([]);
-  const [dragSrcRow, setDragSrcRow] = React.useState<HTMLTableRowElement>();
+  const [draggedRow, setDraggedRow] = React.useState<HTMLTableRowElement>();
   const [dragging, setDragging] = React.useState(false);
   const tbRef = React.useRef<HTMLTableSectionElement>();
 
@@ -71,6 +71,67 @@ export const DataTable: React.FC<IProps> = ({
     rows.forEach((row, rowIndex) => tmp.push(rowIndex));
     selectRecord(tmp);
   };
+  const overrideEventDefaults = (event: Event | React.DragEvent<HTMLTableRowElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  const dragStartListener = (
+    event: React.DragEvent<HTMLTableRowElement> & {
+      target: HTMLTableRowElement & { outerHTML: any };
+    },
+  ) => {
+    event.target.style.opacity = '0.4';
+    setDraggedRow(event.target);
+
+    event.dataTransfer.effectAllowed = 'move';
+    event.dataTransfer.setData('text/plain', event.target.outerHTML);
+  };
+
+  const dragOverListener = event => {
+    overrideEventDefaults(event);
+    event.dataTransfer.dropEffect = 'move';
+    return false;
+  };
+
+  const dropListener = (
+    event: React.DragEvent<HTMLTableRowElement> & {
+      target: { closest: (type: string) => HTMLTableRowElement };
+    },
+  ) => {
+    overrideEventDefaults(event);
+    const refRow = event.target.closest('tr');
+    tbRef.current.insertBefore(draggedRow, refRow);
+    return false;
+  };
+
+  const dragEnterListener = (
+    event: React.DragEvent<HTMLTableRowElement> & {
+      target: { closest: (type: string) => HTMLTableRowElement };
+    },
+  ) => {
+    overrideEventDefaults(event);
+    const currentRow = event.target.closest('tr');
+    currentRow.classList.add(styles.draggingRow);
+  };
+
+  const dragLeaveListener = (
+    event: React.DragEvent<HTMLTableRowElement> & {
+      target: { closest: (type: string) => HTMLTableRowElement };
+    },
+  ) => {
+    overrideEventDefaults(event);
+    const currentRow = event.target.closest('tr');
+    currentRow.classList.remove(styles.draggingRow);
+  };
+
+  const dragEndListener = event => {
+    event.target.style.opacity = '1.0';
+    tbRef.current.rows.forEach(row => {
+      row.classList.remove(styles.draggingRow);
+    });
+    setDragging(false);
+  };
 
   return (
     <div className={styles.dataTable}>
@@ -106,46 +167,17 @@ export const DataTable: React.FC<IProps> = ({
             return (
               <tr
                 draggable={isDraggable}
-                onDragStart={e => {
-                  e.target.style.opacity = '0.4';
-                  setDragSrcRow(e.target);
-                  setDragging(true);
-                  setSelectedRow(rowIndex);
-                  e.dataTransfer.effectAllowed = 'move';
-                  e.dataTransfer.setData('text/plain', e.target.outerHTML);
-                }}
-                onDragOver={e => {
-                  e.preventDefault();
-                  e.dataTransfer.dropEffect = 'move';
-                  return false;
-                }}
-                // onDragEnter={e=>{
-
-                // }}
-                onDrop={(
-                  e: React.DragEvent<HTMLTableRowElement> & {
-                    target: { parentElement: HTMLTableRowElement };
-                  },
-                ) => {
-                  e.stopPropagation();
-                  const refRow = e.target.parentElement;
-                  tbRef.current.insertBefore(dragSrcRow, refRow);
-
-                  return false;
-                }}
-                onDragEnd={e => {
-                  e.target.style.opacity = '1.0';
-                  setDragging(false);
-                }}
+                onDragStart={dragStartListener}
+                onDragOver={dragOverListener}
+                onDrop={dropListener}
+                onDragEnter={dragEnterListener}
+                onDragLeave={dragLeaveListener}
+                onDragEnd={dragEndListener}
                 key={rowIndex}
-                className={cn(
-                  styles.dataTable,
-                  {
-                    [styles.selectedRow]:
-                      isSelected || (isActionsMenuOpen && rowIndex === selectedRow),
-                  },
-                  { [styles.draggingRow]: dragging && rowIndex === selectedRow },
-                )}
+                className={cn(styles.dataTable, {
+                  [styles.selectedRow]:
+                    isSelected || (isActionsMenuOpen && rowIndex === selectedRow),
+                })}
               >
                 {isDraggable ? (
                   <td>

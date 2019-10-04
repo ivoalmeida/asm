@@ -66,8 +66,8 @@ $header-border-radius: 4px;
   }
 
   &.dragging-row {
-    background-color: lighten($color: $blue, $amount: 35%);
-    border: 1px dashed $yellow;
+    background-color: lighten($color: $blue, $amount: 45%);
+    border: 2px dotted darken($color: $blue, $amount: 5%);
   }
 }
 
