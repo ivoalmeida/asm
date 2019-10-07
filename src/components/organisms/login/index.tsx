@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Redirect, Link } from 'react-router-dom';
 
 import * as styles from './styles.scss';
 import Button from '../../atoms/button';
@@ -32,9 +33,9 @@ const Login: React.FC<IProps> = ({ onEmailChange, onPwdChange, onSubmit }) => {
           type="password"
           onChange={e => onPwdChange(e.target.value)}
         />
-        <a className={styles.forgot} href="#">
+        <Link className={styles.forgot} to="/forgot">
           Forgot?
-        </a>
+        </Link>
       </div>
       <Button variant="primary" size="large" onClick={onSubmit}>
         Login
