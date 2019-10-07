@@ -34,7 +34,7 @@ export const DataTable: React.FC<IProps> = ({
   const [selectedRows, selectRecord] = React.useState<number[]>([]);
   const [draggedRow, setDraggedRow] = React.useState<HTMLTableRowElement>();
   const [dragging, setDragging] = React.useState(false);
-  const tbRef = React.useRef<HTMLTableSectionElement>();
+  const tBodyRef = React.useRef<HTMLTableSectionElement>();
 
   const toggleActionsMenu = (ev: React.SyntheticEvent, rowIndex: number) => {
     ev.preventDefault();
@@ -100,8 +100,9 @@ export const DataTable: React.FC<IProps> = ({
     },
   ) => {
     overrideEventDefaults(event);
-    const refRow = event.target.closest('tr');
-    tbRef.current.insertBefore(draggedRow, refRow);
+    const tRowRef = event.target.closest('tr');
+    const position = tRowRef.rowIndex === tBodyRef.current.rows.length ? 'afterend' : 'beforebegin';
+    tRowRef.insertAdjacentElement(position, draggedRow);
     return false;
   };
 
@@ -127,7 +128,7 @@ export const DataTable: React.FC<IProps> = ({
 
   const dragEndListener = event => {
     event.target.style.opacity = '1.0';
-    tbRef.current.rows.forEach(row => {
+    tBodyRef.current.rows.forEach(row => {
       row.classList.remove(styles.draggingRow);
     });
     setDragging(false);
@@ -161,7 +162,7 @@ export const DataTable: React.FC<IProps> = ({
             <th />
           </tr>
         </thead>
-        <tbody ref={tbRef}>
+        <tbody ref={tBodyRef}>
           {rows.map((row, rowIndex) => {
             const isSelected = selectedRows.indexOf(rowIndex) > -1;
             return (
