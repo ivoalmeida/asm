@@ -8,7 +8,7 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: React.SFC<IInputProps> = ({ errorMessage, invalid, className, ...props }) => {
-  const displayErrorMessage = errorMessage !== undefined && errorMessage.length > 0;
+  const displayErrorMessage = errorMessage && errorMessage.length > 0;
   const isError: boolean = invalid || displayErrorMessage;
 
   return (
