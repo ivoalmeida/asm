@@ -3,6 +3,7 @@ import { Redirect } from '@reach/router';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
+import Box from '../../components/atoms/box';
 import ForgotPassword from '../../components/organisms/forgot-password';
 
 const FORGOT_MUTATION = gql`
@@ -25,12 +26,14 @@ const ForgotPasswordPage: React.FC<IProps> = ({ email: emailProp }) => {
     return <Redirect to="/login" />;
   } else {
     return (
-      <ForgotPassword
-        email={email}
-        errorMessage={error ? error.message : null}
-        onChange={setEmail}
-        onClick={() => email && forgot()}
-      />
+      <Box justifyContent="center">
+        <ForgotPassword
+          email={email}
+          errorMessage={error ? error.message : null}
+          onChange={setEmail}
+          onClick={() => email && forgot()}
+        />
+      </Box>
     );
   }
 };
