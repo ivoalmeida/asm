@@ -22,39 +22,39 @@ Builds the app for production to the `dist` folder
 
 Builds the app in development mode generating source maps.
 
-### `env:dev`
+### `yarn env:dev`
 
 Sets the environment to dev
 
-### `env:prod`
+### `yarn env:prod`
 
 Sets the environment to produciton
 
-### `check-types`
+### `yarn check-types`
 
 Runs typescipt tsm type checking command
 
-### `cleanup"`
+### `yarn cleanup`
 
 Removes the node_modules, dist and auto generated type definition files
 
-### `format:fix`
+### `yarn format:fix`
 
 Runs the prettier formatter and fix formatting violations automatically
 
-### `lint": "tslint`
+### `yarn lint:tslint`
 
 Runs tslint
 
-### `lint:css`
+### `yarn lint:css`
 
 Runs stylelint
 
-### `css:fix`
+### `yarn css:fix`
 
 Runs the stylelint formatter and fix css/scss style formatting violations automatically
 
-### `storybook`
+### `yarn storybook`
 
 Builds storybook interactive component explorer
 
