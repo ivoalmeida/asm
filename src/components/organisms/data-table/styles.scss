@@ -4,6 +4,7 @@ $header-border-radius: 4px;
 
 .data-table {
   font-size: 1.4rem;
+  transition: background-color 300ms linear;
 
   table {
     border-collapse: collapse;
@@ -61,13 +62,17 @@ $header-border-radius: 4px;
   }
 
   &.selected-row {
-    background-color: lighten($color: $yellow, $amount: 30%);
+    background-color: $selected-color;
     border-bottom: 1px solid $white;
   }
 
+  &.dragged-row {
+    opacity: 0.4;
+    border: 2px dashed $secondary;
+  }
+
   &.dragging-row {
-    background-color: lighten($color: $blue, $amount: 10%);
-    border: 2px dashed $dark-blue;
+    background-color: $selected-color;
   }
 }
 
@@ -89,7 +94,7 @@ $header-border-radius: 4px;
 }
 
 .drag-button {
-  cursor: pointer;
+  cursor: move;
   font-size: 1.5rem;
   color: $gray300;
 }

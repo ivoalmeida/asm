@@ -81,11 +81,9 @@ export const DataTable: React.FC<IProps> = ({
       target: HTMLTableRowElement & { outerHTML: any };
     },
   ) => {
-    event.target.style.opacity = '0.4';
-    setDraggedRow(event.target);
-
-    event.dataTransfer.effectAllowed = 'move';
-    event.dataTransfer.setData('text/plain', event.target.outerHTML);
+    const currentRow = event.target.closest('tr');
+    currentRow.classList.add(styles.draggedRow);
+    setDraggedRow(currentRow);
   };
 
   const dragOverListener = event => {
@@ -101,7 +99,7 @@ export const DataTable: React.FC<IProps> = ({
   ) => {
     overrideEventDefaults(event);
     const tRowRef = event.target.closest('tr');
-    const position = tRowRef.rowIndex === tBodyRef.current.rows.length ? 'afterend' : 'beforebegin';
+    const position = tRowRef.rowIndex === 1 ? 'beforebegin' : 'afterend';
     tRowRef.insertAdjacentElement(position, draggedRow);
     return false;
   };
@@ -127,7 +125,9 @@ export const DataTable: React.FC<IProps> = ({
   };
 
   const dragEndListener = event => {
-    event.target.style.opacity = '1.0';
+    const currentRow = event.target;
+    currentRow.classList.remove(styles.draggedRow);
+    // currentRow.style.transform = `translateY(${offset}px)`;
     tBodyRef.current.rows.forEach(row => {
       row.classList.remove(styles.draggingRow);
     });
