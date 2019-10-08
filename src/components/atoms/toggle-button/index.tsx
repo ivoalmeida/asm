@@ -2,7 +2,6 @@ import * as React from 'react';
 import cn from 'classnames';
 
 import * as styles from './styles.scss';
-import Field from '../../molecules/field';
 
 export interface IRadioItem {
   label: string;
