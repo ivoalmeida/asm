@@ -1,0 +1,32 @@
+import * as React from 'react';
+import cn from 'classnames';
+
+import * as styles from './styles.scss';
+import Field from '../../molecules/field';
+
+export interface IRadioItem {
+  label: string;
+  value: number;
+}
+
+interface IProps {
+  items: IRadioItem[];
+  onClick?: () => boolean;
+}
+
+const ToggleButton: React.FC<IProps> = ({ items, onClick }) => {
+  return (
+    <div className={cn(styles.toggleButton)} onClick={onClick}>
+      {items.map((item, index) => (
+        <>
+          <input type="radio" id={item.label} name="onoff" value={item.value} checked />
+          <label key={index} htmlFor={item.label}>
+            {item.label}
+          </label>
+        </>
+      ))}
+    </div>
+  );
+};
+
+export default ToggleButton;

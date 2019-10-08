@@ -1,0 +1,46 @@
+@import '../../../scss/style.scss';
+
+.toggle-button {
+  display: flex;
+  overflow: hidden;
+  margin: 10px 5px;
+
+  label {
+    background-color: $gray000;
+    color: rgba($gray700, 0.6);
+    font-size: 1.4rem;
+    line-height: 1;
+    text-align: center;
+    padding: 1.5rem 4rem;
+    margin-right: -1px;
+    border: 1px solid rgba($gray700, 0.2);
+    box-shadow: 0 3px 6px 0 rgba($gray700, 0.04);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:first-of-type {
+      border-radius: 3px 0 0 3px;
+    }
+
+    &:last-of-type {
+      border-radius: 0 3px 3px 0;
+    }
+  }
+
+  input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+
+    &:checked + label {
+      background-color: $white;
+      box-shadow: none;
+      color: $gray700;
+    }
+  }
+}
