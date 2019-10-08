@@ -18,12 +18,10 @@ const ToggleButton: React.FC<IProps> = ({ items, onClick }) => {
   return (
     <div className={cn(styles.toggleButton)} onClick={onClick}>
       {items.map((item, index) => (
-        <>
+        <React.Fragment key={index}>
           <input type="radio" id={item.label} name="onoff" value={item.value} checked />
-          <label key={index} htmlFor={item.label}>
-            {item.label}
-          </label>
-        </>
+          <label htmlFor={item.label}>{item.label}</label>
+        </React.Fragment>
       ))}
     </div>
   );
