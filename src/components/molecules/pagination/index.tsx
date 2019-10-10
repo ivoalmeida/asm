@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import * as styles from './styles.scss';
+
 interface IProps {
   totalRecords: number;
   pageLimit: number;
@@ -82,7 +84,64 @@ const Pagination: React.FC<IProps> = ({ totalRecords = 0, pageLimit = 30 }) => {
 
     return getRange(1, totalPages);
   };
-  return <div />;
+
+  const handleClick = page => evt => {
+    evt.preventDefault();
+    this.gotoPage(page);
+  };
+
+  const handleMoveLeft = evt => {
+    evt.preventDefault();
+    this.gotoPage(this.state.currentPage - this.pageNeighbours * 2 - 1);
+  };
+
+  const handleMoveRight = evt => {
+    evt.preventDefault();
+    this.gotoPage(this.state.currentPage + this.pageNeighbours * 2 + 1);
+  };
+
+  if (totalRecords || totalPages === 1) {
+    return null;
+  }
+  const pagesNumbers = fetchPageNumbers();
+  return (
+    <React.Fragment>
+      <nav>
+        <ul>
+          {pagesNumbers.map((page, index) => {
+            if (page === LEFT_PAGE) {
+              return (
+                <li key={index}>
+                  <a href="#" onClick={handleMoveLeft}>
+                    <span>&laquo;</span>
+                    <span>Previous</span>
+                  </a>
+                </li>
+              );
+            }
+            if (page === RIGHT_PAGE) {
+              return (
+                <li key={index}>
+                  <a href="#" onClick={handleMoveRight}>
+                    <span>&raquo;</span>
+                    <span>Next</span>
+                  </a>
+                </li>
+              );
+            }
+
+            return (
+              <li key={index}>
+                <a href="#" onClick={handleClick(page)}>
+                  {page}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </React.Fragment>
+  );
 };
 
 export default Pagination;
