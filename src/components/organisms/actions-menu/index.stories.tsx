@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import ActionMenu, { IActioMenuItem } from '.';
 
@@ -26,4 +27,6 @@ const items: IActioMenuItem[] = [
   },
 ];
 
-storiesOf('Action Menu', module).add('Action menu', () => <ActionMenu items={items} />);
+storiesOf('Action Menu', module).add('Action menu', () => (
+  <ActionMenu visible onMouseLeave={action('mouseleave')} items={items} />
+));
