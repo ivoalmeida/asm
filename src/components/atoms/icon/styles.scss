@@ -1,4 +1,6 @@
-@import '../../../scss/style.scss';
+@import '../../../scss/base/base';
+@import '../../../scss/base/icons';
+@import '../../../scss/base/icon-fonts';
 
 .icon {
   /* use !important to prevent issues with browser extensions that change fonts */

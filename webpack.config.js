@@ -85,6 +85,9 @@ module.exports = {
             },
           },
           {
+            loader: require.resolve('postcss-loader'),
+          },
+          {
             loader: 'resolve-url-loader',
             options: {
               engine: 'postcss',
