@@ -6,6 +6,8 @@ import ActionMenu, { IActioMenuItem } from '../actions-menu';
 import IconButton from '../../molecules/icon-button';
 import Checkbox from '../../atoms/checkbox';
 import Icon from '../../atoms/icon';
+import Pagination, { IPaginationProps } from '../../molecules/pagination';
+import { Box } from '../../atoms/box';
 
 export interface IDataColumn {
   name: string;
@@ -17,6 +19,7 @@ interface IProps {
   actions: IActioMenuItem[];
   rows: any[];
   isDraggable?: boolean;
+  pagination?: IPaginationProps;
   onDataSelect?: (ev: React.SyntheticEvent) => void;
 }
 
@@ -25,6 +28,7 @@ export const DataTable: React.FC<IProps> = ({
   actions,
   rows,
   isDraggable,
+  pagination,
   onDataSelect,
 }) => {
   const [isActionsMenuOpen, toggleActionsMenuVisibility] = React.useState<boolean>(false);
@@ -209,6 +213,23 @@ export const DataTable: React.FC<IProps> = ({
             );
           })}
         </tbody>
+        {pagination ? (
+          <tfoot>
+            <tr>
+              <td colSpan={columns.length + (isDraggable ? 3 : 2)}>
+                <Box justifyContent="center">
+                  <Pagination
+                    initialPage={pagination.initialPage}
+                    pageSize={pagination.pageSize}
+                    recordCount={pagination.recordCount}
+                    onPagePrev={pagination.onPagePrev}
+                    onPageNext={pagination.onPageNext}
+                  />
+                </Box>
+              </td>
+            </tr>
+          </tfoot>
+        ) : null}
       </table>
     </div>
   );
