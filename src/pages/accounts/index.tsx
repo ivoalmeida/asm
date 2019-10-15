@@ -116,18 +116,20 @@ const AccountsPage = () => {
     });
   };
   const loadPreviousPage = () => {
-    if (offset > 0) {
-      setOffset(offset - 1);
-    }
     fetchMore({
       variables: {
-        offset: offset + limit,
+        offset: offset - limit,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult) {
           return prev;
         }
-        setCurrentPage(currentPage + 1);
+        if (offset > 0) {
+          setOffset(offset - limit);
+        }
+        if (currentPage > 1) {
+          setCurrentPage(currentPage - 1);
+        }
         return Object.assign({}, prev, {
           result: [...prev.result, ...fetchMoreResult.result],
         });

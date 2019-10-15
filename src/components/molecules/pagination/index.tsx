@@ -27,17 +27,17 @@ const Pagination: React.FC<IPaginationProps> = ({
   }, [recordCount]);
   return (
     <div className={cn(styles.pagination)}>
-      <button className={cn(styles.arrowButton)} onClick={onPagePrev} disabled={currentPage === 1}>
+      <button className={cn(styles.arrowButton)} onClick={onPagePrev} disabled={initialPage === 1}>
         <Icon variant="leftArrow" />
       </button>
       <div className={cn(styles.pageNumbers)}>
-        <span className={cn(styles.currentPage)}>{`${currentPage} `}</span>
+        <span className={cn(styles.currentPage)}>{`${initialPage} `}</span>
         <span className={cn(styles.totalPages)}>{`/ ${totalPages}`}</span>
       </div>
       <button
         className={cn(styles.arrowButton)}
         onClick={onPageNext}
-        disabled={currentPage === totalPages}
+        disabled={initialPage === totalPages}
       >
         <Icon variant="rightArrow" />
       </button>
