@@ -94,48 +94,12 @@ const AccountsDataGrid = ({ accounts }: { accounts: any[] }) => (
 const AccountsPage = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const [offset, setOffset] = React.useState<number>(0);
-  const [limit, setLimit] = React.useState<number>(7);
-  const { loading, data, error, fetchMore } = useQuery(ACCOUNTS_QUERY, {
+  const [limit, setLimit] = React.useState<number>(5);
+  const { loading, data, error } = useQuery(ACCOUNTS_QUERY, {
     variables: { offset, limit },
+    fetchPolicy: 'cache-and-network',
   });
-  const loadMoreData = () => {
-    fetchMore({
-      variables: {
-        offset: offset + limit,
-      },
-      updateQuery: (prev, { fetchMoreResult }) => {
-        if (!fetchMoreResult) {
-          return prev;
-        }
-        setOffset(offset + limit);
-        setCurrentPage(currentPage + 1);
-        return Object.assign({}, prev, {
-          result: [...prev.accounts.result, ...fetchMoreResult.accounts.result],
-        });
-      },
-    });
-  };
-  const loadPreviousPage = () => {
-    fetchMore({
-      variables: {
-        offset: offset - limit,
-      },
-      updateQuery: (prev, { fetchMoreResult }) => {
-        if (!fetchMoreResult) {
-          return prev;
-        }
-        if (offset > 0) {
-          setOffset(offset - limit);
-        }
-        if (currentPage > 1) {
-          setCurrentPage(currentPage - 1);
-        }
-        return Object.assign({}, prev, {
-          result: [...prev.accounts.result, ...fetchMoreResult.accounts.result],
-        });
-      },
-    });
-  };
+
   return (
     <PageTemplate>
       <Box>
@@ -166,8 +130,18 @@ const AccountsPage = () => {
             initialPage: currentPage,
             recordCount: data.accounts.count,
             pageSize: limit,
-            onPagePrev: loadPreviousPage,
-            onPageNext: loadMoreData,
+            onPagePrev: () => {
+              if (offset > 0) {
+                setOffset(offset - limit);
+              }
+              if (currentPage > 1) {
+                setCurrentPage(currentPage - 1);
+              }
+            },
+            onPageNext: () => {
+              setOffset(offset + limit);
+              setCurrentPage(currentPage + 1);
+            },
           }}
           onDataSelect={e => e.preventDefault()}
         />
