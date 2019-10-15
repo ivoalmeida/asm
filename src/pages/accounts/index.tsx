@@ -110,7 +110,7 @@ const AccountsPage = () => {
         setOffset(offset + limit);
         setCurrentPage(currentPage + 1);
         return Object.assign({}, prev, {
-          result: [...prev.result, ...fetchMoreResult.result],
+          result: [...prev.accounts.result, ...fetchMoreResult.accounts.result],
         });
       },
     });
@@ -131,7 +131,7 @@ const AccountsPage = () => {
           setCurrentPage(currentPage - 1);
         }
         return Object.assign({}, prev, {
-          result: [...prev.result, ...fetchMoreResult.result],
+          result: [...prev.accounts.result, ...fetchMoreResult.accounts.result],
         });
       },
     });
