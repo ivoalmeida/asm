@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 import PageTemplate from '../../components/templates/page';
 import Box from '../../components/atoms/box';
@@ -7,6 +9,24 @@ import { IActioMenuItem } from '../../components/organisms/actions-menu';
 import DataTable, { IDataColumn } from '../../components/organisms/data-table';
 import IconButton from '../../components/molecules/icon-button';
 import CtaContainer from '../../components/atoms/cta-container';
+import Spinner from '../../components/atoms/spinner';
+
+const ACCOUNTS_QUERY = gql`
+  query AccountsQuery($offset: Int, $limit: Int) {
+    accounts(offset: $offset, limit: $limit) {
+      result {
+        accountId
+        name
+        type
+        contactName
+        accountManager
+        created
+        status
+      }
+      count
+    }
+  }
+`;
 
 const actions: IActioMenuItem[] = [
   {
@@ -71,9 +91,49 @@ const AccountsDataGrid = ({ accounts }: { accounts: any[] }) => (
   />
 );
 
-const Accounts = withAccounts(AccountsDataGrid);
-
 const AccountsPage = () => {
+  const [currentPage, setCurrentPage] = React.useState<number>(1);
+  const [offset, setOffset] = React.useState<number>(0);
+  const [limit, setLimit] = React.useState<number>(7);
+  const { loading, data, error, fetchMore } = useQuery(ACCOUNTS_QUERY, {
+    variables: { offset, limit },
+  });
+  const loadMoreData = () => {
+    fetchMore({
+      variables: {
+        offset: offset + limit,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult) {
+          return prev;
+        }
+        setOffset(offset + limit);
+        setCurrentPage(currentPage + 1);
+        return Object.assign({}, prev, {
+          result: [...prev.result, ...fetchMoreResult.result],
+        });
+      },
+    });
+  };
+  const loadPreviousPage = () => {
+    if (offset > 0) {
+      setOffset(offset - 1);
+    }
+    fetchMore({
+      variables: {
+        offset: offset + limit,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult) {
+          return prev;
+        }
+        setCurrentPage(currentPage + 1);
+        return Object.assign({}, prev, {
+          result: [...prev.result, ...fetchMoreResult.result],
+        });
+      },
+    });
+  };
   return (
     <PageTemplate>
       <Box>
@@ -92,7 +152,24 @@ const AccountsPage = () => {
           </IconButton>
         </CtaContainer>
       </Box>
-      <Accounts />
+      {error ? <span style={{ color: 'red' }}>{error}</span> : null}
+      {loading ? (
+        <Spinner size="xlarge" />
+      ) : (
+        <DataTable
+          columns={columns}
+          actions={actions}
+          rows={data.accounts.result}
+          pagination={{
+            initialPage: currentPage,
+            recordCount: data.accounts.count,
+            pageSize: limit,
+            onPagePrev: loadPreviousPage,
+            onPageNext: loadMoreData,
+          }}
+          onDataSelect={e => e.preventDefault()}
+        />
+      )}
     </PageTemplate>
   );
 };

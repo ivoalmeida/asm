@@ -35,7 +35,14 @@ const typeDefs = `
 
   type Query {
     users: [User]
-    accounts: [Account]
+    accounts(offset:Int, limit:Int): AccountResult
+  }
+
+  type AccountResult {
+    offset: Int
+    limit: Int
+    count: Int
+    result: [Account]
   }
 
   type Mutation {
@@ -49,8 +56,19 @@ const resolvers = {
     users: () => {
       return users;
     },
-    accounts: () => {
-      return accounts;
+    accounts: (root, { offset, limit }) => {
+      if (!limit || limit <= 0) {
+        limit = 10;
+      }
+      if (!offset) {
+        offset = 0;
+      }
+      return {
+        offset,
+        limit,
+        count: accounts.length,
+        result: accounts.slice(offset, limit + offset),
+      };
     },
   },
   Mutation: {
@@ -69,6 +87,7 @@ const cache = new InMemoryCache({ addTypename: false });
 const client = new ApolloClient({
   link,
   cache,
+  connectToDevTools: true,
 });
 
 interface IProps {

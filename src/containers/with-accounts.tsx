@@ -6,13 +6,15 @@ import Spinner from '../components/atoms/spinner';
 const ACCOUNTS_QUERY = gql`
   {
     accounts {
-      accountId
-      name
-      type
-      contactName
-      accountManager
-      created
-      status
+      result {
+        accountId
+        name
+        type
+        contactName
+        accountManager
+        created
+        status
+      }
     }
   }
 `;
@@ -35,7 +37,7 @@ const withAccounts = (Component: React.FC<IResponse>) => {
             if (error) {
               return <div>Error</div>;
             }
-            return <Component accounts={data.accounts} />;
+            return <Component accounts={data.accounts.result} />;
           }}
         </Query>
       );
