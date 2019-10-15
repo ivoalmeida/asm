@@ -22,4 +22,5 @@ storiesOf('IconButton', module)
     <IconButton variant="danger" icon="trash" size="medium">
       Delete
     </IconButton>
-  ));
+  ))
+  .add('Icon only', () => <IconButton variant="danger" icon="actions" size="medium" />);
