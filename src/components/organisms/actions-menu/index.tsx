@@ -30,7 +30,7 @@ const ActionsMenu: React.FC<IProps> = ({ items, visible = false, onMouseLeave })
             href="#"
             onClick={item.onClick}
           >
-            <Icon variant={item.iconType} />
+            <Icon variant={item.iconType} className={styles.icon} />
             {item.name}
           </a>
         ))}

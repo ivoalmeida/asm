@@ -1,12 +1,12 @@
-@import "../../../scss/base/base";
+@import '../../../scss/base/base';
 
 .actions-menu {
-  background-color: $gray100;
+  background-color: $gray000;
   border: 1px solid $gray200;
   border-radius: $base-border-radius;
   flex-direction: column;
-  width: 170px;
-  font-size: 1.6rem;
+  width: 150px;
+  font-size: 1.4rem;
   position: absolute;
   right: 10px;
 
@@ -25,23 +25,19 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: baseline;
-    padding: 5px 15px;
+    padding: 2px 10px;
 
     &:first-child {
-      padding-top: 15px;
+      padding-top: 10px;
     }
 
     &:last-child {
-      padding-bottom: 15px;
-    }
-
-    i {
-      margin-right: 10px;
+      padding-bottom: 10px;
     }
 
     &:hover {
       background-color: lighten($yellow, 30%);
-      color: lighten($gray600, 20%);
+      color: darken($gray600, 15%);
     }
   }
 
@@ -49,7 +45,12 @@
     color: $danger;
 
     &:hover {
-      color: lighten($danger, 20%);
+      color: darken($danger, 15%);
     }
   }
+}
+
+.icon {
+  margin-right: 12px;
+  font-size: 1.1rem;
 }
