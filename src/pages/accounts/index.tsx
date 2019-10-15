@@ -98,6 +98,7 @@ const AccountsPage = () => {
   const { loading, data, error } = useQuery(ACCOUNTS_QUERY, {
     variables: { offset, limit },
     fetchPolicy: 'cache-and-network',
+    notifyOnNetworkStatusChange: true,
   });
 
   return (

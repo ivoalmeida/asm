@@ -24,7 +24,7 @@ for (let i = 0; i < 50; i++) {
 export const users = fakeUsers;
 
 const fakeAccounts = [];
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 58; i++) {
   fakeAccounts.push({
     accountId: faker.random.uuid(),
     name: faker.company.companySuffix(),
