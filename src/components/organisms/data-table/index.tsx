@@ -8,6 +8,8 @@ import Checkbox from '../../atoms/checkbox';
 import Icon from '../../atoms/icon';
 import Pagination, { IPaginationProps } from '../../molecules/pagination';
 import { Box } from '../../atoms/box';
+import { dataTablereducer, IState } from './reducer';
+import { dataTableActions } from './actions';
 
 export interface IDataColumn {
   name: string;
@@ -23,6 +25,16 @@ interface IProps {
   onDataSelect?: (ev: React.SyntheticEvent) => void;
 }
 
+const initialState: IState = {
+  isActionsMenuOpen: false,
+  isSelectAllChecked: false,
+  isMultipleRecord: false,
+  selectedRow: 0,
+  selectedRows: [],
+  draggedRow: null,
+  dragging: false,
+};
+
 export const DataTable: React.FC<IProps> = ({
   columns,
   actions,
@@ -31,49 +43,43 @@ export const DataTable: React.FC<IProps> = ({
   pagination,
   onDataSelect,
 }) => {
-  const [isActionsMenuOpen, toggleActionsMenuVisibility] = React.useState<boolean>(false);
-  const [isSelectAllChecked, setSelectAll] = React.useState<boolean>(false);
-  const [isMultipleRecord, setMultipleRecord] = React.useState<boolean>(false);
-  const [selectedRow, setSelectedRow] = React.useState<number>();
-  const [selectedRows, selectRecord] = React.useState<number[]>([]);
-  const [draggedRow, setDraggedRow] = React.useState<HTMLTableRowElement>();
-  const [dragging, setDragging] = React.useState(false);
+  const [state, dispatch] = React.useReducer(dataTablereducer, initialState);
   const tBodyRef = React.useRef<HTMLTableSectionElement>();
 
   const toggleActionsMenu = (ev: React.SyntheticEvent, rowIndex: number) => {
     ev.preventDefault();
     ev.stopPropagation();
-    toggleActionsMenuVisibility(!isActionsMenuOpen);
-    setSelectedRow(rowIndex);
+    dataTableActions.toggleActionsMenuVisibility(dispatch, !state.isActionsMenuOpen);
+    dataTableActions.setSelectedRow(dispatch, rowIndex);
   };
 
   const selectSingleRecord = (rowIndex: number) => {
-    const tmp = [...selectedRows];
+    const tmp = [...state.selectedRows];
     if (tmp.length === 0) {
       tmp.push(rowIndex);
     } else {
       const index = tmp.findIndex(r => r === rowIndex);
       if (index > -1) {
         tmp.splice(index, 1);
-        setMultipleRecord(isSelectAllChecked);
+        dataTableActions.setMultipleRecord(dispatch, state.isSelectAllChecked);
       } else {
         tmp.push(rowIndex);
       }
     }
-    selectRecord(tmp);
+    dataTableActions.selectRecord(dispatch, tmp);
   };
 
   const selectAllRecords = ev => {
     const isChecked = ev.target.checked;
-    setSelectAll(isChecked);
+    dataTableActions.setSelectAll(dispatch, isChecked);
     if (!isChecked) {
-      selectRecord([]);
-      setMultipleRecord(false);
+      dataTableActions.selectRecord(dispatch, []);
+      dataTableActions.setMultipleRecord(dispatch, false);
       return;
     }
     const tmp = [];
     rows.forEach((row, rowIndex) => tmp.push(rowIndex));
-    selectRecord(tmp);
+    dataTableActions.selectRecord(dispatch, tmp);
   };
   const overrideEventDefaults = (event: Event | React.DragEvent<HTMLTableRowElement>) => {
     event.preventDefault();
@@ -87,7 +93,7 @@ export const DataTable: React.FC<IProps> = ({
   ) => {
     const currentRow = event.target.closest('tr');
     currentRow.classList.add(styles.draggedRow);
-    setDraggedRow(currentRow);
+    dataTableActions.setDraggedRow(dispatch, currentRow);
   };
 
   const dragOverListener = event => {
@@ -104,7 +110,7 @@ export const DataTable: React.FC<IProps> = ({
     overrideEventDefaults(event);
     const tRowRef = event.target.closest('tr');
     const position = tRowRef.rowIndex === 1 ? 'beforebegin' : 'afterend';
-    tRowRef.insertAdjacentElement(position, draggedRow);
+    tRowRef.insertAdjacentElement(position, state.draggedRow);
     return false;
   };
 
@@ -135,7 +141,7 @@ export const DataTable: React.FC<IProps> = ({
     tBodyRef.current.rows.forEach(row => {
       row.classList.remove(styles.draggingRow);
     });
-    setDragging(false);
+    dataTableActions.setDragging(dispatch, false);
   };
 
   return (
@@ -146,9 +152,9 @@ export const DataTable: React.FC<IProps> = ({
             {isDraggable ? <th /> : null}
             <th>
               <Checkbox
-                isMultiSelection={isMultipleRecord}
-                checked={isSelectAllChecked}
-                onChange={e => (e.target.checked = isSelectAllChecked)}
+                isMultiSelection={state.isMultipleRecord}
+                checked={state.isSelectAllChecked}
+                onChange={e => (e.target.checked = state.isSelectAllChecked)}
                 onClick={e => selectAllRecords(e)}
               />
             </th>
@@ -168,7 +174,7 @@ export const DataTable: React.FC<IProps> = ({
         </thead>
         <tbody ref={tBodyRef}>
           {rows.map((row, rowIndex) => {
-            const isSelected = selectedRows.indexOf(rowIndex) > -1;
+            const isSelected = state.selectedRows.indexOf(rowIndex) > -1;
             return (
               <tr
                 draggable={isDraggable}
@@ -181,7 +187,7 @@ export const DataTable: React.FC<IProps> = ({
                 key={rowIndex}
                 className={cn(styles.dataTable, {
                   [styles.selectedRow]:
-                    isSelected || (isActionsMenuOpen && rowIndex === selectedRow),
+                    isSelected || (state.isActionsMenuOpen && rowIndex === state.selectedRow),
                 })}
               >
                 {isDraggable ? (
@@ -205,7 +211,7 @@ export const DataTable: React.FC<IProps> = ({
                   <IconButton icon="actions" onClick={ev => toggleActionsMenu(ev, rowIndex)} />{' '}
                   <ActionMenu
                     items={actions}
-                    visible={rowIndex === selectedRow && isActionsMenuOpen}
+                    visible={rowIndex === state.selectedRow && state.isActionsMenuOpen}
                     onMouseLeave={ev => toggleActionsMenu(ev, rowIndex)}
                   />
                 </td>
