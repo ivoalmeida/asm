@@ -138,7 +138,9 @@ export const DataTable: React.FC<IProps> = ({
     const currentRow = event.target;
     currentRow.classList.remove(styles.draggedRow);
     // currentRow.style.transform = `translateY(${offset}px)`;
-    tBodyRef.current.rows.forEach(row => {
+    const tBodyRows: HTMLCollectionOf<HTMLTableRowElement> & { [x: string]: any } =
+      tBodyRef.current.rows;
+    tBodyRows.forEach(row => {
       row.classList.remove(styles.draggingRow);
     });
     dataTableActions.setDragging(dispatch, false);
