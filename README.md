@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/Venatus/market-monalisa.svg?style=svg&circle-token=5aa7ab555399a529ac02e71a86c4cf1250d2e30e)](https://circleci.com/gh/Venatus/market-monalisa)
+
 # market-monalisa
 
 New Market UI Project.
