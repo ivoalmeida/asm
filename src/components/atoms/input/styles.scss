@@ -1,6 +1,6 @@
-@import "../../../scss/base/base";
+@import '../../../scss/base/base';
 
-.errorWarning {
+.error-warning {
   &::before {
     color: $danger;
     content: '*';
