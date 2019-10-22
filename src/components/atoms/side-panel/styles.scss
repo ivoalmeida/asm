@@ -1,4 +1,24 @@
-@import "../../../scss/base/base";
+@import '../../../scss/base/base';
+
+@mixin side-panel-width {
+  width: 95vw;
+
+  @media (min-width: 500px) {
+    width: 85vw;
+  }
+
+  @media (min-width: 700px) {
+    width: 75vw;
+  }
+
+  @media (min-width: 900px) {
+    width: 65vw;
+  }
+
+  @media (min-width: 1200px) {
+    width: 45vw;
+  }
+}
 
 .side-panel {
   &.overlay {
@@ -36,23 +56,18 @@
     box-shadow: 0 9px 11px rgba(0, 0, 0, 0.5);
     z-index: 18;
     transition: width 800ms ease-in-out;
+    overflow-y: auto;
 
     &.show {
-      width: 95vw;
-    }
-
-    @media (min-width: 500px) {
-      &.show {
-        width: 35vw;
-      }
+      @include side-panel-width;
     }
   }
 }
 
 .inner-content {
+  @include side-panel-width;
   top: 0;
   right: 0;
   position: relative;
-  width: 35vw;
   visibility: visible;
 }
