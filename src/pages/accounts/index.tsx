@@ -10,6 +10,7 @@ import DataTable, { IDataColumn } from '../../components/organisms/data-table';
 import IconButton from '../../components/molecules/icon-button';
 import CtaContainer from '../../components/atoms/cta-container';
 import Spinner from '../../components/atoms/spinner';
+import EditAccount from './edit-account';
 
 const ACCOUNTS_QUERY = gql`
   query AccountsQuery($offset: Int, $limit: Int) {
@@ -92,6 +93,7 @@ const AccountsDataGrid = ({ accounts }: { accounts: any[] }) => (
 );
 
 const AccountsPage = () => {
+  const [isFormVisible, toggleFormVisible] = React.useState(false);
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const [offset, setOffset] = React.useState<number>(0);
   const [limit, setLimit] = React.useState<number>(5);
@@ -114,11 +116,17 @@ const AccountsPage = () => {
           <IconButton variant="default" icon="eye" size="small">
             Table Content
           </IconButton>
-          <IconButton variant="secondary" icon="plus" size="small">
+          <IconButton
+            variant="secondary"
+            icon="plus"
+            size="small"
+            onClick={() => toggleFormVisible(!isFormVisible)}
+          >
             Create New
           </IconButton>
         </CtaContainer>
       </Box>
+      <EditAccount isOpen={isFormVisible} onCancel={() => toggleFormVisible(!isFormVisible)} />
       {error ? <span style={{ color: 'red' }}>{error}</span> : null}
       {loading ? (
         <Spinner size="xlarge" />

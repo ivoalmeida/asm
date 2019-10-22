@@ -110,11 +110,11 @@ const UsersPage: React.FC = () => {
             </>
           }
         >
-          <Field id="first_name" label="First Name" placeholder="John" />
-          <Field id="last_name" label="Last Name" placeholder="Doe" />
-          <Field id="email" label="E-mail Address" placeholder="example: john.doe@gmail.com" />
+          <Field name="first_name" label="First Name" placeholder="John" />
+          <Field name="last_name" label="Last Name" placeholder="Doe" />
+          <Field name="email" label="E-mail Address" placeholder="example: john.doe@gmail.com" />
           <Field
-            id="role"
+            name="role"
             label="User Role"
             type="dropdown"
             options={[
