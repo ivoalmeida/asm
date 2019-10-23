@@ -3,10 +3,16 @@ import cn from 'classnames';
 
 import * as styles from './styles.scss';
 
-const Logo = () => <div className={cn(styles.logo, styles.text)}>venatus</div>;
+interface IProps {
+  className?: string;
+}
 
-export const LogoMastHead = () => (
-  <div className={cn(styles.logo, styles.text, styles.masthead)}>v</div>
+const Logo: React.FC<IProps> = ({ className }) => (
+  <div className={cn(styles.logo, styles.text, className)}>venatus</div>
+);
+
+export const LogoMastHead: React.FC<IProps> = ({ className }) => (
+  <div className={cn(styles.logo, styles.text, styles.masthead, className)}>v</div>
 );
 
 export default Logo;
