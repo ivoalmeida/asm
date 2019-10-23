@@ -7,11 +7,12 @@ import Icon from '../../components/atoms/icon';
 import { IActioMenuItem } from '../../components/organisms/actions-menu';
 import DataTable, { IDataColumn } from '../../components/organisms/data-table';
 import NavBar from '../../components/organisms/navbar';
-import Button, { LinkButton } from '../../components/atoms/button';
+import Button from '../../components/atoms/button';
 import IconButton from '../../components/molecules/icon-button';
 import SidePanel from '../../components/atoms/side-panel';
 import Field from '../../components/molecules/field';
 import Form from '../../components/organisms/form';
+import NavLinkButton from '../../components/atoms/nav-link-button';
 
 const actions: IActioMenuItem[] = [
   {
@@ -79,12 +80,8 @@ const UsersPage: React.FC = () => {
       </Box>
       <Box padding="20px 0" width="100vw" justifyContent="space-between">
         <NavBar>
-          <LinkButton variant="nav-item" href="/Users">
-            Users
-          </LinkButton>
-          <LinkButton variant="nav-item" href="/Roles">
-            Roles
-          </LinkButton>
+          <NavLinkButton to="/users">Users</NavLinkButton>
+          <NavLinkButton to="/roles">Roles</NavLinkButton>
         </NavBar>
         <IconButton
           variant="secondary"
