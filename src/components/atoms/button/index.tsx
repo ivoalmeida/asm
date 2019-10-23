@@ -24,7 +24,7 @@ const getButtonStyles = (variant: string, size: string, className?: string) => {
   );
 };
 
-export const Button: React.SFC<IButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
   variant,
   size,
   className,
@@ -38,14 +38,14 @@ export const Button: React.SFC<IButtonProps> = ({
   );
 };
 
-export const LinkButton: React.SFC<IButtonProps & React.LinkHTMLAttributes<HTMLAnchorElement>> = ({
+export const LinkButton: React.FC<IButtonProps & React.LinkHTMLAttributes<HTMLAnchorElement>> = ({
   variant,
   size,
   className,
   children,
   ...props
 }) => (
-  <a {...props} className={classNames(styles.navItem, className)}>
+  <a {...props} className={getButtonStyles(variant, size, className)}>
     {children}
   </a>
 );
