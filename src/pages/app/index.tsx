@@ -11,6 +11,7 @@ import { SignUpPage } from '../signup';
 import AccountsPage from '../accounts';
 import NetworksPage from '../networks';
 import FinancePage from '../finance';
+import NotFound from '../not-found';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/forgot" component={ForgotPasswordPage} />
           <Route exact path="/login" component={LoginPage} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </Router>
     </MockServer>
