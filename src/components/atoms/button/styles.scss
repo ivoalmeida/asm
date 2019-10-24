@@ -1,14 +1,20 @@
-@import "../../../scss/base/base";
+@import '../../../scss/base/base';
 
 .button {
   /** Default */
   @include button($gray700, $white, $gray700, $white, $gray700, $gray700);
 
   align-items: center;
-  border-radius: 4px;
+  appearance: none;
+  border-radius: $base-border-radius;
   font-family: 'Roboto Bold', sans-serif;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
   font-size: 1.4rem;
   padding: 0 1.8rem;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
   transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out,
     background-color 0.25s ease-in-out, color 0.25s ease-in-out;
 
