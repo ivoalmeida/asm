@@ -3,16 +3,13 @@ import cn from 'classnames';
 
 import * as styles from './styles.scss';
 
-interface IProps {
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   isMultiSelection?: boolean;
 }
 
-const Checkbox: React.FC<IProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
-  isMultiSelection,
-  ...props
-}) => {
+const Checkbox: React.FC<IProps> = ({ isMultiSelection, className, ...props }) => {
   return (
-    <label className={styles.checkbox}>
+    <label className={cn(styles.checkbox, className)}>
       <input type="checkbox" {...props} />
       <span className={cn(styles.checkmark, { [styles.multiSelection]: isMultiSelection })} />
     </label>
