@@ -38,7 +38,7 @@ const Field: React.FC<IProps> = ({
     <div className={cn(styles.field)}>
       {renderInputFirst && field}
       {label && <Label htmlFor={inputProps.id}>{label}</Label>}
-      {field}
+      {!renderInputFirst && field}
     </div>
   );
 };
