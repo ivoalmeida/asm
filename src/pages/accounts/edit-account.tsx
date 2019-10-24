@@ -17,7 +17,7 @@ const EditAccount: React.FC<IProps> = ({ isOpen, onCancel }) => {
         title="Create New Account"
         buttons={
           <>
-            <Button variant="default" size="small" onClick={onCancel}>
+            <Button variant="default" size="small" type="button" onClick={onCancel}>
               Cancel
             </Button>
             <Button variant="primary" size="small" type="submit">

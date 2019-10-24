@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import PageTemplate from '../../components/templates/page';
 import Box from '../../components/atoms/box';
@@ -71,7 +72,11 @@ const UserDataGrid = ({ users }: { users: any[] }) => (
 
 const Users = withUsers(UserDataGrid);
 
-const UsersPage: React.FC = () => {
+const Roles = () => (
+  <div style={{ backgroundColor: 'red', height: '300px', width: '400px' }}>Roles</div>
+);
+
+const UsersPage: React.FC<{ match: { url: string }; path: string }> = ({ match, path }) => {
   const [isOpen, toggleSidePanel] = React.useState<boolean>(false);
   return (
     <PageTemplate>
@@ -81,8 +86,13 @@ const UsersPage: React.FC = () => {
       <Box padding="20px 0" width="100vw" justifyContent="space-between">
         <NavBar>
           <NavLinkButton to="/users">Users</NavLinkButton>
-          <NavLinkButton to="/roles">Roles</NavLinkButton>
+          <NavLinkButton to={`${match.url}/roles`}>Roles</NavLinkButton>
         </NavBar>
+        <Switch>
+          <Route exact path={`${path}/roles`}>
+            <Roles />
+          </Route>
+        </Switch>
         <IconButton
           variant="secondary"
           icon="plus"
@@ -98,10 +108,15 @@ const UsersPage: React.FC = () => {
           title="Create New Users"
           buttons={
             <>
-              <Button variant="default" size="medium" onClick={() => toggleSidePanel(!isOpen)}>
+              <Button
+                variant="default"
+                size="medium"
+                type="button"
+                onClick={() => toggleSidePanel(!isOpen)}
+              >
                 Cancel
               </Button>
-              <Button variant="primary" size="medium">
+              <Button variant="primary" size="medium" type="submit">
                 Submit
               </Button>
             </>
