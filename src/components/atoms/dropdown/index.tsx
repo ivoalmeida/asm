@@ -9,21 +9,18 @@ interface ISelectItem {
   default?: boolean;
 }
 
-interface IProps {
+interface IProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: ISelectItem[];
   label?: string;
-  onSelect?: (item: ISelectItem) => void;
+  // onSelect?: (item: ISelectItem) => void;
 }
 
-const Dropdown: React.FC<IProps> = ({ options, onSelect, label }) => {
+const Dropdown: React.FC<IProps> = ({ options, label, ...props }) => {
   const [selectedItem, setSelectedItem] = React.useState<ISelectItem>();
   const [isDropdownVisible, toggleDropdown] = React.useState<boolean>(false);
 
   const selectItem = (item: ISelectItem) => {
     setSelectedItem(item);
-    if (onSelect) {
-      onSelect(item);
-    }
     toggleDropdown(!isDropdownVisible);
   };
 
@@ -38,6 +35,17 @@ const Dropdown: React.FC<IProps> = ({ options, onSelect, label }) => {
         }
       }}
     >
+      <select
+        value={(selectedItem && selectedItem.value) || undefined}
+        {...props}
+        className={styles.selectEl}
+      >
+        {options.map((option, index) => (
+          <option key={`${index}_${option.value}`} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
       <div
         className={cn(styles.container, styles.selected)}
         onClick={() => toggleDropdown(!isDropdownVisible)}

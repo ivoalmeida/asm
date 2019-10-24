@@ -1,4 +1,4 @@
-@import "../../../scss/base/base";
+@import '../../../scss/base/base';
 
 .container {
   font-size: 1.4rem;
@@ -61,4 +61,8 @@
 .label,
 .placeholder {
   color: $gray400;
+}
+
+.select-el {
+  display: none;
 }

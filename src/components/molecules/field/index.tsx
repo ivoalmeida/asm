@@ -54,7 +54,7 @@ export const fieldFactory = (type: string, inputProps: any, options?: any[]) => 
     case 'textarea':
       return <Textarea {...inputProps} />;
     case 'dropdown':
-      return <Dropdown options={options} />;
+      return <Dropdown options={options} {...inputProps} />;
     default:
       return <Input {...inputProps} />;
   }
