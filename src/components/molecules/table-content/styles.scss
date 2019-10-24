@@ -1,0 +1,27 @@
+@import '../../../scss/base/base';
+
+.table-content {
+  position: absolute;
+  background-color: $gray000;
+  border: 1px solid $gray300;
+  border-radius: $base-border-radius;
+  font-size: 1.4rem;
+  font-weight: 500;
+  z-index: 5;
+  font-family: 'Archivo Bold', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.chk {
+  display: inline-flex;
+  margin-right: 15px;
+}
+
+.item {
+  display: inline-flex;
+  font-weight: 700;
+  padding: 5px 95px 5px 5px;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
