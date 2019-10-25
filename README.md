@@ -2,7 +2,15 @@
 
 # market-monalisa
 
-New Market UI Project.
+## **New Market UI Project**
+
+The application was developed using React, CSS Modules and Apollo.
+
+The archicture follows the atomic design guidelines in order to develop resuable components that are easy to compose together to form more complex ones.
+
+The idea is to have small building blocks that are identified as atoms that can then be composed to form molecules, organisms, templates and pages.
+
+The pages components map directory to the applications routes.
 
 ## Available Scripts
 
