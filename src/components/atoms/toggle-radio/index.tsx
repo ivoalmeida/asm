@@ -3,15 +3,14 @@ import cn from 'classnames';
 
 import * as styles from './styles.scss';
 
-interface IProps {
-  name: string;
-}
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const ToggleRadio: React.FC<IProps> = ({ name }) => {
+const ToggleRadio: React.FC<IProps> = ({ className, ...props }) => {
   return (
-    <div className={cn(styles.toggleRadio)}>
-      <input type="radio" name={name} />
-    </div>
+    <label className={cn(styles.toggleRadio, className)}>
+      <input type="checkbox" {...props} />
+      <span className={cn(styles.slider, styles.round)} />
+    </label>
   );
 };
 
