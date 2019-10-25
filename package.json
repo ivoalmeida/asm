@@ -11,6 +11,7 @@
     "build": "yarn env:prod webpack --mode production",
     "build:dev": "yarn env:dev webpack --mode development; exit 0;",
     "build:css": "node-sass src/ -o src/ ",
+    "build:storybook": "build-storybook -c .storybook -o .out",
     "env:dev": "cross-env NODE_ENV=development",
     "env:prod": "cross-env NODE_ENV=production",
     "check-types": "tsc",
