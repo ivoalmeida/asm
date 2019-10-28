@@ -5,7 +5,7 @@ import * as styles from './styles.scss';
 import Icon from '../../atoms/icon';
 import Button from '../../atoms/button';
 
-interface IIconButton {
+interface IIconButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: string;
   icon: string;
   size?: string;
@@ -13,10 +13,18 @@ interface IIconButton {
   onClick?: (ev) => void;
 }
 
-const IconButton: React.FC<IIconButton> = ({ variant, size, icon, children, onClick }) => {
+const IconButton: React.FC<IIconButton> = ({
+  variant,
+  size,
+  icon,
+  children,
+  onClick,
+  className,
+  ...props
+}) => {
   if (children) {
     return (
-      <Button variant={variant} size={size} onClick={onClick}>
+      <Button variant={variant} size={size} onClick={onClick} className={className} {...props}>
         <Icon variant={icon} styles={{ marginRight: `10px` }} />
         {children}
       </Button>
