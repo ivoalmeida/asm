@@ -13,7 +13,9 @@ import { dataTableActions } from './actions';
 
 export interface IDataColumn {
   name: string;
+  label?: string;
   sortable: boolean;
+  visible: boolean;
 }
 
 interface IProps {
@@ -160,17 +162,19 @@ export const DataTable: React.FC<IProps> = ({
                 onClick={e => selectAllRecords(e)}
               />
             </th>
-            {columns.map((column, index) => (
-              <th key={index}>
-                <span
-                  className={cn(styles.column, {
-                    [styles.sortable]: column.sortable,
-                  })}
-                >
-                  {column.name}
-                </span>
-              </th>
-            ))}
+            {columns
+              .filter(column => column.visible)
+              .map((column, index) => (
+                <th key={index}>
+                  <span
+                    className={cn(styles.column, {
+                      [styles.sortable]: column.sortable,
+                    })}
+                  >
+                    {column.label || column.name}
+                  </span>
+                </th>
+              ))}
             <th />
           </tr>
         </thead>
