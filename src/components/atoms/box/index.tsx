@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as styles from './styles.scss';
 import classNames from 'classnames';
 
-export interface IBoxProps {
+export interface IBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: any | string;
   width?: string;
   height?: string;
@@ -30,6 +30,7 @@ export const Box: React.SFC<IBoxProps> = ({
   flex,
   padding,
   margin,
+  ...props
 }) => (
   <div
     className={classNames(styles.box, className)}
@@ -46,6 +47,7 @@ export const Box: React.SFC<IBoxProps> = ({
       padding,
       margin,
     }}
+    {...props}
   >
     {children}
   </div>
