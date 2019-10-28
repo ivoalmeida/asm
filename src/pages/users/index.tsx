@@ -41,23 +41,33 @@ const actions: IActioMenuItem[] = [
 const columns: IDataColumn[] = [
   {
     name: 'user id',
+    label: 'user id',
     sortable: false,
+    visible: true,
   },
   {
     name: 'email',
+    label: 'email',
     sortable: false,
+    visible: true,
   },
   {
     name: 'first name',
+    label: 'first name',
     sortable: true,
+    visible: true,
   },
   {
     name: 'last name',
+    label: 'last name',
     sortable: true,
+    visible: true,
   },
   {
     name: 'admin',
+    label: 'admin',
     sortable: false,
+    visible: true,
   },
 ];
 
@@ -76,7 +86,7 @@ const Roles = () => (
   <div style={{ backgroundColor: 'red', height: '300px', width: '400px' }}>Roles</div>
 );
 
-const UsersPage: React.FC<{ match: { url: string }; path: string }> = ({ match, path }) => {
+const UsersPage: React.FC<{ match?: { url: string }; path?: string }> = ({ match, path }) => {
   const [isOpen, toggleSidePanel] = React.useState<boolean>(false);
   return (
     <PageTemplate>
