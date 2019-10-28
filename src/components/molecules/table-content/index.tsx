@@ -15,11 +15,12 @@ export interface ITableContentItem {
 interface IProps {
   items: ITableContentItem[];
   handleChange: (ev) => void;
+  onClose: (ev) => void;
 }
 
-const TableContent: React.FC<IProps> = ({ items, handleChange }) => {
+const TableContent: React.FC<IProps> = ({ items, handleChange, onClose }) => {
   return (
-    <Box direction="column" className={cn(styles.tableContent)}>
+    <Box direction="column" className={cn(styles.tableContent)} onMouseLeave={onClose}>
       {items.map((item, index) => (
         <Label htmlFor={item.name} key={index} className={styles.item}>
           <Checkbox
