@@ -11,6 +11,7 @@ import IconButton from '../../components/molecules/icon-button';
 import CtaContainer from '../../components/atoms/cta-container';
 import Spinner from '../../components/atoms/spinner';
 import EditAccount from './edit-account';
+import TableContent from '../../components/molecules/table-content';
 
 const ACCOUNTS_QUERY = gql`
   query AccountsQuery($offset: Int, $limit: Int) {
@@ -54,45 +55,52 @@ const actions: IActioMenuItem[] = [
 
 const columns: IDataColumn[] = [
   {
-    name: 'account id',
+    label: 'account id',
+    name: 'accountId',
     sortable: false,
+    visible: true,
   },
   {
+    label: 'name',
     name: 'name',
     sortable: true,
+    visible: true,
   },
   {
+    label: 'type',
     name: 'type',
     sortable: true,
+    visible: true,
   },
   {
-    name: 'contact mame',
+    label: 'contact name',
+    name: 'contactName',
     sortable: false,
+    visible: true,
   },
   {
-    name: 'account manager',
+    label: 'account manager',
+    name: 'accountManager',
     sortable: false,
+    visible: true,
   },
   {
+    label: 'created',
     name: 'created',
     sortable: false,
+    visible: true,
   },
   {
+    label: 'status',
     name: 'status',
     sortable: false,
+    visible: true,
   },
 ];
 
-const AccountsDataGrid = ({ accounts }: { accounts: any[] }) => (
-  <DataTable
-    columns={columns}
-    actions={actions}
-    rows={accounts}
-    onDataSelect={e => e.preventDefault()}
-  />
-);
-
 const AccountsPage = () => {
+  const [isTBVisible, toggleTb] = React.useState(false);
+  const [cols, setCols] = React.useState(columns);
   const [isFormVisible, toggleFormVisible] = React.useState(false);
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const [offset, setOffset] = React.useState<number>(0);
@@ -102,6 +110,22 @@ const AccountsPage = () => {
     fetchPolicy: 'cache-and-network',
     notifyOnNetworkStatusChange: true,
   });
+
+  const initialCols = cols.map(({ name, label, visible }) => {
+    return { label, name, isChecked: visible };
+  });
+
+  const setTableColumns = ev => {
+    const { name, checked } = ev.target;
+    const tmp = [...columns];
+    tmp.forEach(col => {
+      if (col.name === name) {
+        col.visible = checked;
+      }
+    });
+    setCols(tmp);
+    toggleTb(!isTBVisible);
+  };
 
   return (
     <PageTemplate>
@@ -113,9 +137,17 @@ const AccountsPage = () => {
           <IconButton variant="default" icon="filter" size="small">
             Filter
           </IconButton>
-          <IconButton variant="default" icon="eye" size="small">
-            Table Content
-          </IconButton>
+          <div style={{ position: 'relative' }}>
+            <IconButton
+              variant="default"
+              icon="eye"
+              size="small"
+              onClick={() => toggleTb(!isTBVisible)}
+            >
+              Table Content
+            </IconButton>
+            {isTBVisible && <TableContent items={initialCols} handleChange={setTableColumns} />}
+          </div>
           <IconButton
             variant="secondary"
             icon="plus"
@@ -132,7 +164,7 @@ const AccountsPage = () => {
         <Spinner size="xlarge" />
       ) : (
         <DataTable
-          columns={columns}
+          columns={cols}
           actions={actions}
           rows={data.accounts.result}
           pagination={{
