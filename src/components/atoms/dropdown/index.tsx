@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import * as styles from './styles.scss';
 
-interface ISelectItem {
+export interface ISelectItem {
   label: string;
   value: any;
   default?: boolean;
@@ -15,7 +15,7 @@ interface IProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   // onSelect?: (item: ISelectItem) => void;
 }
 
-const Dropdown: React.FC<IProps> = ({ options, label, ...props }) => {
+const Dropdown: React.FC<IProps> = ({ options, label, className, ...props }) => {
   const [selectedItem, setSelectedItem] = React.useState<ISelectItem>();
   const [isDropdownVisible, toggleDropdown] = React.useState<boolean>(false);
 
@@ -28,7 +28,7 @@ const Dropdown: React.FC<IProps> = ({ options, label, ...props }) => {
 
   return (
     <div
-      className={styles.container}
+      className={cn(styles.container)}
       onMouseLeave={() => {
         if (isDropdownVisible) {
           toggleDropdown(!isDropdownVisible);
@@ -47,11 +47,11 @@ const Dropdown: React.FC<IProps> = ({ options, label, ...props }) => {
         ))}
       </select>
       <div
-        className={cn(styles.container, styles.selected)}
+        className={cn(styles.container, styles.selected, className)}
         onClick={() => toggleDropdown(!isDropdownVisible)}
       >
         {label && <span className={styles.label}>{label}</span>}
-        <span>
+        <span className={styles.selectedLabel}>
           {(selectedItem && selectedItem.label) || (defaultOption && defaultOption.label) || ''}
         </span>
       </div>

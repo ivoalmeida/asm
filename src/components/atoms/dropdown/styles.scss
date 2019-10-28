@@ -29,7 +29,7 @@
   span::after {
     content: '';
     border: solid $gray500;
-    border-width: 0 2.5px 2.5px 0;
+    border-width: 0 1.4px 1.4px 0;
     display: inline-block;
     padding: 3px;
     transform: rotate(45deg);
@@ -55,7 +55,7 @@
 }
 
 .label {
-  padding-right: 10px;
+  padding-right: 20px;
 }
 
 .label,
@@ -65,4 +65,8 @@
 
 .select-el {
   display: none;
+}
+
+.selected-label {
+  padding-right: 18px;
 }
