@@ -12,6 +12,7 @@ import CtaContainer from '../../components/atoms/cta-container';
 import Spinner from '../../components/atoms/spinner';
 import EditAccount from './edit-account';
 import TableContent from '../../components/molecules/table-content';
+import Filter from '../../components/organisms/filter';
 
 const ACCOUNTS_QUERY = gql`
   query AccountsQuery($offset: Int, $limit: Int) {
@@ -111,8 +112,15 @@ const getQuery = cols => {
 `;
 };
 
+const getFilters = () => {
+  return columns.map(col => {
+    return { label: col.label, options: [] };
+  });
+};
+
 const AccountsPage = () => {
-  const [isTBVisible, toggleTb] = React.useState(false);
+  const [isTableContentVisible, toggleTableContent] = React.useState(false);
+  const [isFilterVisible, toggleFilter] = React.useState(false);
   const [cols, setCols] = React.useState(columns);
   const [isFormVisible, toggleFormVisible] = React.useState(false);
   const [currentPage, setCurrentPage] = React.useState<number>(1);
@@ -154,7 +162,12 @@ const AccountsPage = () => {
       </Box>
       <Box padding="20px 0" width="100vw" justifyContent="flex-end">
         <CtaContainer>
-          <IconButton variant="default" icon="filter" size="small">
+          <IconButton
+            variant="default"
+            icon="filter"
+            size="small"
+            onClick={() => toggleFilter(!isFilterVisible)}
+          >
             Filter
           </IconButton>
           <div style={{ position: 'relative' }}>
@@ -162,15 +175,15 @@ const AccountsPage = () => {
               variant="default"
               icon="eye"
               size="small"
-              onClick={() => toggleTb(!isTBVisible)}
+              onClick={() => toggleTableContent(!isTableContentVisible)}
             >
               Table Content
             </IconButton>
-            {isTBVisible && (
+            {isTableContentVisible && (
               <TableContent
                 items={initialCols}
                 handleChange={setTableColumns}
-                onClose={() => toggleTb(!isTBVisible)}
+                onClose={() => toggleTableContent(!isTableContentVisible)}
               />
             )}
           </div>
@@ -184,6 +197,13 @@ const AccountsPage = () => {
           </IconButton>
         </CtaContainer>
       </Box>
+      <Filter
+        isVisible={isFilterVisible}
+        filters={getFilters().slice(0, 3)}
+        onCancel={() => toggleFilter(!isFilterVisible)}
+        onChange={() => 1 === 1}
+        onFilter={() => toggleFilter(!isFilterVisible)}
+      />
       <EditAccount isOpen={isFormVisible} onCancel={() => toggleFormVisible(!isFormVisible)} />
       {error ? <span style={{ color: 'red' }}>{error}</span> : null}
       {loading ? (
