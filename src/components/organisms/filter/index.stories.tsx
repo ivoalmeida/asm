@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { ISelectItem } from '../../atoms/dropdown';
 import Filter, { IFilter } from '.';
@@ -7,6 +8,11 @@ import Filter, { IFilter } from '.';
 const application: IFilter = {
   label: 'Application',
   options: [
+    {
+      label: 'All',
+      value: -1,
+      default: true,
+    },
     {
       label: 'Connector',
       value: 1,
@@ -23,7 +29,8 @@ const targetGeo: IFilter = {
   options: [
     {
       label: 'All',
-      value: 1,
+      value: -1,
+      default: true,
     },
     {
       label: 'Europe',
@@ -35,6 +42,11 @@ const targetGeo: IFilter = {
 const adaptor: IFilter = {
   label: 'Adapter',
   options: [
+    {
+      label: 'All',
+      value: -1,
+      default: true,
+    },
     {
       label: 'App Nexus',
       value: 1,
@@ -48,4 +60,11 @@ const adaptor: IFilter = {
 
 const filters = [application, targetGeo, adaptor];
 
-storiesOf('Filter', module).add('Filter', () => <Filter filters={filters} />);
+storiesOf('Filter', module).add('Filter', () => (
+  <Filter
+    filters={filters}
+    onChange={action('onChange')}
+    onFilter={action('onFilter')}
+    onCancel={action('onCancel')}
+  />
+));

@@ -13,9 +13,12 @@ export interface IFilter {
 
 interface IProps {
   filters: IFilter[];
+  onCancel: (ev) => void;
+  onChange: (ev) => void;
+  onFilter: (ev) => void;
 }
 
-const Filter: React.FC<IProps> = ({ filters }) => {
+const Filter: React.FC<IProps> = ({ filters, onCancel, onChange, onFilter }) => {
   return (
     <Box direction="row">
       <Box direction="row" justifyContent="flex-start" flex="2 1">
@@ -25,14 +28,21 @@ const Filter: React.FC<IProps> = ({ filters }) => {
             label={filter.label}
             options={filter.options}
             className={styles.dropdown}
+            onChange={onChange}
           />
         ))}
       </Box>
       <Box direction="row" justifyContent="flex-end" className={styles.buttons}>
-        <IconButton icon="times" variant="default" size="small" className={styles.cancelButton}>
+        <IconButton
+          icon="times"
+          variant="default"
+          size="small"
+          className={styles.cancelButton}
+          onClick={onCancel}
+        >
           Cancel
         </IconButton>
-        <Button variant="secondary" size="small">
+        <Button variant="secondary" size="small" onClick={onFilter}>
           Filter Now
         </Button>
       </Box>
