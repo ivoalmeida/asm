@@ -3,7 +3,8 @@ import cn from 'classnames';
 
 import * as styles from './styles.scss';
 import Box from '../../atoms/box';
-import Field from '../field';
+import Checkbox from '../../atoms/checkbox';
+import Label from '../../atoms/label';
 
 export interface ITableContentItem {
   label: string;
@@ -20,15 +21,17 @@ const TableContent: React.FC<IProps> = ({ items, handleChange }) => {
   return (
     <Box direction="column" className={cn(styles.tableContent)}>
       {items.map((item, index) => (
-        <div key={index} className={styles.item}>
-          <Field
-            type="checkbox"
+        <Label htmlFor={item.name} key={index} className={styles.item}>
+          <Checkbox
+            checked={item.isChecked}
             name={item.name}
-            label={item.label}
+            id={item.name}
+            value={item.name}
             className={styles.chk}
             onChange={handleChange}
           />
-        </div>
+          <span className={styles.label}>{item.label}</span>
+        </Label>
       ))}
     </Box>
   );
