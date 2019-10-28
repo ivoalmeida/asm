@@ -2,13 +2,10 @@ import * as React from 'react';
 import * as styles from './styles.scss';
 import classNames from 'classnames';
 
-interface ILabelProps {
-  children?: any;
-  htmlFor?: string;
-}
+interface ILabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
 
-export const Label = (props: ILabelProps) => (
-  <label className={classNames(styles.label)} htmlFor={props.htmlFor}>
+export const Label: React.FC<ILabelProps> = props => (
+  <label className={classNames(styles.label, props.className)} htmlFor={props.htmlFor}>
     {props.children}
   </label>
 );
