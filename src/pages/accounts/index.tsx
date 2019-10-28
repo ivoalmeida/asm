@@ -98,6 +98,19 @@ const columns: IDataColumn[] = [
   },
 ];
 
+const getQuery = cols => {
+  return gql`
+  query AccountsQuery($offset: Int, $limit: Int) {
+    accounts(offset: $offset, limit: $limit) {
+      result {
+        ${cols}
+      }
+      count
+    }
+  }
+`;
+};
+
 const AccountsPage = () => {
   const [isTBVisible, toggleTb] = React.useState(false);
   const [cols, setCols] = React.useState(columns);
@@ -105,11 +118,19 @@ const AccountsPage = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const [offset, setOffset] = React.useState<number>(0);
   const [limit, setLimit] = React.useState<number>(5);
-  const { loading, data, error } = useQuery(ACCOUNTS_QUERY, {
-    variables: { offset, limit },
-    fetchPolicy: 'cache-and-network',
-    notifyOnNetworkStatusChange: true,
-  });
+  const { loading, data, error } = useQuery(
+    getQuery(
+      cols
+        .filter(c => c.visible)
+        .map(c => c.name)
+        .join(','),
+    ),
+    {
+      variables: { offset, limit },
+      fetchPolicy: 'cache-and-network',
+      notifyOnNetworkStatusChange: true,
+    },
+  );
 
   const initialCols = cols.map(({ name, label, visible }) => {
     return { label, name, isChecked: visible };
@@ -124,7 +145,6 @@ const AccountsPage = () => {
       }
     });
     setCols(tmp);
-    toggleTb(!isTBVisible);
   };
 
   return (
@@ -146,7 +166,13 @@ const AccountsPage = () => {
             >
               Table Content
             </IconButton>
-            {isTBVisible && <TableContent items={initialCols} handleChange={setTableColumns} />}
+            {isTBVisible && (
+              <TableContent
+                items={initialCols}
+                handleChange={setTableColumns}
+                onClose={() => toggleTb(!isTBVisible)}
+              />
+            )}
           </div>
           <IconButton
             variant="secondary"
