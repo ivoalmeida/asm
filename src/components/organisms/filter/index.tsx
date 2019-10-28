@@ -1,4 +1,5 @@
 import * as React from 'react';
+import cn from 'classnames';
 
 import * as styles from './styles.scss';
 import Box from '../../atoms/box';
@@ -12,15 +13,16 @@ export interface IFilter {
 }
 
 interface IProps {
+  isVisible: boolean;
   filters: IFilter[];
   onCancel: (ev) => void;
   onChange: (ev) => void;
   onFilter: (ev) => void;
 }
 
-const Filter: React.FC<IProps> = ({ filters, onCancel, onChange, onFilter }) => {
+const Filter: React.FC<IProps> = ({ isVisible = false, filters, onCancel, onChange, onFilter }) => {
   return (
-    <Box direction="row">
+    <div className={cn(styles.filter, { [styles.show]: isVisible })}>
       <Box direction="row" justifyContent="flex-start" flex="2 1">
         {filters.map((filter, index) => (
           <Dropdown
@@ -46,7 +48,7 @@ const Filter: React.FC<IProps> = ({ filters, onCancel, onChange, onFilter }) => 
           Filter Now
         </Button>
       </Box>
-    </Box>
+    </div>
   );
 };
 

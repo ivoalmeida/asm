@@ -5,6 +5,7 @@ import Filter from '.';
 describe('Filter tests', () => {
   const wrapper = shallow(
     <Filter
+      isVisible={true}
       filters={[]}
       onCancel={() => 1 === 1}
       onChange={() => 1 === 1}

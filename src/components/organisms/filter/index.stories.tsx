@@ -62,6 +62,7 @@ const filters = [application, targetGeo, adaptor];
 
 storiesOf('Filter', module).add('Filter', () => (
   <Filter
+    isVisible={true}
     filters={filters}
     onChange={action('onChange')}
     onFilter={action('onFilter')}
