@@ -1,0 +1,28 @@
+@import '../../../scss/base/base';
+
+.filter {
+  display: flex;
+  flex-direction: row;
+}
+
+.dropdown {
+  background-color: $white;
+}
+
+.buttons {
+  > button {
+    margin-left: 5px;
+  }
+}
+
+.cancel-button {
+  border: none;
+  background-color: $white;
+  color: $gray700;
+
+  &:hover {
+    background-color: $white;
+    color: $gray700;
+    font-weight: 900;
+  }
+}
