@@ -161,7 +161,7 @@ const AccountsPage = () => {
         <h1>Accounts</h1>
       </Box>
       <Box padding="20px 0" width="100vw" justifyContent="flex-end">
-        <CtaContainer>
+        <CtaContainer align="right">
           <IconButton
             variant="default"
             icon="filter"
