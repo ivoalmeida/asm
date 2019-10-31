@@ -7,18 +7,21 @@ import Icon from '../../atoms/icon';
 
 interface IProps {
   children?: any;
+  showCloseButton?: boolean;
   className?: string;
   onClose?: () => void;
 }
 
-const Modal: React.FC<IProps> = ({ children, className, onClose }) => {
+const Modal: React.FC<IProps> = ({ children, showCloseButton = false, className, onClose }) => {
   return (
     <ApplicationRootPortal>
       <div className={styles.modalOverlay}>
         <div className={cn(styles.modalOverlayContent, className)}>
-          <div className={styles.closeButton} onClick={onClose}>
-            <Icon variant="times" />
-          </div>
+          {showCloseButton ? (
+            <div className={styles.closeButton} onClick={onClose}>
+              <Icon variant="times" />
+            </div>
+          ) : null}
           {children}
         </div>
       </div>
