@@ -1,0 +1,33 @@
+@import '../../../scss/base/base';
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($black, 0.7);
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay-content {
+  position: relative;
+  width: 50vw;
+  padding: 25px;
+  background-color: $white;
+  border-radius: $base-border-radius;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  color: red;
+  font-size: 1.5rem;
+}
