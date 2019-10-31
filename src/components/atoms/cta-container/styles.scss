@@ -1,8 +1,15 @@
-@import "../../../scss/base/base";
+@import '../../../scss/base/base';
 
 .cta {
   display: flex;
-  justify-content: flex-end;
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.left {
+    justify-content: flex-start;
+  }
 
   > * {
     &:not(:last-child) {
