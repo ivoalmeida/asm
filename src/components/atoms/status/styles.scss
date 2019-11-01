@@ -1,0 +1,14 @@
+@import '../../../scss/base/base';
+
+.status {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  border-radius: 30px;
+  /* Inactive style by default */
+  background-color: $tomato;
+
+  &.active {
+    background-color: $green;
+  }
+}
