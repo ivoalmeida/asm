@@ -2,6 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 
 import * as styles from './styles.scss';
+import Status from '../../atoms/status';
 import ActionMenu, { IActioMenuItem } from '../actions-menu';
 import IconButton from '../../molecules/icon-button';
 import Checkbox from '../../atoms/checkbox';
@@ -211,7 +212,9 @@ export const DataTable: React.FC<IProps> = ({
                   />
                 </td>
                 {Object.entries(row).map(([key, value], columnIndex) => (
-                  <td key={columnIndex}>{value}</td>
+                  <td key={columnIndex}>
+                    {typeof value === 'boolean' ? <Status active={value} /> : value}
+                  </td>
                 ))}
                 <td>
                   <IconButton icon="actions" onClick={ev => toggleActionsMenu(ev, rowIndex)} />{' '}
