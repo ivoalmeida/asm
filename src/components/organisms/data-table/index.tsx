@@ -8,6 +8,7 @@ import Checkbox from '../../atoms/checkbox';
 import Icon from '../../atoms/icon';
 import Pagination, { IPaginationProps } from '../../molecules/pagination';
 import { Box } from '../../atoms/box';
+import Status from '../../atoms/status';
 import { dataTablereducer, IState } from './reducer';
 import { dataTableActions } from './actions';
 
@@ -211,7 +212,9 @@ export const DataTable: React.FC<IProps> = ({
                   />
                 </td>
                 {Object.entries(row).map(([key, value], columnIndex) => (
-                  <td key={columnIndex}>{value}</td>
+                  <td key={columnIndex}>
+                    {typeof value === 'boolean' ? <Status active={value} /> : value}
+                  </td>
                 ))}
                 <td>
                   <IconButton icon="actions" onClick={ev => toggleActionsMenu(ev, rowIndex)} />{' '}
