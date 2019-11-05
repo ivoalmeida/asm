@@ -4,8 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import Button, { IButtonProps } from '.';
 
 describe('Button tests', () => {
-  const wrap = (props: IButtonProps = { variant: 'primary', children: '' }) =>
-    mount(<Button {...props} />);
+  const wrap = (props?: IButtonProps) => mount(<Button {...props} />);
 
   it('renders children when passed in', () => {
     const wrapper = wrap({ children: 'test', variant: 'danger' });
