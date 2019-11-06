@@ -98,7 +98,7 @@ describe('Button tests', () => {
 });
 
 describe('LinkButton tests', () => {
-  const wrap = (props?: IButtonProps) => mount(<LinkButton {...props} />);
+  const wrap = (props?) => mount(<LinkButton {...props} />);
 
   it('renders children when passed in', () => {
     const wrapper = wrap({ children: 'test', variant: 'danger' });
