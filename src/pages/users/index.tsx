@@ -86,7 +86,7 @@ const Roles = () => (
   <div style={{ backgroundColor: 'red', height: '300px', width: '400px' }}>Roles</div>
 );
 
-const UsersPage: React.FC<{ match?: { url: string }; path?: string }> = ({ match, path }) => {
+const UsersPage: React.FC<{ match?: { url?: string }; path?: string }> = ({ match, path }) => {
   const [isOpen, toggleSidePanel] = React.useState<boolean>(false);
   return (
     <PageTemplate>
@@ -96,7 +96,7 @@ const UsersPage: React.FC<{ match?: { url: string }; path?: string }> = ({ match
       <Box padding="20px 0" width="100vw" justifyContent="space-between">
         <NavBar>
           <NavLinkButton to="/users">Users</NavLinkButton>
-          <NavLinkButton to={`${match.url}/roles`}>Roles</NavLinkButton>
+          <NavLinkButton to={match && match.url && `${match.url}/roles`}>Roles</NavLinkButton>
         </NavBar>
         <Switch>
           <Route exact path={`${path}/roles`}>
