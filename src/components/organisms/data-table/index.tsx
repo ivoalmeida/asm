@@ -9,6 +9,7 @@ import Checkbox from '../../atoms/checkbox';
 import Icon from '../../atoms/icon';
 import Pagination, { IPaginationProps } from '../../molecules/pagination';
 import { Box } from '../../atoms/box';
+import Status from '../../atoms/status';
 import { dataTablereducer, IState } from './reducer';
 import { dataTableActions } from './actions';
 

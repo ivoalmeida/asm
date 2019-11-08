@@ -1,16 +1,14 @@
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
-import { text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { storiesOf } from '@storybook/react';
 
 import PageTemplate from '.';
 import Box from '../../atoms/box';
 import Block from '../../atoms/block';
 
-storiesOf('PageTemplate', module)
-  .addDecorator(withKnobs)
-  .add('PageTemplate', () => (
+storiesOf('PageTemplate', module).add('PageTemplate', () => (
+  <Router>
     <PageTemplate>
       <Block>
         <h1>Lorem Ipsum</h1>
@@ -39,4 +37,5 @@ storiesOf('PageTemplate', module)
         </p>
       </Box>
     </PageTemplate>
-  ));
+  </Router>
+));

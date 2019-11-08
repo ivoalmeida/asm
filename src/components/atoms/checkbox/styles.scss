@@ -1,4 +1,4 @@
-@import "../../../scss/base/base";
+@import '../../../scss/base/base';
 
 .checkbox {
   display: block;
@@ -65,6 +65,6 @@
   }
 
   &:hover input ~ .checkmark {
-    border: 1px solid $gray400;
+    border: 2px solid $gray400;
   }
 }

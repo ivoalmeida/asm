@@ -4,7 +4,7 @@ $header-border-radius: 4px;
 
 .data-table {
   font-size: 1.4rem;
-  transition: background-color 300ms linear;
+  transition: background-color 150ms linear;
 
   table {
     border-collapse: collapse;
@@ -57,10 +57,10 @@ $header-border-radius: 4px;
   tbody {
     tr {
       border-bottom: 1px solid $gray000;
+      cursor: pointer;
 
       &:hover {
-        box-shadow: inset 0 1px 3px rgba($gray400, 0.06), 0 1px 3px rgba($gray500, 0.7);
-        transition: background 200ms ease-out;
+        box-shadow: 0 1px 3px rgba($gray400, 0.06), 0 2px 5px rgba($gray500, 0.7);
       }
     }
   }

@@ -1,9 +1,10 @@
 import * as React from 'react';
-import * as styles from './styles.scss';
 import classNames from 'classnames';
 
+import styles from './styles.scss';
+
 export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: string;
+  variant?: string;
   size?: string;
   href?: string;
 }
@@ -25,7 +26,7 @@ const getButtonStyles = (variant: string, size: string, className?: string) => {
 };
 
 export const Button: React.FC<IButtonProps> = ({
-  variant,
+  variant = 'default',
   size,
   className,
   children,

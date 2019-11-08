@@ -31,23 +31,33 @@ const actions: IActioMenuItem[] = [
 const columns: IDataColumn[] = [
   {
     name: 'user id',
+    label: 'user id',
     sortable: false,
+    visible: true,
   },
   {
     name: 'email',
+    label: 'email',
     sortable: false,
+    visible: true,
   },
   {
     name: 'first name',
+    label: 'first name',
     sortable: true,
+    visible: true,
   },
   {
     name: 'last name',
+    label: 'last name',
     sortable: true,
+    visible: true,
   },
   {
     name: 'admin',
+    label: 'admin',
     sortable: false,
+    visible: true,
   },
 ];
 
@@ -58,7 +68,7 @@ for (let i = 0; i < 50; i++) {
     email: faker.internet.email('some', 'one', faker.internet.domainName()),
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
-    admin: faker.random.boolean() ? 'Yes' : 'No',
+    admin: faker.random.boolean(),
   });
 }
 
@@ -67,31 +77,45 @@ storiesOf('Data Table', module)
     const accountcolumns: IDataColumn[] = [
       {
         name: 'account id',
+        label: 'account id',
         sortable: false,
+        visible: true,
       },
       {
         name: 'name',
+        label: 'name',
         sortable: true,
+        visible: true,
       },
       {
         name: 'type',
+        label: 'type',
         sortable: true,
+        visible: true,
       },
       {
         name: 'contact mame',
+        label: 'contact mame',
         sortable: false,
+        visible: true,
       },
       {
         name: 'account manager',
+        label: 'account manager',
         sortable: false,
+        visible: true,
       },
       {
         name: 'created',
+        label: 'created',
         sortable: false,
+        visible: true,
       },
       {
         name: 'status',
+        label: 'status',
         sortable: false,
+        visible: true,
       },
     ];
 
@@ -104,7 +128,7 @@ storiesOf('Data Table', module)
         contactName: `${faker.name.firstName()} ${faker.name.lastName()}`,
         accountManager: `${faker.name.firstName()} ${faker.name.lastName()}`,
         created: faker.date.past(5, '03-05-2018').toLocaleDateString('en-gb'),
-        status: faker.random.boolean() ? 'Active' : 'Inactive',
+        status: faker.random.boolean(),
       });
     }
 
@@ -133,7 +157,7 @@ storiesOf('Data Table', module)
         email: faker.internet.email('some', 'one', faker.internet.domainName()),
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
-        admin: faker.random.boolean() ? 'Yes' : 'No',
+        admin: faker.random.boolean(),
       });
     }
     return (
