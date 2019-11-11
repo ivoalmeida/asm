@@ -6,11 +6,15 @@
 
 The application was developed using React, CSS Modules and Apollo.
 
-The archicture follows the atomic design guidelines in order to develop resuable components that are easy to compose together to form more complex ones.
+The architecture follows the atomic design guidelines in order to develop reusable components that are easy to compose together to form more complex ones.
 
 The idea is to have small building blocks that are identified as atoms that can then be composed to form molecules, organisms, templates and pages.
 
 The pages components map directory to the applications routes.
+
+The application was developed initially following the component driven development paradigm using Storybook as the component explorer of choice All components in the components directory have a matching stories file with at least one story.
+
+After cloning the repository locally and installing all dependencies it is highly recommended that you run the component explorer Storybook in order to inspect all the components that make up the application. The command to run storybook is `yarn storybook`. This will run storybook on port 9000. Storybook documentation can be found on their official site.
 
 ## Available Scripts
 
@@ -38,7 +42,7 @@ Sets the environment to dev
 
 ### `yarn env:prod`
 
-Sets the environment to produciton
+Sets the environment to production
 
 ### `yarn check-types`
 
@@ -67,6 +71,10 @@ Runs the stylelint formatter and fix css/scss style formatting violations automa
 ### `yarn storybook`
 
 Builds storybook interactive component explorer
+
+### `yarn build:storybook`
+
+Builds a static files for the storybook interactive component explorer
 
 ### `yarn test`
 
