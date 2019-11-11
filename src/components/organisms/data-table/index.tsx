@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 
-import * as styles from './styles.scss';
+import styles from './styles.scss';
 import ActionMenu, { IActioMenuItem } from '../actions-menu';
 import IconButton from '../../molecules/icon-button';
 import Checkbox from '../../atoms/checkbox';
@@ -19,7 +19,7 @@ export interface IDataColumn {
   visible: boolean;
 }
 
-interface IProps {
+export interface IDataTableProps {
   columns: IDataColumn[];
   actions: IActioMenuItem[];
   rows: any[];
@@ -38,7 +38,7 @@ const initialState: IState = {
   dragging: false,
 };
 
-export const DataTable: React.FC<IProps> = ({
+export const DataTable: React.FC<IDataTableProps> = ({
   columns,
   actions,
   rows,
