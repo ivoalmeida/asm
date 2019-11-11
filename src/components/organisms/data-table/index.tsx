@@ -2,7 +2,6 @@ import * as React from 'react';
 import cn from 'classnames';
 
 import * as styles from './styles.scss';
-import Status from '../../atoms/status';
 import ActionMenu, { IActioMenuItem } from '../actions-menu';
 import IconButton from '../../molecules/icon-button';
 import Checkbox from '../../atoms/checkbox';
