@@ -54,6 +54,10 @@ $header-border-radius: 4px;
     text-align: right;
   }
 
+  thead tr {
+    border: 0;
+  }
+
   tbody {
     tr {
       border-bottom: 1px solid $gray000;
@@ -63,10 +67,6 @@ $header-border-radius: 4px;
         box-shadow: 0 1px 3px rgba($gray400, 0.06), 0 2px 5px rgba($gray500, 0.7);
       }
     }
-  }
-
-  thead tr {
-    border: 0;
   }
 
   &.selected-row {

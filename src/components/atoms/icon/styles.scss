@@ -13,7 +13,7 @@
   font-variant: normal;
   font-weight: normal;
   line-height: 1;
-  speak: none;
+  /* speak: none; */
   text-transform: none;
 }
 
@@ -25,80 +25,96 @@
 
 .actions {
   font-size: 5px;
+
   &::before {
     content: '\e900';
   }
 }
+
 .changelog {
   &::before {
     content: $icon-changelog;
   }
 }
+
 .cog {
   &::before {
     content: $icon-cog;
   }
 }
+
 .disabled {
   &::before {
     content: $icon-disabled;
   }
 }
+
 .drag {
   &::before {
     content: $icon-drag;
   }
 }
+
 .duplicate {
   &::before {
     content: $icon-duplicate;
   }
 }
+
 .edit {
   &::before {
     content: $icon-edit;
   }
 }
+
 .eye {
   &::before {
     content: $icon-eye;
   }
 }
+
 .filter {
   &::before {
     content: $icon-filter;
   }
 }
+
 .filter2 {
   &::before {
     content: $icon-filter2;
   }
 }
-.left_arrow {
+
+.left-arrow {
   &::before {
-    content: $icon-left_arrow;
+    content: $icon-left-arrow;
   }
 }
+
 .plus {
   &::before {
     content: $icon-plus;
   }
 }
-.right_arrow {
+
+.right-arrow {
   &::before {
-    content: $icon-right_arrow;
+    content: $icon-right-arrow;
   }
 }
+
 .tag {
   &::before {
     content: $icon-tag;
   }
 }
+
 .times {
   &::before {
     content: $icon-times;
   }
 }
+
 .trash {
   &::before {
     content: $icon-trash;

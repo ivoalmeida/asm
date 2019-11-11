@@ -1,4 +1,5 @@
-@import '../../../scss/style.scss';
+@import '../../scss/base/base';
+
 /* The toggle-radio - the box around the slider */
 .toggle-radio {
   position: relative;
@@ -47,7 +48,7 @@ input:focus + .slider {
   box-shadow: 0 0 1px $green;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   transform: translateX(18px);
 }
 
@@ -56,6 +57,6 @@ input:checked + .slider:before {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round::before {
   border-radius: 50%;
 }
