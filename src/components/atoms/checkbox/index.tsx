@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 
-import * as styles from './styles.scss';
+import styles from './styles.scss';
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   isMultiSelection?: boolean;
