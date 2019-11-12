@@ -14,7 +14,7 @@ The pages components map directory to the applications routes.
 
 The application was developed initially following the component driven development paradigm using Storybook as the component explorer of choice All components in the components directory have a matching stories file with at least one story.
 
-After cloning the repository locally and installing all dependencies it is highly recommended that you run the component explorer Storybook in order to inspect all the components that make up the application. The command to run storybook is `yarn storybook`. This will run storybook on port 9000. Storybook documentation can be found on their official site.
+After cloning the repository locally and installing all dependencies it is highly recommended that you run the component explorer Storybook in order to inspect all the components that make up the application. The command to run storybook is `yarn storybook`. This will run storybook on port 9001. Storybook documentation can be found on their official site.
 
 ## Available Scripts
 
