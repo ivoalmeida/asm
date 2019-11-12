@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 
-import * as styles from './styles.scss';
+import styles from './styles.scss';
 
 export interface ISelectItem {
   label: string;
@@ -9,13 +9,12 @@ export interface ISelectItem {
   default?: boolean;
 }
 
-interface IProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+export interface IDropDownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: ISelectItem[];
   label?: string;
-  // onSelect?: (item: ISelectItem) => void;
 }
 
-const Dropdown: React.FC<IProps> = ({ options, label, className, ...props }) => {
+const Dropdown: React.FC<IDropDownProps> = ({ options, label, className, ...props }) => {
   const [selectedItem, setSelectedItem] = React.useState<ISelectItem>();
   const [isDropdownVisible, toggleDropdown] = React.useState<boolean>(false);
 
@@ -25,6 +24,13 @@ const Dropdown: React.FC<IProps> = ({ options, label, className, ...props }) => 
   };
 
   const defaultOption = options.find(o => o.default);
+
+  React.useEffect(() => {
+    const def = options.find(o => o.default);
+    if (def) {
+      setSelectedItem(def);
+    }
+  }, []);
 
   return (
     <div
