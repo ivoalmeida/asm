@@ -144,4 +144,23 @@ describe('Icon tests', () => {
     expect(wrapper.find(`.${variant}`)).toHaveLength(1);
     wrapper.unmount();
   });
+
+  it('should render icon with css classname passed as prop', () => {
+    const className = 'venatus';
+    const variant = 'plus';
+    const wrapper = wrap({ variant, className });
+    expect(wrapper.props().className).toEqual(className);
+    expect(wrapper.filter(`.${className}`)).toHaveLength(1);
+    wrapper.unmount();
+  });
+
+  it('should render icon with inline css styles passed as prop', () => {
+    const styles = { color: 'red' };
+    const variant = 'plus';
+    const wrapper = wrap({ variant, styles });
+    const style = wrapper.get(0).props.styles;
+    expect(wrapper.props().styles).toEqual(styles);
+    expect(style).toHaveProperty('color', 'red');
+    wrapper.unmount();
+  });
 });
