@@ -1,12 +1,18 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
-import Input from '.';
+import { mount } from 'enzyme';
+import Input, { IInputProps } from '.';
 
 describe('Input tests', () => {
-  const wrap = (props = { placeholder: 'search' }) => shallow(<Input {...props} />);
+  const wrap = (props: IInputProps) => mount(<Input {...props} />);
+
+  it('should render the component', () => {
+    expect(wrap).toMatchSnapshot();
+  });
 
   it('renders props when passed in', () => {
-    const wrapper = wrap({ placeholder: 'search' });
-    expect(wrapper.find({ placeholder: 'search' })).toHaveLength(1);
+    const placeholder = 'search';
+    const wrapper = wrap({ placeholder });
+    expect(wrapper.props().placeholder).toEqual(placeholder);
+    wrapper.unmount();
   });
 });
