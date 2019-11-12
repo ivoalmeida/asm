@@ -1,13 +1,14 @@
 import * as React from 'react';
-import * as styles from './styles.scss';
 import cn from 'classnames';
 
-interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+import styles from './styles.scss';
+
+export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   invalid?: boolean;
 }
 
-interface ITextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface ITextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   errorMessage?: string;
   invalid?: boolean;
 }
