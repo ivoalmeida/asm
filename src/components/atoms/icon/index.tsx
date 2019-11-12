@@ -1,6 +1,7 @@
 import * as React from 'react';
-import * as styles from './styles.scss';
 import classNames from 'classnames';
+
+import styles from './styles.scss';
 
 export interface IIconProps {
   variant: string;
