@@ -12,8 +12,6 @@ describe('Checkbox tests', () => {
   it('should render the multi selection style when isMultiSelection is prop is passed in', () => {
     const wrapper = wrap({ isMultiSelection: true });
     expect(wrapper.props().isMultiSelection).toEqual(true);
-    // tslint:disable-next-line: no-console
-    console.debug(wrapper.html());
     expect(wrapper.find('.multiSelection')).toHaveLength(1);
     wrapper.unmount();
   });
