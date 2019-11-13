@@ -1,0 +1,28 @@
+@import '../../../scss/base/base';
+
+.username {
+  font-weight: 700;
+  font-family: 'Roboto Bold', Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.4rem;
+  color: $gray700;
+  margin-top: -8px;
+  text-align: right;
+}
+
+.account-link {
+  text-align: right;
+  font-size: 1.2rem;
+  color: $gray500;
+}
+
+.profile-icon {
+  height: 36px;
+  width: 36px;
+  border-radius: 6px;
+  background-color: #282050;
+  font-size: 1.6rem;
+  color: $blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
