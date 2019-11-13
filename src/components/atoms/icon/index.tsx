@@ -12,6 +12,10 @@ export interface IIconProps {
 const getIconStyle = (type: string) => {
   return classNames(
     styles.icon,
+    { [styles.user]: type === 'user1' },
+    { [styles.userO]: type === 'user2' },
+    { [styles.userCircle]: type === 'user3' },
+    { [styles.userCircleO]: type === 'user4' },
     { [styles.search]: type === 'search' },
     { [styles.actions]: type === 'actions' },
     { [styles.changelog]: type === 'changelog' },

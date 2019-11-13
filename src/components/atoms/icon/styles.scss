@@ -17,6 +17,30 @@
   text-transform: none;
 }
 
+.user {
+  &::before {
+    content: $icon-user;
+  }
+}
+
+.user-circle {
+  &::before {
+    content: $icon-user-circle;
+  }
+}
+
+.user-o {
+  &::before {
+    content: $icon-user-o;
+  }
+}
+
+.user-circle-o {
+  &::before {
+    content: $icon-user-circle-o;
+  }
+}
+
 .search {
   &::before {
     content: $icon-search;

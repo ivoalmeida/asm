@@ -3,10 +3,37 @@ import { withInfo } from '@storybook/addon-info';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+
+import Box from '../box';
 import Icon from '.';
 
 storiesOf('Icon', module)
   .addDecorator(withKnobs)
+  .add('users', () => (
+    <Box direction="column" padding="10px">
+      <Box alignItems="center" padding="0 20px">
+        <h5 style={{ marginBottom: 0 }}>User icon variantions</h5>
+      </Box>
+      <Box alignItems="center" padding="5px">
+        <Box direction="column" alignItems="center" padding="5px">
+          <span style={{ fontSize: '0.6rem', color: '#000', padding: '10px' }}>user1</span>
+          <Icon variant="user1" />
+        </Box>
+        <Box direction="column" alignItems="center" padding="5px">
+          <span style={{ fontSize: '0.6rem', color: '#000', padding: '10px' }}>user2</span>
+          <Icon variant="user2" />
+        </Box>
+        <Box direction="column" alignItems="center" padding="5px">
+          <span style={{ fontSize: '0.6rem', color: '#000', padding: '10px' }}>user3</span>
+          <Icon variant="user3" />
+        </Box>
+        <Box direction="column" alignItems="center" padding="5px">
+          <span style={{ fontSize: '0.6rem', color: '#000', padding: '10px' }}>user4</span>
+          <Icon variant="user4" />
+        </Box>
+      </Box>
+    </Box>
+  ))
   .add('search', () => <Icon variant={text('variant', 'search')} />)
   .add('actions', () => <Icon variant={text('variant', 'actions')} />)
   .add('trash', () => <Icon variant={text('variant', 'trash')} />)
