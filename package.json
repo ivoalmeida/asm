@@ -25,7 +25,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "run-s format:fix lint lint:css test"
+      "pre-commit": "run-s format:fix lint lint:css",
+      "pre-push": "test"
     }
   },
   "browserslist": [
