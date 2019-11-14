@@ -2,6 +2,8 @@ import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { themes } from '@storybook/theming';
 
+import styles from '../src/scss/style.scss';
+
 // Option defaults.
 addParameters({
   options: {
