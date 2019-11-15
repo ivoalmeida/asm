@@ -1,19 +1,19 @@
 import * as React from 'react';
 import cn from 'classnames';
 
-import * as styles from './styles.scss';
+import styles from './styles.scss';
 
 export interface IRadioItem {
   label: string;
   value: number;
 }
 
-interface IProps {
+export interface IToggleButtonProps {
   items: IRadioItem[];
   onClick?: () => boolean;
 }
 
-const ToggleButton: React.FC<IProps> = ({ items, onClick }) => {
+const ToggleButton: React.FC<IToggleButtonProps> = ({ items, onClick }) => {
   return (
     <div className={cn(styles.toggleButton)} onClick={onClick}>
       {items.map((item, index) => (
