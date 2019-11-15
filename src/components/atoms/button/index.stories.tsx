@@ -8,32 +8,32 @@ import Button, { LinkButton } from '.';
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add('Default button', () => (
-    <Button variant={text('variant', 'default')} size={text('size', 'medium')}>
+    <Button variant="default" size="medium">
       Default button
     </Button>
   ))
   .add('Primary button', () => (
-    <Button variant={text('variant', 'primary')} size={text('size', 'medium')}>
+    <Button variant="primary" size="medium">
       Primary button
     </Button>
   ))
   .add('Secondary button', () => (
-    <Button variant={text('variant', 'secondary')} size={text('size', 'medium')}>
+    <Button variant="secondary" size="medium">
       Secondary button
     </Button>
   ))
   .add('Danger button', () => (
-    <Button variant={text('variant', 'danger')} size={text('size', 'medium')}>
+    <Button variant="danger" size="medium">
       Danger button
     </Button>
   ))
   .add('Success button', () => (
-    <Button variant={text('variant', 'success')} size={text('size', 'medium')}>
+    <Button variant="success" size="medium">
       Success button
     </Button>
   ))
   .add('Link button', () => (
-    <LinkButton variant={text('variant', 'default')} size={text('size', 'medium')} href="#">
+    <LinkButton variant="default" size="medium" href="#">
       Success button
     </LinkButton>
   ));
