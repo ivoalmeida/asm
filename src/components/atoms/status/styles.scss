@@ -7,6 +7,7 @@
   border-radius: 30px;
   /* Inactive style by default */
   background-color: $tomato;
+  box-shadow: 0 2px 2.5px rgba($color: #000, $alpha: 0.6);
 
   &.active {
     background-color: $green;
