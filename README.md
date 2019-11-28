@@ -1,16 +1,10 @@
-[![CircleCI](https://circleci.com/gh/Venatus/market-monalisa.svg?style=svg&circle-token=5aa7ab555399a529ac02e71a86c4cf1250d2e30e)](https://circleci.com/gh/Venatus/market-monalisa)
+# ASM - Atomic Sass Modules
 
-# market-monalisa
-
-## **New Market UI Project**
-
-The application was developed using React, CSS Modules and Apollo.
+_ASM - Atomic Sass Modules_ is a component library developed using React, CSS Modules and following Atomic Design principles.
 
 The architecture follows the atomic design guidelines in order to develop reusable components that are easy to compose together to form more complex ones.
 
 The idea is to have small building blocks that are identified as atoms that can then be composed to form molecules, organisms, templates and pages.
-
-The pages components map directory to the applications routes.
 
 The application was developed initially following the component driven development paradigm using Storybook as the component explorer of choice All components in the components directory have a matching stories file with at least one story.
 

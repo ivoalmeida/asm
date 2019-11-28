@@ -1,10 +1,10 @@
 {
-  "name": "market-monalisa",
+  "name": "asm",
   "version": "0.0.1",
-  "description": "New verison of Market UI",
+  "description": "Atomic Sass Modules",
   "main": "index.tsx",
-  "repository": "git@github.com:Venatus/market-monalisa.git",
-  "author": "Ivo Almeida <ivo.almeida@venatusmedia.com>",
+  "repository": "git@github.com:ivoalmeida/asm.git",
+  "author": "Ivo Almeida <hyperlegend@hotmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "yarn env:dev webpack-dev-server --mode development --open --hot",

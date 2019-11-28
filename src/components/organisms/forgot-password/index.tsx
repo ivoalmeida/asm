@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import Box from '../../atoms/box';
 import Button from '../../atoms/button';
-import Logo from '../../atoms/logo';
 import Field from '../../molecules/field';
 import * as styles from './styles.scss';
 
@@ -16,9 +15,7 @@ interface IProps {
 const ForgotPassword: React.FC<IProps> = ({ email, errorMessage, onClick, onChange }) => {
   return (
     <div className={styles.forgot}>
-      <Box justifyContent="center">
-        <Logo />
-      </Box>
+      <Box justifyContent="center" />
       <h1 style={{ padding: `40px 0` }}>Forgot Password</h1>
       <Field
         name="email"

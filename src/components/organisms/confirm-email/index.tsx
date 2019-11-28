@@ -3,7 +3,6 @@ import Box from '../../atoms/box';
 import Button, { LinkButton } from '../../atoms/button';
 import Input from '../../atoms/input';
 import Label from '../../atoms/label';
-import Logo from '../../atoms/logo';
 import * as styles from './styles.scss';
 
 interface IProps {
@@ -19,9 +18,7 @@ const inputStyles: React.CSSProperties = {
 const ConfirmEmail: React.FC<IProps> = props => {
   return (
     <div className={styles.confirm}>
-      <Box justifyContent="center">
-        <Logo />
-      </Box>
+      <Box justifyContent="center" />
       <h1 style={{ padding: `40px 0` }}>Confirm your email</h1>
       <Label>Security Code</Label>
       <Input placeholder="security code" style={inputStyles} />
