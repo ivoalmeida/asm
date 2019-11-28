@@ -19,8 +19,6 @@ storiesOf('Checkbox', module)
 
     const onChange = ({ target: { id, checked } }) => {
       setSelected({ [id]: checked });
-      console.log(id, { [id]: checked });
-      console.log(id, selected[id]);
     };
     return (
       <>
